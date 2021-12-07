@@ -132,6 +132,7 @@ class SelectionBar extends React.Component {
                                         <div className="col-12 col-md-4 px-1 pb-3 mt-0">
                                             <button
                                                 className="Round_edge button filled_btn widthMaxContent px-3 py-2 mx-2"
+                                                onClick={this.props.handleChange}
                                                 type="button">
                                                 +Add
                                             </button>
