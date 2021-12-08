@@ -95,6 +95,9 @@ const Profile = (props) => {
             </div>
           </div>
         </div>
+        <div className="ratting-document-btn container ">
+          <button>Documents</button>
+        </div>
         <div className="col-12 mt-3 px-0">
           <p className="FS_20 mb-0">Top 3 tags or this {props.from}</p>
         </div>
