@@ -54,7 +54,7 @@ const SubjectDetails = () => {
                   {console.log("majorID",subjectMajorData.helpFull)}
                 </div>
                 <div className="space-between col-12 col-lg-8 mt-3 pt-5 pt-lg-0">
-                  <h3 className="mb-0 text-center">Most HelpFull Rating</h3>
+                  <h3 className="mb-0 text-center">Most HelpFulll Rating</h3>
                   {subjectMajorData.helpFull &&
                     ((
                       <HelpfullRating
