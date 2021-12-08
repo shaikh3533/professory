@@ -40,7 +40,7 @@ const SubjectDetails = () => {
                             <div className="col-12 col-lg-8 mt-3 pt-5 pt-lg-0">
                                 <h3 className="mb-0 text-center">Most HelpFull Rating</h3>
 
-                                <HelpfullRating
+                                {/* <HelpfullRating
                                     User={User} Name="Username" yearTaken="2019"
                                     Tags={["Project: Does not give", "Teaching Style: On Board", "Attendance: Takes", "Curve: Does not give", "Exam: From Book", "Homework: Does not Give"]}
                                     Feedback="Lorem Ipsum is simply dummy text of the printing and typesetting industr of the printing and typesetting industry."
@@ -56,7 +56,7 @@ const SubjectDetails = () => {
                                     User={User} Name="Username" yearTaken="2019"
                                     Tags={["Project: Does not give", "Teaching Style: On Board", "Attendance: Takes", "Curve: Does not give", "Exam: From Book", "Homework: Does not Give"]}
                                     Feedback="Lorem Ipsum is simply dummy text of the printing and typesetting industr of the printing and typesetting industry."
-                                    Subject="CHE205" Grade="B" Like={0} Dislike={0} Share={0} Block={0} />
+                                    Subject="CHE205" Grade="B" Like={0} Dislike={0} Share={0} Block={0} /> */}
                             </div>
                         </div>
                     </div>

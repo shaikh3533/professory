@@ -4,6 +4,8 @@ import SelectionBar from "../SubComponents/Shared/SelectionBar"
 import DisplayProfessorsSubject from "../SubComponents/Shared/DisplayProfessorsSubject"
 import GetData from '../Api/GetData';
 import kuwaitProfessorImg from "../../Assets/img/KuwaitProfessor.png"
+import ProfessorImg from "../../Assets/img/Professor.png"
+import Model from "../atoms/Model";
 
 
 
@@ -15,7 +17,10 @@ class ProfessorRating extends React.Component {
             visible: 8,
             univID: "Select University",
             collegeID: "Select College",
-            majorID: "Select Major"
+            majorID: "Select Major",
+            showVolunteerModel: false,
+            showAddModel: false,
+            user: JSON.parse(localStorage.getItem('User'))
         }
         this.LoadMore = this.LoadMore.bind(this)
         this.ShowLess = this.ShowLess.bind(this)
@@ -52,10 +57,24 @@ class ProfessorRating extends React.Component {
             return { visible: old.visible + 4 }
         })
     }
+
     ShowLess() {
         this.setState(() => {
             return { visible: 8 }
         })
+    }
+
+    handleAdd = (e) => {
+        if (this.state.user.permissionPost !== 'Requested') {
+            this.setState({
+                showAddModel: true
+            })
+        }
+        else{
+            this.setState({
+                showVolunteerModel: true
+            })
+        }
     }
 
     render() {
@@ -71,7 +90,7 @@ class ProfessorRating extends React.Component {
             <>
 
                 <SecondNavbar />
-                <SelectionBar handleChange={this.handleChange} buttonValue="+Add" />
+                <SelectionBar handleChange={this.handleChange} handleAdd={this.handleAdd} buttonValue="+Add" />
                 {this.state.collegeID === "Select College" ? <h1 className="d-flex justify-content-center align-items-center h-75">Please Select University & College First</h1> :
                     <div className="container-fluid">
 
@@ -89,6 +108,22 @@ class ProfessorRating extends React.Component {
                                 </div>}
                         </div>
                     </div>}
+                <Model openModel={this.state.showVolunteerModel} closable={true} handleChange={this.handleChange} name='showVolunteerModel'><div className="text-center p-3" width='50px'>
+                    <img src={ProfessorImg} alt="professor" />
+                    <p className="my-5">if you would like to volunteer adding data in the app, Please click the volunteer button. We will contact you to guide you </p>
+                    <div class="d-grid gap-2 col-12">
+                        <button class="btn btn-primary w-100 rounded-pill valunter-button" type="button">volunteer</button>
+                    </div>
+                </div>
+                </Model>
+                <Model openModel={this.state.showAddModel} closable={true} handleChange={this.handleChange} name='showAddModel'><div className="text-center p-3" width='50px'>
+                    <img src={ProfessorImg} alt="professor" />
+                    <p className="my-5">if you would like to volunteer adding data in the app, Please click the volunteer button. We will contact you to guide you </p>
+                    <div class="d-grid gap-2 col-12">
+                        <button class="btn btn-primary w-100 rounded-pill valunter-button" type="button">volunteer</button>
+                    </div>
+                </div>
+                </Model>
             </>
         )
     }

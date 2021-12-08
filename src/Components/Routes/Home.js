@@ -54,6 +54,11 @@ class Home extends React.Component {
                     localStorage.setItem('ProfessoryloggedIn', 'true')
                     localStorage.setItem('x-auth-token', res.data.data.token)
                     localStorage.setItem('countryID', res.data.data.user.countryID)
+                    localStorage.setItem('User', JSON.stringify(res.data.data.user))
+                    axios.defaults.headers= 
+                    {'x-auth-token': res.data.data.token,
+                    'Content-Type': 'application/json'}
+                    
                     Auth.login()
                     this.props.onChange()
                 }
