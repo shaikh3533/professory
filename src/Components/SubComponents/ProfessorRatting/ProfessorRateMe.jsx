@@ -8,17 +8,20 @@ import Neutral_Emoji from "../../../Assets/img/Neutral_Emoji.png";
 import confounded_face from "../../../Assets/img/confounded-face.png";
 import Expressionless_Face from "../../../Assets/img/Expressionless_Face.png";
 import GetData from "../../Api/GetData";
+import PostData from "../../Api/PostData";
 import SearchableSelect from "../../atoms/SearchableSelect";
 import Account from "../../Api/Account";
 import { message } from "antd";
 
 class ProfessorRateMe extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
+      profID: props.match.params.professorID,
+      again: "",
       YearTaken: "",
       rating: "",
-      hardRating: " ",
+      hardRating: "",
       TeachingStyle: "",
       Attandance: "",
       Project: "",
@@ -41,15 +44,14 @@ class ProfessorRateMe extends React.Component {
       yearError: false,
       ExamForm: "",
       isLoading: true,
-      count:0,
+      count: 0,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
     // GetData.Countries(this.Set);
-    const profid = this.props.match.params.professorID;
-    const majorid = this.props.match.params.majorID;
+    console.log('props',this.props)
     GetData.Subjects(this.props.match.params.majorid, this.Set);
     GetData.Grades(this.Set);
     GetData.YearTaken(this.Set);
@@ -109,20 +111,41 @@ class ProfessorRateMe extends React.Component {
   onChange = (e, name) => {
     this.setState({
       [name]: e,
-      count:0
+      count: 0,
     });
   };
   handleSubmit(e) {
     e.preventDefault();
-    const {TeachingStyle} =this.state
+    const {
+      TeachingStyle,
+      hardRating,
+      Project,
+      Attandance,
+      curve,
+      Homework,
+      examform,
+      Description,
+      again,
+      rating,
+    } = this.state;
     this.setState({
-      count:1
-    })
+      count: 1,
+    });
 
-    if (TeachingStyle){
-      alert('1')
+    if (
+      TeachingStyle &&
+      hardRating &&
+      Project &&
+      Attandance &&
+      curve &&
+      Homework &&
+      examform &&
+      Description &&
+      again &&
+      rating
+    ) {
+      PostData.RattingAdd(this.state, this.set)
     }
-    
   }
 
   render() {
@@ -150,7 +173,10 @@ class ProfessorRateMe extends React.Component {
                             list={this.state.years}
                             objName="year"
                             label="Year"
-                            Error={this.state.count ==1 && this.state.year=='Select Year'}
+                            Error={
+                              this.state.count == 1 &&
+                              this.state.year == "Select Year"
+                            }
                           />
                         </div>
                         {console.log("state", this.state)}
@@ -162,7 +188,10 @@ class ProfessorRateMe extends React.Component {
                             list={this.state.grades}
                             objName="name"
                             label="Grade"
-                            Error={this.state.gradeError}
+                            Error={
+                              this.state.count == 1 &&
+                              this.state.name == "Select Grade"
+                            }
                           />
                         </div>
                         <div className="col-lg-12 col-md-12 col-12 form-group px-1 mb-2">
@@ -173,7 +202,10 @@ class ProfessorRateMe extends React.Component {
                             list={this.state.subjects}
                             objName="subjectName"
                             label="Subject"
-                            Error={this.state.subjectError}
+                            Error={
+                              this.state.count == 1 &&
+                              this.state.subjectID == "Select Subject"
+                            }
                           />
                         </div>
                       </div>
@@ -187,7 +219,7 @@ class ProfessorRateMe extends React.Component {
                               className="d-none rating rating-1"
                               id="rating-1-2"
                               type="radio"
-                              value="very Poor"
+                              value="1"
                               onClick={this.handleChange}
                               name="rating"
                             />
@@ -205,7 +237,7 @@ class ProfessorRateMe extends React.Component {
                               className="d-none rating rating-2"
                               id="rating-2-2"
                               type="radio"
-                              value="Poor"
+                              value="2"
                               onClick={this.handleChange}
                               name="rating"
                             />
@@ -223,7 +255,7 @@ class ProfessorRateMe extends React.Component {
                               className="d-none rating rating-3"
                               id="rating-3-2"
                               type="radio"
-                              value="Good"
+                              value="3"
                               onClick={this.handleChange}
                               name="rating"
                             />
@@ -241,7 +273,7 @@ class ProfessorRateMe extends React.Component {
                               className="d-none rating rating-4"
                               id="rating-4-2"
                               type="radio"
-                              value="Very Good"
+                              value="4"
                               onClick={this.handleChange}
                               name="rating"
                             />
@@ -259,7 +291,7 @@ class ProfessorRateMe extends React.Component {
                               className="d-none rating rating-5"
                               id="rating-5-2"
                               type="radio"
-                              value="One of a Kind"
+                              value="5"
                               onClick={this.handleChange}
                               name="rating"
                             />
@@ -275,6 +307,9 @@ class ProfessorRateMe extends React.Component {
                             </label>
                           </div>
                         </label>
+                        {this.state.count == 1 && this.state.rating == "" ? (
+                          <p className="Errored text-center">Select one of These</p>
+                        ) : null}
                       </div>
                       <div className="col-12 text-center mt-3">
                         <p className="FS_16 mb-0">Hardness level</p>
@@ -411,12 +446,16 @@ class ProfessorRateMe extends React.Component {
                             </label>
                           </div>
                         </label>
+                        {this.state.count == 1 &&
+                        this.state.hardRating == "" ? (
+                          <p className="Errored text-center">Select one of These</p>
+                        ) : null}
                       </div>
                       <div className="col-12 text-center px-0">
                         <p className="FS_16 mb-0">Teaching Style</p>
                       </div>
                       <div className="col-12 text-center mt-3 px-0">
-                        <ul class="Tags RadioToButton row px-0">
+                        <ul class="Tags RadioToButton row px-0 m-0">
                           {this.state.teachingstyle.map((each) => {
                             return (
                               <li className="col-4 col-md-3 mx-auto px-1">
@@ -437,7 +476,12 @@ class ProfessorRateMe extends React.Component {
                             );
                           })}
                         </ul>
-                        {this.state.count==1 && this.state.TeachingStyle==''?<p className="text-danger">Select one of These</p>:null}
+                        {this.state.count == 1 &&
+                        this.state.TeachingStyle == "" ? (
+                          <p className="Errored">
+                            Select one TeachingStyle
+                          </p>
+                        ) : null}
                       </div>
                       <div className="row col-12 px-0 mt-3">
                         <div className="col-12 col-sm-6 text-center borderRight">
@@ -474,6 +518,10 @@ class ProfessorRateMe extends React.Component {
                               </label>
                             </li>
                           </ul>
+                          {this.state.count == 1 &&
+                          this.state.Attandance == "" ? (
+                            <p className="Errored">Select one of These</p>
+                          ) : null}
                           <h5 className="mt-3">Project</h5>
                           <ul class="w-100 combineButton RadioToButton d-inline-flex px-0 my-1">
                             <li className="w-50">
@@ -507,6 +555,9 @@ class ProfessorRateMe extends React.Component {
                               </label>
                             </li>
                           </ul>
+                          {this.state.count == 1 && this.state.Project == "" ? (
+                            <p className="Errored">Select one of These</p>
+                          ) : null}
                         </div>
                         <div className="col-12 col-sm-6  text-center">
                           <h5>Homework</h5>
@@ -542,6 +593,10 @@ class ProfessorRateMe extends React.Component {
                               </label>
                             </li>
                           </ul>
+                          {this.state.count == 1 &&
+                          this.state.Homework == "" ? (
+                            <p className="Errored">Select one of These</p>
+                          ) : null}
                           <h5 className="mt-3">Curve</h5>
                           <ul class="w-100 combineButton RadioToButton d-inline-flex px-0 my-1">
                             <li className="w-50">
@@ -575,6 +630,9 @@ class ProfessorRateMe extends React.Component {
                               </label>
                             </li>
                           </ul>
+                          {this.state.count == 1 && this.state.curve == "" ? (
+                            <p className="Errored">Select one of These</p>
+                          ) : null}
                         </div>
                       </div>
                       <div className="col-12 mt-3 text-center px-0 RadioToButton Tags">
@@ -612,10 +670,14 @@ class ProfessorRateMe extends React.Component {
                             </div>
                           );
                         })}
+                        {this.state.count == 1 &&
+                        this.state.selectedTags == "" ? (
+                          <p className="Errored">Select three of These</p>
+                        ) : null}
                       </div>
                       <div className="col-12 mt-3 text-center px-0 RadioToButton Tags">
                         <p className="FS_16 mb-0">Exam Form</p>
-                        <ul class="row Tags RadioToButton px-0">
+                        <ul class="row Tags RadioToButton px-0 m-0">
                           {this.state.examform.map((exam) => {
                             return (
                               <li className="mx-auto px-1 mt-3">
@@ -636,6 +698,10 @@ class ProfessorRateMe extends React.Component {
                             );
                           })}
                         </ul>
+                        {this.state.count == 1 && this.state.ExamForm == "" ? (
+                          <p className="Errored text-center">Select one of These</p>
+                        ) : null}
+                        
                       </div>
                       <div className="col-12  text-center px-0 RadioToButton Tags">
                         <p className="FS_16 ">Would you take with him again?</p>
@@ -677,6 +743,9 @@ class ProfessorRateMe extends React.Component {
                             </label>
                           </div>
                         </div>
+                        {this.state.count == 1 && this.state.again == "" ? (
+                          <p className="Errored">Select one of These</p>
+                        ) : null}
                       </div>
 
                       <div className="col-12 px-0">
@@ -685,9 +754,15 @@ class ProfessorRateMe extends React.Component {
                           name="Description"
                           placeholder="Share Your experience with Professor&#10;NameX here.."
                           rows="5"
-                          className="my-3 p-3"
+                          className=" p-3"
                           onChange={this.handleChange}
                         ></textarea>
+                        {this.state.count == 1 &&
+                        this.state.Description == "" ? (
+                          <p className="Errored py-0 text-center">
+                            Please Give Your Comment
+                          </p>
+                        ) : null}
                       </div>
                       <div class="col-12 form-group mx-auto mb-4 px-0">
                         <button

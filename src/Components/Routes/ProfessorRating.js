@@ -34,20 +34,18 @@ class ProfessorRating extends React.Component {
         if (name == "collegeID") {
             const res = GetData.CollegeProfessors(value)
             res.then(value => {
-
-                this.setState({
-                    DataofProfessors: value.data.data.docs,
-                    university: value.data.data.universityName, college: value.data.data.collegeName
-                });
+                
+            this.setState({ DataofProfessors: value.data.data.docs,
+            university: value.data.data.universityName,college: value.data.data.collegeName });
             })
         }
 
         if (name === "majorID") {
             const res = GetData.MajorProfessors(value)
             res.then(value => {
-                console.log({ value })
-                this.setState({ DataofProfessors: value.data.data.docs });
-            })
+                console.log({value})
+            this.setState({ DataofProfessors: value.data.data.docs});    
+        })
         }
 
     }
@@ -57,7 +55,6 @@ class ProfessorRating extends React.Component {
             return { visible: old.visible + 4 }
         })
     }
-
     ShowLess() {
         this.setState(() => {
             return { visible: 8 }

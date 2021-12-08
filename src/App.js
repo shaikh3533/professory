@@ -88,7 +88,7 @@ class App extends React.Component {
                 <ProtectedRoute exact path="/ProfessorRating/:ProfessorId" component={ProfessorDetails} />
                 <ProtectedRoute exact path="/ProfessorRating/Comments/:ProfessorID" component={ProfessorAllRatting} />
                 <ProtectedRoute exact path="/SubjectRating" component={SubjectRating} />
-                <ProtectedRoute exact path="/SubjectRating/RateMe" component={SubjectRateMe} />
+                <ProtectedRoute exact path="/SubjectRating/RateMe/:majorID/:subjectID" component={SubjectRateMe} />
                 <ProtectedRoute exact path="/SubjectRating/:SubjectId" component={SubjectDetails} />
                 <ProtectedRoute exact path="/Classroom" component={Classroom} />
                 <ProtectedRoute exact path="/Classroom/Join" component={JoinClass} />

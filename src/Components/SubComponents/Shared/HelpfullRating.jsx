@@ -19,7 +19,7 @@ const HelpfullRating = (props) => {
     Likes: props.Like,
     Unlikes: props.Dislike,
     replies: props.Reply,
-    allReplies: props.Replies,
+    allReplies: [], //props.Replies
     blocked: props.Block,
     alreadyLiked: props.LikedUser,
     alreadyDisLiked: props.DisLikedUser,
@@ -35,9 +35,7 @@ const HelpfullRating = (props) => {
 
 
   useEffect(() => {
-    const len = !!alreadyLiked.filter(
-
-      (x) => x.userID == localStorage.getItem('UserID')
+    const len = !!alreadyLiked.filter((x) => x.userID == localStorage.getItem('UserID')
     ).length
     if (len == canLike) {
       setFormData({
@@ -289,7 +287,7 @@ const HelpfullRating = (props) => {
             className='comment d-none w-100'
             id={props.commentID + 'comment'}
           >
-            <Coment id={props.commentID} profID={props.profID} />
+            <Coment id={props.commentID} ID={props.ID} />
           </div>
         </div>
         <div className="col-12 mt-3 p-0">

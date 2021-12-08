@@ -4,17 +4,18 @@ import SelectionBar from "../SubComponents/Shared/SelectionBar"
 import DisplayProfessorsSubject from "../SubComponents/Shared/DisplayProfessorsSubject"
 import SubjectsData from "../SubComponents/SubjectRatting/SubjectsData"
 import GetData from '../Api/GetData';
+import SubjectImg from "../../Assets/img/subject.png"
 
 class SubjectRating extends React.Component {
     constructor() {
         super();
         this.state = {
-            DataofSubjects: SubjectsData,
+            DataofSubjects: [],
             visible: 8,
             univID: "Select University",
             collegeID: "Select College",
             majorID: "Select Major",
-            Data: []
+            
         }
         this.LoadMore = this.LoadMore.bind(this)
         this.ShowLess = this.ShowLess.bind(this)
@@ -22,11 +23,10 @@ class SubjectRating extends React.Component {
 
     handleChange = (name, value) => {
         this.setState({ [name]: value });
-
-        if (name == "collegeID") {
+        if (name == "majorID") {
             const res = GetData.MajorSubjects(value)
             res.then(value => {
-            this.setState({ Data: value.data.data });
+            this.setState({ DataofSubjects: value.data.data.docs });
             })
         }
 
@@ -46,12 +46,13 @@ class SubjectRating extends React.Component {
     render() {
         
         const RenderingSubjects = this.state.DataofSubjects.slice(0, this.state.visible).map(Subject => {
-            return <DisplayProfessorsSubject Key={Subject.id} from="/SubjectRating/" Img={Subject.Img} Id={Subject.id} Name={Subject.Name} Rating={Subject.Rating} SchoolName={Subject.SchoolName} CollegeName={Subject.CollegeName} Major={Subject.Major} />
+            return <DisplayProfessorsSubject Key={Subject.subjectID} from="/SubjectRating/" Img={SubjectImg} Id={Subject.subjectID} Name={Subject.subjectName} Rating={Subject.Rating} Major={Subject.majorID} />
         })
         return (
             <>
                 <SecondNavbar />
                 <SelectionBar handleChange={this.handleChange} buttonValue="+Add" />
+                {this.state.majorID === "Select Major" ? <h1 className="d-flex justify-content-center align-items-center h-75">Please Select University,College & Major  First</h1> : 
                 <div className="container-fluid">
                     <div className="MaxWidth">
                         <div className="row mx-0 mb-5">
@@ -67,7 +68,7 @@ class SubjectRating extends React.Component {
                                 </div>}
                         </div>
                     </div>
-                </div>
+                </div>}
             </>
         )
     }

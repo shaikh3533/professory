@@ -49,15 +49,16 @@ const ProfessorDetails = () => {
                       from="Professor"
                       Tags={professoryData.bestTags}
                     />
-                    
                   )}
                 </div>
                 <div className="space-between col-12 col-lg-8 mt-3 pt-5 pt-lg-0">
-                  <h3 className="mb-0 text-center">Most HelpFull Rating</h3>
-                  {professoryData.helpFull &&
-                    ((
+                  <h3 className="mb-0 text-center">Most HelpFull Ratings</h3>
+                  {professoryData.helpFull !== null ? (
+                    <>
+                      {console.log(professoryData.helpFull)}
                       <HelpfullRating
-                        ProfessorID={professoryData.profID}
+                        commentID={professoryData.helpFull.commentID}
+                        profID={professoryData.helpFull.profID}
                         Name={professoryData.helpFull.user.name}
                         yearTaken={professoryData.helpFull.year}
                         rating={professoryData.helpFull.rating}
@@ -68,6 +69,7 @@ const ProfessorDetails = () => {
                         Dislike={professoryData.helpFull.dislike}
                         Block={professoryData.helpFull.spamReported}
                         Reply={professoryData.helpFull.numberOfReplies}
+                        Replies={professoryData.helpFull.Reply}
                         Tags={[
                           { Attandace: professoryData.helpFull.attendence },
                           { Exams: professoryData.helpFull.exams },
@@ -76,17 +78,24 @@ const ProfessorDetails = () => {
                           { "Teaching Style": professoryData.helpFull.style },
                           { Curve: professoryData.helpFull.curve },
                         ]}
+                        LikedUser={professoryData.userlikedcomments}
+                        DisLikedUser={
+                          professoryData.userdislikecomments
+                        }
+                        BlockedUsers={professoryData.usercommentspams}
                       />
-                    ),
-                    (
-                      <div className="my-3 professor-ratingloadmore">
-                        <NavLink
-                          to={`/ProfessorRating/Comments/${professoryData.profID}`}
-                        >
-                          <button>Load More</button>
-                        </NavLink>
-                      </div>
-                    ))}
+                     
+                    </>
+                  ) : (
+                    <p>No HelpFull Rating Yet</p>
+                  )}
+                  <div className="my-3 professor-ratingloadmore">
+                    <NavLink
+                      to={`/ProfessorRating/Comments/${professoryData.profID}`}
+                    >
+                      <button>Load More</button>
+                    </NavLink>
+                  </div>
                 </div>
               </div>
             )}

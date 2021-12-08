@@ -27,7 +27,7 @@ const SearchableSelect = (props) => {
                     })}
                 </Select>
                 <label className={` ${props.value !== "Select "+props.label ? "Valued" : "d-none"}`} htmlFor={props.name}>{props.label}</label>
-                {props.Error ? <div style={{ color: "red", fontSize: "10px" }}>{props.label} is Required</div> : null}
+                {props.Error ? <div className="Errored">{props.label} is Required</div> : null}
             </div>
         </>
     );

@@ -205,7 +205,7 @@ class GetData {
 
     MajorSubjects = (data) => {
         const res = async () => {
-            const resp = await axios.get(`/subjects/detail?id=${data}`)
+            const resp = await axios.get(`subjects/get?id=${data}`)
             .catch(function (error) {
                 console.log(error);
             });
@@ -213,6 +213,11 @@ class GetData {
             return resp;
         }
         return res();
+    }
+    async SubjectMajorDetails(SubjectId){
+        const response=await axios.get(`subjects/detail?id=${SubjectId}`)
+        if(response.data.success) return response.data.data;
+        else message.error(response.data.message);
     }
 
 }

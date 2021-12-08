@@ -32,6 +32,35 @@ class PostData {
         }
         return res();
     }
+    RattingAdd = (data, mthd) => {
+        const res = async () => {
+            const resp = await axios.post('professors/comments/addComment',{
+                subjectID:JSON.stringify(data.subjectID),
+    profID:data.profID,
+    year:data.year,
+    grade:data.name,
+    rating:1,
+    hardness:data.hardRating,
+    exams:data.ExamForm,
+    project:data.Project,
+    homework:data.Homework,
+    attendence:data.Attandance,
+    curve:data.curve,
+    again:data.again,
+    style:data.TeachingStyle,
+    comment:data.Description,
+    tags:data.selectedTags
+            })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            this.result = resp;
+            console.log(resp)
+            return resp;
+
+        }
+        return res();
+    }
     LikeComment = (data, mthd) => {
         const res = async () => {
             const resp = await axios.post('professors/comments/like', {
