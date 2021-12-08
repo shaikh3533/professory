@@ -1,0 +1,1331 @@
+* {
+    font-family: Poppins;
+    font-weight: 300;
+    font-size  : 14px;
+    /* border: 2px solid red;
+    color: yellow; */
+}
+
+html,
+body {
+    min-height: 100% !important;
+}
+
+.row {
+    margin-left : 0 !important;
+    margin-right: 0 !important;
+}
+
+.MaxWidth {
+    max-width: 1280px;
+    margin   : 0 auto;
+}
+
+.container-fluid {
+    padding-left : 8px !important;
+    padding-right: 8px !important;
+}
+
+.custom_color {
+    color: rgb(127, 130, 137) !important;
+}
+
+.navbar-light .navbar-brand {
+    font-size: 24px;
+}
+
+.Logo {
+    width : 27px;
+    height: 40px;
+}
+
+.navbar-nav {
+    font-size: 15px;
+}
+
+.widthMaxContent {
+    width: max-content;
+}
+
+.button {
+    border       : 1px solid rgb(122, 172, 179) !important;
+    border-radius: 2px;
+}
+
+button,
+input,
+textarea {
+    outline: none !important;
+}
+
+.Round_edge {
+    -webkit-border-radius: 50px;
+    -moz-border-radius   : 50px;
+    border-radius        : 50px;
+}
+
+.Round25, .RoundFeild .ant-select-show-search, .RoundFeild .ant-select-selector {
+    -webkit-border-radius: 25px !important;
+    -moz-border-radius   : 25px !important;
+    border-radius        : 25px !important;
+
+}
+
+.TopRoundEdge {
+    -webkit-border-radius: 25px 25px 0px 0px;
+    -moz-border-radius   : 25px 25px 0px 0px;
+    border-radius        : 25px 25px 0px 0px;
+}
+
+.Edge {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius   : 10px 10px 10px 10px;
+    border-radius        : 10px 10px 10px 10px;
+}
+
+.TopEdge {
+    -webkit-border-radius: 10px 10px 0px 0px;
+    -moz-border-radius   : 10px 10px 0px 0px;
+    border-radius        : 10px 10px 0px 0px;
+}
+
+.btmEdge {
+    -webkit-border-radius: 0px 0px 10px 10px;
+    -moz-border-radius   : 0px 0px 10px 10px;
+    border-radius        : 0px 0px 10px 10px;
+}
+
+.btmRoundEdge {
+    -webkit-border-radius: 0px 0px 25px 25px;
+    -moz-border-radius   : 0px 0px 25px 25px;
+    border-radius        : 0px 0px 25px 25px;
+}
+
+.lftRoundEdge,
+.flag-dropdown {
+    -webkit-border-radius: 25px 0px 0px 25px !important;
+    -moz-border-radius   : 25px 0px 0px 25px !important;
+    border-radius        : 25px 0px 0px 25px !important;
+}
+
+.filled_btn {
+    background-color: rgb(122, 172, 179) !important;
+    color           : white !important;
+}
+
+.empty_btn {
+    background-color: transparent;
+    color           : rgb(122, 172, 179);
+}
+
+footer {
+    right  : 0;
+    bottom : 0;
+    left   : 0;
+    width  : 100%;
+    z-index: 9999;
+}
+
+.copyright {
+    background-color: rgb(236, 239, 242);
+}
+
+.copyright p,
+.copyright a {
+    color: #878787;
+}
+
+.copyright-menu ul {
+    padding   : 0;
+    text-align: left;
+    margin    : 0;
+}
+
+.copyright-menu li {
+    display      : inline-block;
+    padding-right: 20px;
+}
+
+/*Formatting*/
+
+.LightGray {
+    color: rgb(156, 156, 156);
+}
+
+.DarkGray {
+    color: rgb(86, 86, 86);
+}
+
+.Black {
+    color: black !important;
+}
+
+.white {
+    color: white !important;
+}
+
+.ThemeColor {
+    color: rgb(122, 172, 179)
+}
+
+.FS_8 {
+    font-size: 8px;
+}
+
+.FS_10 {
+    font-size: 10px;
+}
+
+.FS_11 {
+    font-size: 11px;
+}
+
+.FS_12 {
+    font-size: 12px;
+}
+
+.FS_13 {
+    font-size: 13px;
+}
+
+.FS_14 {
+    font-size: 14px;
+}
+
+.FS_16 {
+    font-size: 16px;
+}
+
+.FS_18 {
+    font-size: 18px;
+}
+
+.FS_20 {
+    font-size: 20px;
+}
+
+.FS_24 {
+    font-size: 24px;
+}
+
+.Bold {
+    font-weight: 500;
+}
+
+.Montserrat {
+    font-family: Montserrat;
+}
+
+.Poppins {
+    font-family: Poppins;
+}
+
+#root {
+    height: 100%;
+}
+
+.Background {
+    background-image   : url(./Assets/img/ClassroomBG.png);
+    background-position: center;
+    background-size    : cover;
+    background-repeat  : no-repeat;
+    height             : 90%;
+    min-width          : 90%;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    cursor: context-menu
+}
+
+/*Home*/
+
+.BackgroundImg {
+    background-repeat  : no-repeat;
+    background-position: top;
+}
+
+/* .upper_Div {
+  background-image: url(./Assets/img/HomeBackground.png);
+  background-size : 100% 100%;
+  min-height      : -webkit-fill-available;
+} */
+
+.upper_Div {
+    background-image   : url(./Assets/img/HomeBackgroundRight.png), url(./Assets/img/HomeBackgroundLeft.png);
+    background-position: right top, left top;
+    background-repeat  : no-repeat, no-repeat;
+    background-size    : contain;
+    height             : inherit;
+}
+
+.MyBackapck {
+    background-image   : url(./Assets/img/BackPackRight.svg), url(./Assets/img/BackPackLeft.png);
+    background-position: right top, left top;
+    background-repeat  : no-repeat, no-repeat;
+    background-size    : contain;
+    height             : inherit;
+}
+
+
+.Para {
+    color: white;
+}
+
+#img1 {
+    width : 123px;
+    height: 40px;
+}
+
+#img2 {
+    width : 123px;
+    height: 40px;
+}
+
+.loginForm {
+    background-color: white;
+    box-shadow      : 0px 0px 35px #78A9B0;
+}
+
+.loginForm .form-group,
+.react-tel-input {
+    margin-bottom: 0.5rem;
+}
+
+
+
+.loginForm input {
+    width: 100% !important;
+}
+
+.react-tel-input .flag-dropdown {
+    border: 0px !important
+}
+
+.react-tel-input .form-control {
+    border          : 0px !important;
+    background-color: #F8FAFF !important;
+    width           : 100% !important;
+}
+.form-control{
+    min-height: 40px;
+}
+
+
+.form input[type=text],
+.form input[type=email],
+.form input[type=password],
+.form input[type=number],
+.form select,
+.form .ant-select,
+.form textarea {
+    border          : 0px !important;
+    background-color: #F8FAFF !important;
+    font-family     : Poppins;
+    color           : rgb(139, 139, 139) !important;
+    border-radius   : 4px;
+    font-family     : Poppins;
+    font-size       : 12px;
+    padding         : 6px;
+    min-height      : 36px;
+}
+
+.form .ant-select{
+    padding: 0;
+}
+
+.anticon-caret-down svg {
+    width: 10px;
+}
+
+.form .ant-select-selector {
+    border          : 0px !important;
+    background-color: #F8FAFF !important;
+}
+
+.ant-select-arrow .anticon:not(.ant-select-suffix) {
+    pointer-events: none;
+}
+.yes-no-radiobtn {
+    width: 100px !important;
+}
+
+/* .form .ant-select-selection-item {
+    background-color: #F8FAFF !important;
+    border          : 0px !important;
+    border-radius   : 4px;
+    font-family     : Poppins;
+    font-size       : 12px;
+} */
+
+select {
+    background         : url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
+    background-position: calc(100% - 0.75rem) center !important;
+    -moz-appearance    : none !important;
+    -webkit-appearance : none !important;
+    appearance         : none !important;
+    padding-right      : 2rem !important;
+}
+
+
+/* Floating  */
+
+.form-group {
+    position      : relative;
+    display       : flex;
+    flex-direction: column;
+    margin-bottom : 1rem !important;
+}
+
+.form-group label {
+    position        : absolute;
+    pointer-events  : none;
+    transform       : translate(0, 7.4px) scale(0.9);
+    transform-origin: top left;
+    transition      : 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    color           : rgb(139, 139, 139);
+    font-size       : 16px;
+    line-height     : 1;
+    left            : 10px;
+}
+
+.form-group:focus-within label,
+.form-group input:not(:placeholder-shown)~label,
+.Valued {
+    transform          : translate(0, -6px) scale(0.6) !important;
+    color              : rgb(0, 0, 0) !important;
+    background-color   : transparent !important;
+    /* left            : 40% !important; */
+}
+
+.form-group:focus-within label {
+    background-color: #F8FAFF !important;
+}
+
+/* Show red borders when filled, but invalid */
+/* WebKit browsers */
+/* Mozilla Firefox 4 to 18 */
+/* Mozilla Firefox 19+ */
+/* Internet Explorer 10+ */
+
+.form-group ::-webkit-input-placeholder {
+    color: transparent !important;
+}
+
+.form-group :-moz-placeholder {
+    color: transparent !important;
+}
+
+.form-group ::-moz-placeholder {
+    color: transparent !important;
+}
+
+.form-group :-ms-input-placeholder {
+    color: transparent !important;
+}
+
+.form-group input::placeholder {
+    color: transparent !important;
+}
+
+.form-group .ant-select-selection-placeholder{
+    color: rgb(139, 139, 139);
+}
+
+#feild option {
+    font-size       : 12px;
+    background-color: rgb(139, 139, 139);
+    font-family     : Poppins;
+    color           : white;
+    font-weight     : 300;
+}
+
+.strike h6 {
+    color        : rgb(156, 156, 156);
+    width        : 100%;
+    text-align   : center;
+    border-bottom: 1px solid rgb(156, 156, 156);
+    line-height  : 0.1em;
+}
+
+.strike h6 span {
+    background: #fff;
+}
+
+.bordr {
+    border: 1px solid #E0EEFF;
+    height: max-content;
+}
+
+.ShadowBordr {
+    background-color: rgb(255, 255, 255);
+    box-shadow      : 0px 0px 6px 0.16px #7aacb3;
+}
+
+.LoginFooter {
+    background-color: rgb(122, 172, 179);
+    text-align      : center;
+}
+
+.LowerDiv {
+    color: rgb(127, 130, 137);
+}
+
+.Right_to_center {
+    margin-left: auto;
+}
+
+.owl-carousel {
+    margin-top: 30px;
+}
+
+.owl-dots {
+    display: none;
+}
+
+.owl-nav {
+    float     : right;
+    margin-top: 5px !important;
+}
+
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next,
+.owl-carousel .owl-dot {
+    font-family: 'fontAwesome';
+}
+
+.owl-nav button {
+    border : 1px solid rgb(196, 196, 196) !important;
+    padding: 40px;
+}
+
+.owl-nav button span {
+    font-weight: 500 !important;
+    margin     : 10px;
+}
+
+.owl-carousel .owl-item img {
+    max-width : 35% !important;
+    max-height: 100%;
+}
+
+.news-grid {
+    width         : 95%;
+    height        : 250px;
+    background    : #fff;
+    border-radius : 25px;
+    margin        : 20px auto;
+    /* margin-left: auto;
+  margin-right    : auto; */
+    box-shadow    : 0px 3px 18px 1px #7aacb3;
+}
+
+.half {
+    height: 40%;
+}
+
+.news-grid img {
+    top       : 0;
+    left      : 0;
+    bottom    : 0;
+    right     : 0;
+    margin    : auto auto 0;
+    /* position to bottom and center */
+    max-height: 100%;
+    width     : auto;
+}
+
+.news-grid-txt {
+    text-align : center;
+    font-family: Poppins;
+    color      : rgb(127, 130, 137);
+    font-size  : 90%;
+    font-weight: 300;
+}
+
+.news-grid-txt h4 {
+    margin-top : 10px;
+    font-weight: 300;
+    font-size  : 18px;
+}
+
+.news-grid a {
+    color               : black;
+    text-decoration-line: none;
+}
+
+/*Hover-Section*/
+
+.news-grid:hover a {
+    text-decoration-line: none;
+}
+
+#Iphone {
+    margin-left       : -405px;
+    height            : 470px;
+    width             : auto;
+    -webkit-box-shadow: 0 8px -6px rgb(86, 86, 86);
+    -moz-box-shadow   : 0 8px -6px rgb(86, 86, 86);
+    box-shadow        : 0 8px -6px rgb(86, 86, 86);
+    /* box-shadow     : 0px 8px 18px 1px rgb(86, 86, 86); */
+}
+
+#Android {
+    margin-left   : 175px;
+    height        : 450px;
+    width         : auto;
+    vertical-align: top;
+}
+
+.Mobile {
+    margin-top    : -410px;
+    width         : max-content;
+    z-index       : 9999;
+    padding-bottom: 25px;
+}
+
+/* About */
+
+.AboutUs h1 {
+    font-size: 42px;
+}
+
+.About {
+    background-image: url(./Assets/img/AboutUs.png);
+    background-size : 100% 100%;
+    width           : 100%;
+    min-height      : 300px;
+    display         : table;
+    background-color: #7AACB3;
+}
+
+.CenteredDiv {
+    display       : table-cell;
+    text-align    : center;
+    vertical-align: middle;
+    color         : white;
+}
+
+.Center {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.AboutUs p {
+    font-size: 18px;
+}
+
+textarea {
+    resize: none !important;
+}
+
+.Contact,
+.SignUp {
+    background-image          : url(./Assets/img/SginupRight.svg), url(./Assets/img/SginUpLeft.svg);
+    background-position       : right top, left top;
+    background-repeat         : no-repeat, no-repeat;
+    background-size           : contain;
+    height                    : inherit
+        /* The image used */
+        /* background-image   : url(./Assets/img/Background2.png);
+  height                      : 100%; */
+        /* Center and scale the image nicely */
+        /* background-position: center;
+  background-repeat           : no-repeat;
+  background-size             : cover; */
+}
+
+/* Sign up */
+
+.OptPopUp {
+    width: fit-content !important;
+}
+.OptPopUp .ant-modal-content {
+    padding: 16px;
+    width: fit-content;
+}
+.OptPopUp input {
+    width: 2rem !important;
+    border: 1px solid rgb(0, 0, 0, 0.25)
+}
+
+
+/* SeconNavbar */
+
+.SeconNavbar {
+    border-bottom   : 1px solid rgb(196, 196, 196);
+    border-top      : 1px solid rgb(196, 196, 196);
+    background-color: #7AACB3;
+}
+
+.SeconNavbar .white {
+    font-size: 75%;
+}
+
+.SeconNavbar .white.active,
+.nav-link.custom_color.active {
+    background-color: #3D7C84;
+    color           : white !important;
+    font-weight     : 500;
+}
+
+.SeconNavbar .dropdown-toggle::after {
+    display: none;
+}
+
+.SeconNavbar img,
+.smallImg img {
+    height: 31px;
+    width : 31px;
+}
+
+.SeconNavbar .navbar-nav {
+    max-width: max-content;
+}
+.secondnavbar-notificaions,
+.navbar-notifications,
+.secondnavbar-messages,
+.secondnavbar-profile{
+    cursor: pointer !important;
+    position: relative;
+}
+.secondnavbar-notifications_dd {
+    position:absolute;
+    top: 48px;
+    right: 85%;
+    background-color: #fff;
+    width: 350px;
+    height: auto;
+    border: 1px solid #c7d8e2;
+    border-radius: 3px;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.125),
+    -10px -10px 30px rgba(0,0,0,0.125);
+    z-index: 99;
+}
+.secondnavbar-notifications_dd ul,
+.secondnavbar-messagebox_dd ul {
+    padding: 0;
+}
+
+.secondnavbar-notifications_dd li .secondnavbar-notify_icon{
+    display: flex;
+}
+.secondnavbar-notifications_dd li .secondnavbar-notify_icon .secondnavbar-notification-profile-icon{
+    background: url("./Assets/img/notification-icon.png") no-repeat 0 0;
+    width: 59px;
+    height: 55px;
+    border-radius: 50px;
+}
+.secondnavbar-notifications_dd li .secondnavbar-notify_data .secondnavbar-notification_title{
+    color: #000;
+    font-weight: 600;
+    font-size: 15px;
+}
+.secondnavbar-notifications_dd li .secondnavbar-notify_data .secondnavbar-notification_subtitle{
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+}
+.secondnavbar-notification-showall,
+.secondnavbar-messagebox-showall{
+ padding: 20px;
+ display: flex;
+ justify-content: center;
+}
+.secondnavbar-notification-showall p,
+.secondnavbar-messagebox-showall p{
+    font-weight: 700;
+    color: #3b80f9;
+    cursor: pointer;
+}
+.secondnavbar-notification-showall p:hover,
+.secondnavbar-messagebox-showall p:hover{
+    text-decoration: underline;
+}
+
+.secondnavbar-notifications_dd li:last-child,
+.secondnavbar-messagebox_dd li:last-child{
+    border-bottom: 0;
+}
+.secondnavbar-notifications_dd li,
+.secondnavbar-messagebox_dd li{
+    border-bottom: 1px solid #f1f2f4;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+
+}
+
+.secondnavbar-messagebox_dd {
+    position:absolute;
+    top: 48px;
+    right: 55%;
+    background-color: #fff;
+    width: 350px;
+    height: auto;
+    border: 1px solid #c7d8e2;
+    border-radius: 3px;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.125),
+    -10px -10px 30px rgba(0,0,0,0.125);
+    z-index: 99;
+}
+/*My Backpack*/
+
+.card {
+    color        : #565656;
+    border-radius: 2.25rem !important;
+    box-shadow   : 0px 15px 30px -23px #7aacb3;
+    border       : 0px !important;
+}
+
+.SideCard {
+    max-width: 400px;
+    margin   : 0 auto;
+}
+
+.card-header {
+    background-color: white !important;
+    padding         : 0px !important;
+    border-bottom   : 1px solid #E0EEFF !important;
+}
+
+.comments p {
+    font-size: 12px;
+}
+
+.btm_bordr {
+    border-bottom: 1px solid #E0EEFF;
+}
+
+.btm_shadow {
+    box-shadow: 0px 7px 10px 4px rgb(122 172 179 / 30%);
+}
+
+sup {
+    font-weight: 500;
+    top        : -0.3rem !important;
+    font-size  : 1rem !important;
+}
+
+.NavLink {
+    text-decoration: none;
+}
+
+/*BOOK STORE*/
+
+.feild input {
+    border          : 0px;
+    background-color: #F8FAFF;
+    color           : rgb(127, 130, 137);
+    border-radius   : 25px;
+    font-weight     : 300;
+    font-family     : Poppins;
+}
+
+option {
+    font-size       : 12px;
+    background-color: rgb(127, 130, 137);
+    color           : white;
+}
+
+#locationField {
+    background-image   : url(../src/Assets/img/location_icon.png);
+    background-position: 97%;
+    background-repeat  : no-repeat;
+}
+
+#SearchField {
+    background-image   : url(../src/Assets/img/search.png);
+    background-position: 99.5%;
+    background-repeat  : no-repeat;
+}
+
+input[type='radio'] {
+    -webkit-appearance: none;
+    width             : 20px;
+    height            : 20px;
+    border            : 1px solid rgb(122, 172, 179);
+    border-radius     : 50%;
+    outline           : none;
+    box-shadow        : 0 0 5px 0px gray inset;
+}
+
+input[type='radio']:hover {
+    box-shadow: 0 0 5px 0px rgb(122, 172, 179) inset;
+}
+
+input[type='radio']:before {
+    content      : '';
+    display      : block;
+    width        : 60%;
+    height       : 60%;
+    margin       : 20% auto;
+    border-radius: 50%;
+}
+
+input[type='radio']:checked:before {
+    background: rgb(122, 172, 179);
+}
+
+.wSpace {
+    white-space: pre-line
+}
+
+.ant-upload-list-item-error{
+    border-color: rgb(122, 172, 179) !important;
+}
+
+/*Post Ad*/
+
+textarea {
+    border-color    : rgb(240, 242, 245);
+    border-radius   : 19px;
+    background-color: rgb(240, 242, 245);
+    resize          : none;
+    width           : 100%;
+}
+
+#Description input::placeholder {
+    color: black;
+}
+
+.combineButton {
+    border-radius   : 50px;
+    background-color: rgb(240, 242, 245);
+}
+
+.RadioToButton {
+    list-style-type: none;
+}
+
+.RadioToButton input {
+    display: none;
+}
+
+.RadioToButton label {
+    border       : none;
+    border-radius: 50px;
+    width        : 100%;
+}
+
+.RadioToButton input:checked+label,
+.Checked+label {
+    background: rgb(122, 172, 179);
+    color     : white;
+}
+
+/* .postAdd input,
+.JoinClass input {
+  border-radius   : 50px;
+  background-color: rgb(240, 242, 245);
+  border          : none;
+  font-size       : 16px;
+  font-weight     : 300;
+} */
+
+.Tags label {
+    border          : 1px solid rgb(122, 172, 179);
+    border-radius   : 50px;
+    background-color: rgb(240, 242, 245);
+}
+
+
+.Uploading .ant-upload-select-picture-card {
+    position: relative;
+    margin  : 0px !important;
+}
+
+.Uploading .ant-upload-select-picture-card span {
+    background-color: rgb(122, 172, 179);
+    border-radius   : 50px;
+    height          : 40% !important;
+    width           : 40%;
+    font-size       : 25px;
+    font-weight     : 500;
+    color           : white;
+    position        : absolute;
+    top             : 30%;
+    left            : 30%;
+}
+
+/*Professor Ratting*/
+
+#University,
+#College,
+#Major {
+    font-weight: 300;
+    color      : rgb(127, 130, 137);
+}
+
+.MaxWidth100 {
+    max-width: 100%;
+}
+
+.Rating img {
+    width : 65%;
+    margin: 0 auto;
+}
+
+.Rating button,
+.Rating p,
+.vhTo50 {
+    font-size: 2.5vw;
+}
+.Edge {
+    height: 100%;
+}
+.overallRating{
+    height: 85%;
+}
+.ratingbesttags {
+    place-content: center;
+}
+.backStar{
+    background-image:url(./Assets/img/5Star.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 72%;
+}
+.overallrating-value {
+    transform: translateY(147%);
+}
+.professor-ratingloadmore{
+    text-align: center;
+}
+.professor-ratingloadmore button{
+    width: 30%;
+    border: solid 1px #17a2b8;
+    background-color: #17a2b8;
+    color: white;
+}
+.space-between {
+    margin-bottom: 20% !important;
+}
+
+.anticon-enter{
+    transform: scaleX(-1);
+}
+.anticon-enter svg{
+    margin-top: 4px;
+}
+/*SPINNER*/
+.antd-spinner {
+    margin: 20px 0;
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+/*Rate ME*/
+
+
+.RateMe {
+    background-image   : url(./Assets/img/BGProfesorRateRight.svg), url(./Assets/img/BGProfesorRateLeft.svg);
+    background-position: right top, left top;
+    background-repeat  : no-repeat, no-repeat;
+    background-size    : contain;
+    height             : inherit;
+}
+
+.Errored{
+    color: red;
+    font-size: 10px
+}
+/*Rating Star*/
+
+.rating-wrapper .rating-label {
+    text-align: center;
+    display   : block;
+}
+
+.rating-wrapper .ratingItemList {
+    max-width: max-content;
+}
+
+.rating-wrapper label.rating {
+    filter   : grayscale(1);
+    font-size: 32px;
+    padding  : 0;
+    width    : 75px;
+}
+
+.rating-wrapper label.rating:hover {
+    filter    : grayscale(0.84);
+    transform : scale(1.1);
+    transition: 100ms ease;
+}
+
+.rating-wrapper input.rating:checked+label.rating {
+    filter   : grayscale(0);
+    opacity  : 1;
+    transform: scale(1.0);
+}
+
+.rating-wrapper p {
+    font-family: "Montserrat";
+}
+
+.borderRight {
+    border-right: 1px solid rgb(127, 130, 137);
+}
+
+/* Classroom Tabs */
+
+.ant-tabs {
+    width: 100%;
+}
+
+.ant-tabs-nav {
+    margin-bottom: 0px !important;
+}
+
+.Details .ant-tabs-nav-list {
+    width        : 100%;
+    margin-bottom: 13px;
+    z-index      : -99;
+}
+
+.Details .ant-tabs-tab {
+    width           : 25%;
+    max-width       : 115px;
+    padding         : 6px !important;
+    margin          : 0px !important;
+    border          : 0px !important;
+    background-color: white !important;
+}
+
+.Details .ant-tabs-tab-btn {
+    width           : 100%;
+    background-color: white;
+    color           : black;
+    border-radius   : 15px;
+    box-shadow      : 0px 5px 13px -6px #7aacb3;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+    background-color: #7AACB3;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn p {
+    color      : white;
+    font-weight: 500;
+}
+
+.ant-tabs img {
+    width : 30px;
+    height: auto;
+}
+
+/* Tabs Content Holder */
+
+.Details .ant-tabs-content-holder {
+    background-color: white;
+    border-radius   : 15px;
+    padding         : 20px;
+    box-shadow      : 0px 2px 10px -2px #7aacb3;
+    max-width       : 460px;
+}
+
+/* for scroll bar */
+.ScrollBar {
+    padding-right: 10px;
+    height       : 300px;
+    overflow-y   : auto;
+    overflow-x   : hidden;
+}
+
+/* Announment Tab */
+.ant-comment-inner {
+    padding-top: 0px !important;
+}
+
+/* Classroom Chats */
+.DottedBorder {
+    border       : 2px dashed #7aacb3;
+    padding      : 15px;
+    border-radius: 25px;
+}
+
+.Chat .ant-comment-content {
+    border-radius   : 25px;
+    background-color: rgb(240, 242, 245);
+    max-width       : 250px;
+    padding         : 10px;
+    padding-left    : 15px;
+}
+
+
+.scroll,
+.Chat_Section .scroll {
+    height    : 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background   : rgb(240, 242, 245);
+    border-radius: 10px;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background   : rgb(122, 172, 179);
+    border-radius: 10px;
+}
+
+/* Join ClassRoom */
+.JoinClassromBG {
+    background-image   : url(./Assets/img/BGJoinClassRoom.png);
+    background-position: center;
+    background-repeat  : no-repeat;
+    height             : auto;
+    min-height         : 350px;
+    background-size    : 100% 100%;
+}
+
+.pBottom {
+    position: absolute;
+    display : block;
+    bottom  : 25px;
+}
+
+/* LiveSession */
+/* .LiveSession .ant-tabs-nav-wrap{
+position: inherit !important ;
+}
+.LiveSession .ant-tabs-nav-list{
+  width: 100% !important
+}
+.LiveSession .ant-tabs-tab{
+  width: 50% !important;
+  margin: 0px !important
+}
+
+.LiveSession .ant-tabs-tab-active{
+  background-color: #7aacb3 !important
+}
+.LiveSession .ant-tabs-tab-active .ant-tabs-tab-btn{
+  color: white !important
+}
+.LiveSession.ant-tabs-tab-btn{
+  width: 100% !important
+}
+.LiveSession .ant-tabs-nav-operations.ant-tabs-nav-operations-hidden{
+  display: none;
+} */
+
+/* .LiveSession .ant-tabs-nav-list{
+  width: 100%;
+}
+.LiveSession .ant-tabs-nav-wrap::after{
+  display: none;
+}
+.LiveSession .ant-tabs-tab{
+  width: 50%;
+  margin: 0px !important;
+  position: left !important;
+}
+.LiveSession .ant-tabs-ink-bar{
+  display: none;
+} */
+
+.LiveSession .bootstrap-btn {
+    width: 50%;
+    color: black;
+}
+
+.LiveSession .bootstrap-btn.active {
+    background-color: #7aacb3 !important;
+    color           : white !important;
+}
+
+.Student {
+    background-color: #F8FAFF;
+    border          : 1px solid #E0EEFF;
+}
+
+
+
+@media only screen and (min-width: 990px) {
+
+    .Rating button,
+    .Rating p,
+    .vhTo50 {
+        font-size: 58%;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    .m_view {
+        display: none;
+    }
+
+    footer {
+        position: fixed;
+    }
+
+    html,
+    body {
+        margin-bottom: 60px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    /* for screen smaller than 767px */
+    .SeconNavbar {
+        display: none;
+    }
+
+    .Mobile {
+        display: none;
+    }
+
+    .Right_to_center {
+        margin: auto;
+    }
+
+    .Corner_edge-md {
+        -webkit-border-radius: 50px;
+        -moz-border-radius   : 50px;
+        ;
+        border-radius: 50px;
+    }
+
+    .MyBackapck,
+    .upper_Div {
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .borderRight {
+        border-right: 0px;
+    }
+
+    .RadioToButton label {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 337px) {
+    .navbar-brand span {
+        display: none;
+    }
+}
+
+
+.black {
+    color:rgb(0, 0, 0)
+}

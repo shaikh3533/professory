@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="55" viewBox="0 0 56 55">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_10" data-name="Rectangle 10" width="56" height="55" transform="translate(463 407)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="sad" transform="translate(-463 -407)" clip-path="url(#clip-path)">
+    <g id="Group_186" data-name="Group 186">
+      <g id="sad-2" data-name="sad" transform="translate(469.75 411.695)">
+        <circle id="Ellipse_26" data-name="Ellipse 26" cx="21.291" cy="21.291" r="21.291" transform="translate(0)" fill="#ffd93b"/>
+        <path id="Path_270" data-name="Path 270" d="M94.69,73.34a21.351,21.351,0,0,1-37.97,13.4A21.351,21.351,0,0,0,86.743,56.72,21.327,21.327,0,0,1,94.69,73.34Z" transform="translate(-52.108 -51.99)" fill="#f4c534"/>
+        <g id="Group_107" data-name="Group 107" transform="translate(9.015 21.786)">
+          <path id="Path_271" data-name="Path 271" d="M192.331,372.583a1.106,1.106,0,0,1-1.112,1.112H180.7a1.112,1.112,0,1,1,0-2.223H191.22A1.112,1.112,0,0,1,192.331,372.583Z" transform="translate(-173.74 -362.278)" fill="#3e4347"/>
+          <path id="Path_272" data-name="Path 272" d="M109.7,261.263c.522-.307,2.066,1.348,4.49,1.438,2.51.093,3.968-1.745,4.49-1.438.65.223-.236,4.466-4.49,4.482C109.942,265.729,109.055,261.486,109.7,261.263Z" transform="translate(-109.513 -261.225)" fill="#3e4347"/>
+        </g>
+        <path id="Path_273" data-name="Path 273" d="M91.585,183.092a.889.889,0,0,1,.283-1.756c5,.8,6.521-2.769,6.536-2.8a.89.89,0,1,1,1.648.671C99.048,181.66,95.9,183.784,91.585,183.092Z" transform="translate(-83.38 -163.134)" fill="#e9b02c"/>
+        <path id="Path_274" data-name="Path 274" d="M299.388,261.263c-.522-.307-2.066,1.348-4.49,1.438-2.51.093-3.968-1.745-4.49-1.438-.65.223.236,4.466,4.49,4.482C299.15,265.729,300.037,261.486,299.388,261.263Z" transform="translate(-266.131 -239.44)" fill="#3e4347"/>
+        <path id="Path_275" data-name="Path 275" d="M309.947,179.184a.89.89,0,0,1,1.647-.675c.067.16,1.595,3.6,6.537,2.81a.889.889,0,0,1,.283,1.756C314.132,183.763,310.958,181.664,309.947,179.184Z" transform="translate(-284.156 -163.116)" fill="#e9b02c"/>
+      </g>
+      <g id="Rectangle_9" data-name="Rectangle 9" transform="translate(444 433)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="6" height="18" stroke="none"/>
+        <rect x="0.5" y="0.5" width="5" height="17" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
