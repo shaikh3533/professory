@@ -51,7 +51,7 @@ class ProfessorRateMe extends React.Component {
   }
   componentDidMount() {
     // GetData.Countries(this.Set);
-    console.log('props',this.props)
+    console.log("props", this.props);
     GetData.Subjects(this.props.match.params.majorid, this.Set);
     GetData.Grades(this.Set);
     GetData.YearTaken(this.Set);
@@ -144,7 +144,7 @@ class ProfessorRateMe extends React.Component {
       again &&
       rating
     ) {
-      PostData.RattingAdd(this.state, this.set)
+      PostData.RattingAdd(this.state, this.set);
     }
   }
 
@@ -308,7 +308,9 @@ class ProfessorRateMe extends React.Component {
                           </div>
                         </label>
                         {this.state.count == 1 && this.state.rating == "" ? (
-                          <p className="Errored text-center">Select one of These</p>
+                          <p className="Errored text-center">
+                            Select one of These
+                          </p>
                         ) : null}
                       </div>
                       <div className="col-12 text-center mt-3">
@@ -448,7 +450,9 @@ class ProfessorRateMe extends React.Component {
                         </label>
                         {this.state.count == 1 &&
                         this.state.hardRating == "" ? (
-                          <p className="Errored text-center">Select one of These</p>
+                          <p className="Errored text-center">
+                            Select one of These
+                          </p>
                         ) : null}
                       </div>
                       <div className="col-12 text-center px-0">
@@ -478,9 +482,7 @@ class ProfessorRateMe extends React.Component {
                         </ul>
                         {this.state.count == 1 &&
                         this.state.TeachingStyle == "" ? (
-                          <p className="Errored">
-                            Select one TeachingStyle
-                          </p>
+                          <p className="Errored">Select one TeachingStyle</p>
                         ) : null}
                       </div>
                       <div className="row col-12 px-0 mt-3">
@@ -699,9 +701,10 @@ class ProfessorRateMe extends React.Component {
                           })}
                         </ul>
                         {this.state.count == 1 && this.state.ExamForm == "" ? (
-                          <p className="Errored text-center">Select one of These</p>
+                          <p className="Errored text-center">
+                            Select one of These
+                          </p>
                         ) : null}
-                        
                       </div>
                       <div className="col-12  text-center px-0 RadioToButton Tags">
                         <p className="FS_16 ">Would you take with him again?</p>

@@ -20,13 +20,10 @@ class SubjectRateMe extends React.Component {
       subjectID: props.match.params.subjectID,
       majorID: props.match.params.majorID,
       again: "",
+      rating: "",
       YearTaken: "",
-      hardRating: "",
-      TeachingStyle: "",
-      Attandance: "",
       Project: "",
       Homework: "",
-      curve: "",
       name: "Select Grade",
       year: "Select Year",
       tags: [],
@@ -49,10 +46,10 @@ class SubjectRateMe extends React.Component {
   }
   componentDidMount() {
     // GetData.Countries(this.Set);
-    console.log('props',this.props)
+    console.log("props", this.props);
     GetData.Grades(this.Set);
     GetData.YearTaken(this.Set);
-    GetData.HardLevels(this.Set);
+    // GetData.HardLevels(this.Set);
     GetData.ExamForm(this.Set);
     GetData.TeachingStyle(this.Set);
     GetData.SubjectTags(this.Set);
@@ -67,9 +64,7 @@ class SubjectRateMe extends React.Component {
       },
       () => {
         if (
-          this.state.teachingstyle.length &&
           this.state.examform.length &&
-          this.state.hardlevels.length &&
           this.state.tags.length &&
           this.state.grades.length
         ) {
@@ -113,11 +108,8 @@ class SubjectRateMe extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const {
-      TeachingStyle,
       hardRating,
       Project,
-      Attandance,
-      curve,
       Homework,
       examform,
       Description,
@@ -129,19 +121,15 @@ class SubjectRateMe extends React.Component {
     });
 
     if (
-      TeachingStyle &&
-      hardRating &&
+      // hardRating &&
       Project &&
-      Attandance &&
-      curve &&
       Homework &&
       examform &&
       Description &&
       again &&
       rating
     ) {
-      // PostData.RattingAdd(this.state, this.set)
-      alert("Form Submitted");
+      PostData.SubjectRattingAdd(this.state, this.set);
     }
   }
 
@@ -191,15 +179,116 @@ class SubjectRateMe extends React.Component {
                             }
                           />
                         </div>
-                        
                       </div>
-                     
-                     
                       <div className="col-12 text-center mt-3">
-                        <p className="FS_16 mb-0">Hardness level</p>
+                        <p className="FS_16 mb-0">Rating</p>
                       </div>
                       <div className="col-12 rating-wrapper mt-3 px-0">
-                        <label className="rating-label mx-auto">
+                        <label className="rating-label mx-auto w-100">
+                          <div className="ratingItemList mx-auto p-0 d-flex">
+                            <input
+                              className="d-none rating rating-1"
+                              id="rating-1-2"
+                              type="radio"
+                              value="1"
+                              onClick={this.handleChange}
+                              name="rating"
+                            />
+                            <label
+                              className="rating rating-1"
+                              htmlFor="rating-1-2"
+                            >
+                              <FontAwesomeIcon
+                                icon="star"
+                                color="rgb(254, 193, 7)"
+                              />
+                              <p className="Bold Black FS_10">Very Poor</p>
+                            </label>
+                            <input
+                              className="d-none rating rating-2"
+                              id="rating-2-2"
+                              type="radio"
+                              value="2"
+                              onClick={this.handleChange}
+                              name="rating"
+                            />
+                            <label
+                              className="rating rating-2"
+                              htmlFor="rating-2-2"
+                            >
+                              <FontAwesomeIcon
+                                icon="star"
+                                color="rgb(254, 193, 7)"
+                              />
+                              <p className="Bold Black FS_10"> Poor</p>
+                            </label>
+                            <input
+                              className="d-none rating rating-3"
+                              id="rating-3-2"
+                              type="radio"
+                              value="3"
+                              onClick={this.handleChange}
+                              name="rating"
+                            />
+                            <label
+                              className="rating rating-3"
+                              htmlFor="rating-3-2"
+                            >
+                              <FontAwesomeIcon
+                                icon="star"
+                                color="rgb(254, 193, 7)"
+                              />
+                              <p className="Bold Black FS_10"> Good</p>
+                            </label>
+                            <input
+                              className="d-none rating rating-4"
+                              id="rating-4-2"
+                              type="radio"
+                              value="4"
+                              onClick={this.handleChange}
+                              name="rating"
+                            />
+                            <label
+                              className="rating rating-4"
+                              htmlFor="rating-4-2"
+                            >
+                              <FontAwesomeIcon
+                                icon="star"
+                                color="rgb(254, 193, 7)"
+                              />
+                              <p className="Bold Black FS_10"> Very Good</p>
+                            </label>
+                            <input
+                              className="d-none rating rating-5"
+                              id="rating-5-2"
+                              type="radio"
+                              value="5"
+                              onClick={this.handleChange}
+                              name="rating"
+                            />
+                            <label
+                              className="rating rating-5"
+                              htmlFor="rating-5-2"
+                            >
+                              <FontAwesomeIcon
+                                icon="star"
+                                color="rgb(254, 193, 7)"
+                              />
+                              <p className="Bold Black FS_10"> One of a Kind</p>
+                            </label>
+                          </div>
+                        </label>
+                        {this.state.count == 1 && this.state.rating == "" ? (
+                          <p className="Errored text-center">
+                            Select one of These
+                          </p>
+                        ) : null}
+                      </div>
+                      {/* <div className="col-12 text-center mt-3">
+                        <p className="FS_16 mb-0">Hardness level</p>
+                      </div>
+                      <div className="col-12 rating-wrapper mt-2 px-0">
+                        <label className="rating-label mx-auto w-100">
                           <div className="ratingItemList mx-auto p-0 d-flex">
                             <input
                               className="d-none rating rating-1"
@@ -334,191 +423,88 @@ class SubjectRateMe extends React.Component {
                         this.state.hardRating == "" ? (
                           <p className="Errored text-center">Select one of These</p>
                         ) : null}
-                      </div>
-                      <div className="col-12 text-center px-0">
-                        <p className="FS_16 mb-0">Teaching Style</p>
-                      </div>
-                      <div className="col-12 text-center mt-3 px-0">
-                        <ul class="Tags RadioToButton row px-0 m-0">
-                          {this.state.teachingstyle.map((each) => {
-                            return (
-                              <li className="col-4 col-md-3 mx-auto px-1">
-                                <input
-                                  type="radio"
-                                  id={each.name}
-                                  name="TeachingStyle"
-                                  value={each.name}
-                                  onClick={this.handleChange}
-                                />
-                                <label
-                                  className="w-100 py-1 FS_12"
-                                  htmlFor={each.name}
-                                >
-                                  {each.name}
-                                </label>
-                              </li>
-                            );
-                          })}
+                      </div> */}
+
+                      <div className="col-lg-12 col-md-6 col-12 text-center ">
+                        <h5 className="mt-3">Project</h5>
+                        <ul class="w-50 combineButton RadioToButton d-inline-flex px-0 my-1 mt-2">
+                          <li className="w-50">
+                            <input
+                              type="radio"
+                              id="Gives Project"
+                              name="Project"
+                              value="Gives"
+                              onClick={this.handleChange}
+                            />
+                            <label
+                              htmlFor="Gives Project"
+                              className="py-1 mb-0 Bold FS_12"
+                            >
+                              Gives
+                            </label>
+                          </li>
+                          <li className="w-50">
+                            <input
+                              type="radio"
+                              id="Don't Give Project"
+                              name="Project"
+                              value="Don't Give"
+                              onClick={this.handleChange}
+                            />
+                            <label
+                              htmlFor="Don't Give Project"
+                              className="py-1 mb-0 Bold FS_12"
+                            >
+                              Don't Give
+                            </label>
+                          </li>
                         </ul>
-                        {this.state.count == 1 &&
-                        this.state.TeachingStyle == "" ? (
-                          <p className="Errored">
-                            Select one TeachingStyle
-                          </p>
+                        {this.state.count == 1 && this.state.Project == "" ? (
+                          <p className="Errored">Select one of These</p>
                         ) : null}
                       </div>
-                      <div className="row col-12 px-0 mt-3">
-                        <div className="col-12 col-sm-6 text-center borderRight">
-                          <h5>Attandance</h5>
-                          <ul class="w-100 combineButton RadioToButton d-inline-flex px-0 my-1">
-                            <li className="w-50">
-                              <input
-                                type="radio"
-                                id="Takes Attandance"
-                                name="Attandance"
-                                value="Takes"
-                                onClick={this.handleChange}
-                              />
-                              <label
-                                htmlFor="Takes Attandance"
-                                className="py-1 mb-0 Bold FS_12"
-                              >
-                                Takes
-                              </label>
-                            </li>
-                            <li className="w-50">
-                              <input
-                                type="radio"
-                                id="Don't Takes Attandance"
-                                name="Attandance"
-                                value="Don't Takes"
-                                onClick={this.handleChange}
-                              />
-                              <label
-                                htmlFor="Don't Takes Attandance"
-                                className="py-1 mb-0 Bold FS_12"
-                              >
-                                Don't Takes
-                              </label>
-                            </li>
-                          </ul>
-                          {this.state.count == 1 &&
-                          this.state.Attandance == "" ? (
-                            <p className="Errored">Select one of These</p>
-                          ) : null}
-                          <h5 className="mt-3">Project</h5>
-                          <ul class="w-100 combineButton RadioToButton d-inline-flex px-0 my-1">
-                            <li className="w-50">
-                              <input
-                                type="radio"
-                                id="Gives Project"
-                                name="Project"
-                                value="Gives"
-                                onClick={this.handleChange}
-                              />
-                              <label
-                                htmlFor="Gives Project"
-                                className="py-1 mb-0 Bold FS_12"
-                              >
-                                Gives
-                              </label>
-                            </li>
-                            <li className="w-50">
-                              <input
-                                type="radio"
-                                id="Don't Give Project"
-                                name="Project"
-                                value="Don't Give"
-                                onClick={this.handleChange}
-                              />
-                              <label
-                                htmlFor="Don't Give Project"
-                                className="py-1 mb-0 Bold FS_12"
-                              >
-                                Don't Give
-                              </label>
-                            </li>
-                          </ul>
-                          {this.state.count == 1 && this.state.Project == "" ? (
-                            <p className="Errored">Select one of These</p>
-                          ) : null}
-                        </div>
-                        <div className="col-12 col-sm-6  text-center">
-                          <h5>Homework</h5>
-                          <ul class="w-100 combineButton RadioToButton d-inline-flex px-0 my-1">
-                            <li className="w-50">
-                              <input
-                                type="radio"
-                                id="GivesHomeWork"
-                                name="Homework"
-                                value="Give "
-                                onClick={this.handleChange}
-                              />
-                              <label
-                                htmlFor="GivesHomeWork"
-                                className="py-1 mb-0 Bold FS_12"
-                              >
-                                Give
-                              </label>
-                            </li>
-                            <li className="w-50">
-                              <input
-                                type="radio"
-                                id="Don't Gives Homework"
-                                name="Homework"
-                                value="Don't Gives "
-                                onClick={this.handleChange}
-                              />
-                              <label
-                                htmlFor="Don't Gives Homework"
-                                className="py-1 mb-0 Bold FS_12"
-                              >
-                                Don't Gives
-                              </label>
-                            </li>
-                          </ul>
-                          {this.state.count == 1 &&
-                          this.state.Homework == "" ? (
-                            <p className="Errored">Select one of These</p>
-                          ) : null}
-                          <h5 className="mt-3">Curve</h5>
-                          <ul class="w-100 combineButton RadioToButton d-inline-flex px-0 my-1">
-                            <li className="w-50">
-                              <input
-                                type="radio"
-                                id="Give Curves"
-                                name="curve"
-                                value="Give "
-                                onClick={this.handleChange}
-                              />
-                              <label
-                                htmlFor="Give Curves"
-                                className="py-1 mb-0 Bold FS_12"
-                              >
-                                Give
-                              </label>
-                            </li>
-                            <li className="w-50">
-                              <input
-                                type="radio"
-                                id="Don't Gives Curves"
-                                name="curve"
-                                value="Don't Gives "
-                                onClick={this.handleChange}
-                              />
-                              <label
-                                htmlFor="Don't Gives Curves"
-                                className="py-1 mb-0 Bold FS_12"
-                              >
-                                Don't Gives
-                              </label>
-                            </li>
-                          </ul>
-                          {this.state.count == 1 && this.state.curve == "" ? (
-                            <p className="Errored">Select one of These</p>
-                          ) : null}
-                        </div>
+                      <div
+                        className="col-lg-12 col-md-6
+                        col-12  text-center mt-4"
+                      >
+                        <h5>Homework</h5>
+                        <ul class="w-50 combineButton RadioToButton d-inline-flex px-0 my-1 mt-2">
+                          <li className="w-50">
+                            <input
+                              type="radio"
+                              id="GivesHomeWork"
+                              name="Homework"
+                              value="Give "
+                              onClick={this.handleChange}
+                            />
+                            <label
+                              htmlFor="GivesHomeWork"
+                              className="py-1 mb-0 Bold FS_12"
+                            >
+                              Give
+                            </label>
+                          </li>
+                          <li className="w-50">
+                            <input
+                              type="radio"
+                              id="Don't Gives Homework"
+                              name="Homework"
+                              value="Don't Gives "
+                              onClick={this.handleChange}
+                            />
+                            <label
+                              htmlFor="Don't Gives Homework"
+                              className="py-1 mb-0 Bold FS_12"
+                            >
+                              Don't Gives
+                            </label>
+                          </li>
+                        </ul>
+                        {this.state.count == 1 && this.state.Homework == "" ? (
+                          <p className="Errored">Select one of These</p>
+                        ) : null}
                       </div>
+
                       <div className="col-12 mt-3 text-center px-0 RadioToButton Tags">
                         <p className="FS_16 mt-3">
                           Select up to three tags that best describe your
@@ -583,9 +569,10 @@ class SubjectRateMe extends React.Component {
                           })}
                         </ul>
                         {this.state.count == 1 && this.state.ExamForm == "" ? (
-                          <p className="Errored text-center">Select one of These</p>
+                          <p className="Errored text-center">
+                            Select one of These
+                          </p>
                         ) : null}
-                        
                       </div>
                       <div className="col-12  text-center px-0 RadioToButton Tags">
                         <p className="FS_16 ">Would you take with him again?</p>

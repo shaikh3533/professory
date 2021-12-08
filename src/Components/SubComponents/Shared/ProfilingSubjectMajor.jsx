@@ -69,10 +69,15 @@ const Profile = (props) => {
                 <img src={Aplus} alt="" />
               </div>
               <div>
-                                <NavLink className="nav-link m-0 p-0 mx-auto" to={`/SubjectRating/RateMe/${props.majorID}/${props.subjectID}`} >
-                                    <button className="btmEdge w-100 border-0 filled_btn d-block bottom-0" >Rate Me</button>
-                                </NavLink>
-                            </div>
+                <NavLink
+                  className="nav-link m-0 p-0 mx-auto"
+                  to={`/SubjectRating/RateMe/${props.majorID}/${props.subjectID}`}
+                >
+                  <button className="btmEdge w-100 border-0 filled_btn d-block bottom-0">
+                    Rate Me
+                  </button>
+                </NavLink>
+              </div>
             </div>
           </div>
 
