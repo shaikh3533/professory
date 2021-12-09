@@ -153,23 +153,23 @@ class GetData {
     return res();
   };
 
-    MajorProfessors = (data) => {
-        const res = async () => {
-            const resp = await axios.get(`/professors/get?id=38${data}`)
-            .catch(function (error) {
-                console.log(error);
-            });
-           
-            return resp;
-        }
-        return res();
-    }
-
-
   MajorProfessors = (data) => {
     const res = async () => {
+      const resp = await axios.get(`/professors/get?id=${data}`)
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      return resp;
+    }
+    return res();
+  }
+
+
+  CollegeProfessors = (data) => {
+    const res = async () => {
       const resp = await axios
-        .get(`/professors/getProfessorByCollege?id=38${data}`)
+        .get(`/professors/getProfessorByCollege?id=${data}`)
         .catch(function (error) {
           console.log(error);
         });
