@@ -1,19 +1,19 @@
-import React, { useState,useEffect } from 'react';
-import { useParams } from "react-router-dom"
-import SubjectsData from "./SubjectsData"
-import SecondNavbar from "../SecondNavbar"
-import Profile from '../Shared/ProfilingSubjectMajor';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import SubjectsData from "./SubjectsData";
+import SecondNavbar from "../SecondNavbar";
+import Profile from "../Shared/ProfilingSubjectMajor";
 import User from "../../../Assets/img/user.png";
-import HelpfullRating from '../Shared/HelpfullRating';
-import GetData from '../../Api/GetData';
-import { Spin } from 'antd';
+import HelpfullRating from "../Shared/HelpfullRating";
+import GetData from "../../Api/GetData";
+import { Spin } from "antd";
 import SubjectImage from "../../../Assets/img/subject.png";
 import { NavLink } from "react-router-dom";
 
 const SubjectDetails = () => {
-    const { SubjectId } = useParams();
-    const [subjectMajorData, setSubjectMajorData]=useState([]);
-    const [Loading, setLoading] = useState(true);
+  const { SubjectId } = useParams();
+  const [subjectMajorData, setSubjectMajorData] = useState([]);
+  const [Loading, setLoading] = useState(true);
   const getData = async () => {
     const data = await GetData.SubjectMajorDetails(SubjectId);
 
@@ -25,9 +25,9 @@ const SubjectDetails = () => {
   useEffect(() => {
     getData();
   }, []);
-   
-    return (
-        <>
+
+  return (
+    <>
       <SecondNavbar />
       <div className="container-fluid">
         <div className="MaxWidth">
@@ -49,17 +49,18 @@ const SubjectDetails = () => {
                       subjectDescription={subjectMajorData.subjectDescription}
                       Tags={subjectMajorData.bestTags}
                     />
-                    
                   )}
-                  {console.log("majorID",subjectMajorData.helpFull)}
+                  {console.log("majorID", subjectMajorData.helpFull.again)}
                 </div>
                 <div className="space-between col-12 col-lg-8 mt-3 pt-5 pt-lg-0">
                   <h3 className="mb-0 text-center">Most HelpFull Rating</h3>
-                  {subjectMajorData.helpFull &&
-                    ((
+                  {subjectMajorData.helpFull !== null ? (
+                    <>
+                      {console.log(subjectMajorData.helpFull)}
                       <HelpfullRating
-                        ID={subjectMajorData.subjectID}
-                        majorID={subjectMajorData.majorID}
+                        commentID={subjectMajorData.helpFull.commentID}
+                        ID={subjectMajorData.helpFull.subjectID}
+                        hardness={subjectMajorData.helpFull.hardlevel.name}
                         Name={subjectMajorData.helpFull.user.name}
                         yearTaken={subjectMajorData.helpFull.year}
                         rating={subjectMajorData.helpFull.rating}
@@ -70,31 +71,44 @@ const SubjectDetails = () => {
                         Dislike={subjectMajorData.helpFull.dislike}
                         Block={subjectMajorData.helpFull.spamReported}
                         Reply={subjectMajorData.helpFull.numberOfReplies}
-                        commentID={subjectMajorData.subjectCommentID}
+                        Replies={[]}
                         Tags={[
-                          {Exam:subjectMajorData.helpFull.exam},
-                          { Project: subjectMajorData.helpFull.projects },
+                          {
+                            Project: JSON.stringify(
+                              subjectMajorData.helpFull.project
+                            ),
+                          },
                           { HomeWork: subjectMajorData.helpFull.homework },
+                          { Exams: subjectMajorData.helpFull.exams },
+                          {
+                            Again: JSON.stringify(
+                              subjectMajorData.helpFull.again
+                            ),
+                          },
                         ]}
+                        LikedUser={[]}
+                        DisLikedUser={[]}
+                        BlockedUsers={[]}
                       />
-                    ),
-                    (
-                      <div className="my-3 professor-ratingloadmore">
-                        <NavLink
-                          to={`/ProfessorRating/Comments/${subjectMajorData.subjectID}`}
-                        >
-                          <button>Load More</button>
-                        </NavLink>
-                      </div>
-                    ))}
+                    </>
+                  ) : (
+                    <p>No HelpFull Rating Yet</p>
+                  )}
+                  <div className="my-3 professor-ratingloadmore">
+                    <NavLink
+                      to={`/SubjectRating/Comments/${subjectMajorData.subjectID}`}
+                    >
+                      <button>Load More</button>
+                    </NavLink>
+                  </div>
                 </div>
               </div>
             )}
           </div>
         </div>
       </div>
-        </>
-    );
-}
+    </>
+  );
+};
 
 export default SubjectDetails;

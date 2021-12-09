@@ -55,10 +55,11 @@ const ProfessorDetails = () => {
                   <h3 className="mb-0 text-center">Most HelpFull Ratings</h3>
                   {professoryData.helpFull !== null ? (
                     <>
-                      {console.log(professoryData.helpFull)}
+                      {console.log("hardness", professoryData.hardLevel)}
                       <HelpfullRating
                         commentID={professoryData.helpFull.commentID}
-                        profID={professoryData.helpFull.profID}
+                        ID={professoryData.helpFull.profID}
+                        hardness={professoryData.hardLevel.hardname}
                         Name={professoryData.helpFull.user.name}
                         yearTaken={professoryData.helpFull.year}
                         rating={professoryData.helpFull.rating}
@@ -69,22 +70,24 @@ const ProfessorDetails = () => {
                         Dislike={professoryData.helpFull.dislike}
                         Block={professoryData.helpFull.spamReported}
                         Reply={professoryData.helpFull.numberOfReplies}
-                        Replies={professoryData.helpFull.Reply}
+                        Replies={[]} //{professoryData.helpFull.Reply}
                         Tags={[
                           { Attandace: professoryData.helpFull.attendence },
                           { Exams: professoryData.helpFull.exams },
+                          {
+                            Again: JSON.stringify(
+                              professoryData.helpFull.again
+                            ),
+                          },
                           { Project: professoryData.helpFull.projects },
                           { HomeWork: professoryData.helpFull.homework },
                           { "Teaching Style": professoryData.helpFull.style },
                           { Curve: professoryData.helpFull.curve },
                         ]}
                         LikedUser={professoryData.userlikedcomments}
-                        DisLikedUser={
-                          professoryData.userdislikecomments
-                        }
+                        DisLikedUser={professoryData.userdislikecomments}
                         BlockedUsers={professoryData.usercommentspams}
                       />
-                     
                     </>
                   ) : (
                     <p>No HelpFull Rating Yet</p>

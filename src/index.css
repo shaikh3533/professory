@@ -1035,6 +1035,16 @@ textarea {
     color: red;
     font-size: 10px
 }
+.ratting-document-btn button{
+    background-color: rgb(122, 172, 179) !important;
+    color: white !important;
+    text-align: center;
+    border: solid 1px rgb(122,172,179);
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    height: 40px;
+}
 /*Rating Star*/
 
 .rating-wrapper .rating-label {

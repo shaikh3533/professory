@@ -6,20 +6,18 @@ import Dislike from "../../../Assets/img/dislike.png";
 import Block from "../../../Assets/img/block.png";
 import checkMark from "../../../Assets/img/Check.svg";
 import Avatar from "react-avatar";
-import PostData from '../../Api/PostData'
+import PostData from "../../Api/PostData";
 import { message } from "antd";
 import Coment from "./Coment";
-import $ from 'jquery'
+import $ from "jquery";
 import Replies from "./Replies";
 
-
 const HelpfullRating = (props) => {
-
   const initialstate = {
     Likes: props.Like,
     Unlikes: props.Dislike,
     replies: props.Reply,
-    allReplies: [], //props.Replies
+    allReplies: props.Replies,
     blocked: props.Block,
     alreadyLiked: props.LikedUser,
     alreadyDisLiked: props.DisLikedUser,
@@ -27,139 +25,137 @@ const HelpfullRating = (props) => {
     canLike: false,
     canDisLike: false,
     canBlock: false,
-
-  }
+  };
   const [FormData, setFormData] = useState(initialstate);
-  const { Likes, Unlikes, replies, allReplies, blocked, alreadyLiked, alreadyDisLiked, alreadyBlock, canLike, canDisLike, canBlock } = FormData;
-
-
+  const {
+    Likes,
+    Unlikes,
+    replies,
+    allReplies,
+    blocked,
+    alreadyLiked,
+    alreadyDisLiked,
+    alreadyBlock,
+    canLike,
+    canDisLike,
+    canBlock,
+  } = FormData;
 
   useEffect(() => {
-    const len = !!alreadyLiked.filter((x) => x.userID == localStorage.getItem('UserID')
-    ).length
+    const len = !!alreadyLiked.filter(
+      (x) => x.userID == localStorage.getItem("UserID")
+    ).length;
     if (len == canLike) {
       setFormData({
         ...FormData,
-        canLike: !len
-      })
+        canLike: !len,
+      });
     }
     const lenDisLike = !!alreadyDisLiked.filter(
-
-      (x) => x.userID == localStorage.getItem('UserID')
-    ).length
+      (x) => x.userID == localStorage.getItem("UserID")
+    ).length;
     if (lenDisLike == canDisLike) {
       setFormData({
         ...FormData,
-        canDisLike: !lenDisLike
-      })
+        canDisLike: !lenDisLike,
+      });
     }
     const lenBlock = !!alreadyBlock.filter(
-
-      (x) => x.userID == localStorage.getItem('UserID')
-    ).length
+      (x) => x.userID == localStorage.getItem("UserID")
+    ).length;
     if (lenBlock == canBlock) {
       setFormData({
         ...FormData,
-        canBlock: !lenBlock
-      })
+        canBlock: !lenBlock,
+      });
     }
-
-  }, [])
-
+  }, []);
 
   const liked = () => {
-
     setFormData({
       ...FormData,
       canLike: false,
       Likes: Likes + 1,
-    })
+    });
 
-    const res = PostData.LikeComment(props.commentID)
-    console.log({ res })
-    res.then(value => {
-      console.table('responce', value)
+    const res = PostData.LikeComment(props.commentID);
+    console.log({ res });
+    res.then((value) => {
+      console.table("responce", value);
       if (!value.data.success) {
         setFormData({
           ...FormData,
           canLike: true,
           Likes: Likes - 1,
-        })
+        });
+      } else {
+        message.success(value.data.message);
       }
-      else {
-        message.success(value.data.message)
-      }
-    })
-  }
+    });
+  };
 
   const Unliked = () => {
-
     setFormData({
       ...FormData,
       canDisLike: false,
       Unlikes: Unlikes + 1,
-    })
+    });
 
-    const res = PostData.UnLikeComment(props.commentID)
-    console.log({ res })
-    res.then(value => {
-      console.table('responce', value)
+    const res = PostData.UnLikeComment(props.commentID);
+    console.log({ res });
+    res.then((value) => {
+      console.table("responce", value);
       if (!value.data.success) {
         setFormData({
           ...FormData,
           canLike: true,
           Unlikes: Unlikes - 1,
-        })
+        });
+      } else {
+        message.success(value.data.message);
       }
-      else {
-        message.success(value.data.message)
-      }
-    })
-  }
-
+    });
+  };
 
   const Blockhandle = () => {
-
     setFormData({
       ...FormData,
       canBlock: false,
       blocked: blocked + 1,
-    })
+    });
 
-    const res = PostData.BlockComment(props.commentID)
-    console.log({ res })
-    res.then(value => {
-      console.table('responce', value.data.success)
+    const res = PostData.BlockComment(props.commentID);
+    console.log({ res });
+    res.then((value) => {
+      console.table("responce", value.data.success);
       if (!value.data.success) {
         setFormData({
           ...FormData,
           canBlock: true,
           blocked: blocked - 1,
-        })
+        });
+      } else {
+        message.success(value.data.message);
       }
-      else {
-        message.success(value.data.message)
-      }
-    })
-  }
+    });
+  };
   const replyed = () => {
     setFormData({
       ...FormData,
-      replies: replies + 1
-    })
-  }
-
+      replies: replies + 1,
+    });
+  };
 
   const showCommentBox = (e) => {
-    if ($('#' + e + 'comment').hasClass('d-none')) {
-      $('#' + e + 'comment').addClass('d-flex')
-      $('#' + e + 'comment').removeClass('d-none')
+    if ($("#" + e + "comment").hasClass("d-none")) {
+      $("#" + e + "comment").addClass("d-flex");
+      $("#" + e + "comment").removeClass("d-none");
     } else {
-      $('#' + e + 'comment').addClass('d-none')
-      $('#' + e + 'comment').removeClass('d-flex')
+      $("#" + e + "comment").addClass("d-none");
+      $("#" + e + "comment").removeClass("d-flex");
     }
-  }
-  console.log(props.Name, FormData)
+  };
+  console.log(props.Name, FormData);
   return (
     <>
       <div className="row ShadowBordr Round25 py-3 px-3 px-md-5 my-4 ">
@@ -180,13 +176,13 @@ const HelpfullRating = (props) => {
         <div className="col-6 col-sm-4 ml-auto mb-3 pr-0">
           {/* <div className="mr-auto d-block"> */}
           <p className="mb-0 mt-2 FS_16 Bold text-right">
-            Hardness <img src={Star} alt="" className="mb-1" /> {props.rating}
+            {props.hardness} <img src={Star} alt="" className="mb-1" />{" "}
+            {props.rating}
           </p>
           {/* </div> */}
         </div>
         <div className="col-12 text-center btm_bordr row">
           {props.Tags.map((each) => {
-
             return (
               <div className="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3 px-1 d-inline-flex mb-3">
                 <div className="">
@@ -284,8 +280,8 @@ const HelpfullRating = (props) => {
         </div>
         <div className="row col-12 mt-3 p-0">
           <div
-            className='comment d-none w-100'
-            id={props.commentID + 'comment'}
+            className="comment d-none w-100"
+            id={props.commentID + "comment"}
           >
             <Coment id={props.commentID} ID={props.ID} />
           </div>
@@ -293,11 +289,8 @@ const HelpfullRating = (props) => {
         <div className="col-12 mt-3 p-0">
           <Replies Replies={allReplies} />
           {console.log(allReplies)}
-          
         </div>
-
       </div>
-
     </>
   );
 };
