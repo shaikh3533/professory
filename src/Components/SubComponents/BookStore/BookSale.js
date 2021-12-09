@@ -12,14 +12,14 @@ const BookSale = () => {
     const { BookId, BookCategory } = useParams();
     const RenderSpecificBook = BooksData.map(Book => {
         if (Book.bookId === parseInt(BookId)) {
-            return <BookDescription Key={Book.bookId} Id={Book.bookId} Img={Book.img} Name={Book.bookName} Price={Book.Price} Date={Book.Date} icon={Icon} Description={Book.DetailDescription} />
+            return <BookDescription key={Book.bookId} Id={Book.bookId} Img={Book.img} Name={Book.bookName} Price={Book.Price} Date={Book.Date} icon={Icon} Description={Book.DetailDescription} />
         }
         return (null);
     })
     const RenderRelatedBooks = BooksData.map(Book => {
         if (Book.Category == BookCategory) {
             if (Book.bookId !== parseInt(BookId)) {
-                return <BookForSale Key={Book.bookId} Img={Book.img} Id={Book.bookId} Name={Book.bookName} Date={Book.Date} Price={Book.Price} icon={Icon} Category={Book.Category} />
+                return <BookForSale key={Book.bookId} Img={Book.img} Id={Book.bookId} Name={Book.bookName} Date={Book.Date} Price={Book.Price} icon={Icon} Category={Book.Category} />
             }
             return (null);
         }

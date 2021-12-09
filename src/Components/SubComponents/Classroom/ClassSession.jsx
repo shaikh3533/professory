@@ -59,7 +59,7 @@ const ClassSession = () => {
                                 <div className="LiveSession" >
 
                                     <TeacherTab />
-                                    {/* <Tabs defaultActiveKey="1" className="qwertyuioooooooooiuyt">
+                                    {/* <Tabs defaultActivekey="1" className="qwertyuioooooooooiuyt">
                                         <TabPane tab={<p className="w-100 text-center mb-0 Bold FS_16">Student List</p>} key="1">
                                             {RenderStudentList}</TabPane>
 

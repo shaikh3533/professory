@@ -193,7 +193,7 @@ class GetData {
 
     MajorProfessors = (data) => {
         const res = async () => {
-            const resp = await axios.get(`/professors/getProfessorByCollege?id=38${data}`)
+            const resp = await axios.get(`/professors/get?id=38${data}`)
             .catch(function (error) {
                 console.log(error);
             });

@@ -12,13 +12,13 @@ const ServiceSale = () => {
     const { ServiceId, ServiceCategory } = useParams();
     const RenderSpecificBook = ServicesData.map(Service => {
         if (Service.id == ServiceId) {
-            return <BookDescription Key={Service.id} Id={Service.id} Img={Service.img} Name={Service.Name} Price={Service.Price} Date={Service.Date} icon={Icon} Description={Service.DetailDescription} />
+            return <BookDescription key={Service.id} Id={Service.id} Img={Service.img} Name={Service.Name} Price={Service.Price} Date={Service.Date} icon={Icon} Description={Service.DetailDescription} />
         }
         return (null);
     })
     const RenderRelatedServices = ServicesData.map(Service => {
         if (Service.Category == ServiceCategory) {
-            if (Service.id != ServiceId) { return <ServiceForSale Key={Service.id} Img={Service.img} Id={Service.id} Name={Service.Name} Date={Service.Date} Price={Service.Price} icon={Icon} Description={Service.ShortDescription} Category={Service.Category} /> }
+            if (Service.id != ServiceId) { return <ServiceForSale key={Service.id} Img={Service.img} Id={Service.id} Name={Service.Name} Date={Service.Date} Price={Service.Price} icon={Icon} Description={Service.ShortDescription} Category={Service.Category} /> }
             return (null);
         }
         return (null);

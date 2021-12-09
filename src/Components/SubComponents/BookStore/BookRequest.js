@@ -12,14 +12,14 @@ const BookRequest = () => {
     const { BookId, BookCategory } = useParams();
     const RenderSpecificBook = BooksData.map(Book => {
         if (Book.bookId == parseInt(BookId)) {
-            return <BookDescription Key={Book.bookId} Id={Book.bookId} Img={Book.img} Name={Book.bookName} Price={Book.Price} Date={Book.Date} icon={Icon} Description={Book.DetailDescription} />
+            return <BookDescription key={Book.bookId} Id={Book.bookId} Img={Book.img} Name={Book.bookName} Price={Book.Price} Date={Book.Date} icon={Icon} Description={Book.DetailDescription} />
         }
         return (null);
     })
     const RenderRelatedBooks = BooksData.map(Book => {
         if (Book.Category == BookCategory) {
             if (Book.bookId !== parseInt(BookId)) {
-                return <BookForRequests Key={Book.bookId} Img={Book.img} Id={Book.bookId} Name={Book.bookName} Date={Book.Date} Category={Book.Category} Description={Book.ShortDescription} icon={Icon} />
+                return <BookForRequests key={Book.bookId} Img={Book.img} Id={Book.bookId} Name={Book.bookName} Date={Book.Date} Category={Book.Category} Description={Book.ShortDescription} icon={Icon} />
             }
             return (null);
         }

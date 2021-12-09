@@ -1031,13 +1031,10 @@ textarea {
     height             : inherit;
 }
 
-<<<<<<< HEAD
-=======
 .Errored{
     color: red;
     font-size: 10px
 }
->>>>>>> c99f1db959aca52a3fad4718e17ce07404c0e1fe
 /*Rating Star*/
 
 .rating-wrapper .rating-label {

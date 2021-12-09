@@ -31,7 +31,7 @@ class Classroom extends React.Component {
       return (
         <div className="col-12 col-sm-6 col-lg-4 px-2">
           <ClassroomDisplay
-            Key={Classroom.id}
+            key={Classroom.id}
             id={Classroom.id}
             ClassroomName={Classroom.ClassroomName}
             Code={Classroom.Code}

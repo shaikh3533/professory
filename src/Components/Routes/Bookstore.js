@@ -58,7 +58,7 @@ class Bookstore extends React.Component {
     ).map((Book) => {
       return (
         <BookForSale
-          Key={Book.bookID}
+          key={Book.bookID}
           Img={Book.bookimages}
           Id={Book.bookID}
           Name={Book.bookName}
@@ -75,7 +75,7 @@ class Bookstore extends React.Component {
     ).map((Book) => {
       return (
         <BookForRequests
-          Key={Book.bookId}
+          key={Book.bookId}
           Img={Book.bookimages}
           Id={Book.bookId}
           Name={Book.bookName}
@@ -106,7 +106,7 @@ class Bookstore extends React.Component {
                         <div className="row">
                           {RenderingSaleBooks}
                           {this.state.SaleVisible <
-                          this.state.BooksData.length ? (
+                            this.state.BooksData.length ? (
                             <div
                               className="col-12 text-center"
                               onClick={this.LoadMoreSale}
@@ -144,7 +144,7 @@ class Bookstore extends React.Component {
                         <div className="row">
                           {RenderingRequestedBooks}
                           {this.state.RequestVisible <
-                          this.state.BooksData.length ? (
+                            this.state.BooksData.length ? (
                             <div
                               className="col-12 text-center"
                               onClick={this.LoadMoreRequest}

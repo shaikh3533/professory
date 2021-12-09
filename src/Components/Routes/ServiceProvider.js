@@ -9,10 +9,10 @@ import ServicesData from "../SubComponents/ServiceProvider/ServicesData"
 
 const ServiceProvider = () => {
     const RenderingServicesSale = ServicesData.map(Service => {
-        return <ServiceForSale Key={Service.id} Img={Service.img} Id={Service.id} Name={Service.Name} Date={Service.Date} Price={Service.Price} icon={Icon} Category={Service.Category} Description={Service.ShortDescription} />
+        return <ServiceForSale key={Service.id} Img={Service.img} Id={Service.id} Name={Service.Name} Date={Service.Date} Price={Service.Price} icon={Icon} Category={Service.Category} Description={Service.ShortDescription} />
     })
     const RenderingRequestedServices = ServicesData.map(Service => {
-        return <ServiceForRequest Key={Service.id} Id={Service.id} Name={Service.Name} Date={Service.Date} Category={Service.Category} Description={Service.ShortDescription} icon={Icon} />
+        return <ServiceForRequest key={Service.id} Id={Service.id} Name={Service.Name} Date={Service.Date} Category={Service.Category} Description={Service.ShortDescription} icon={Icon} />
     })
     return (
         <>
@@ -27,7 +27,7 @@ const ServiceProvider = () => {
                                     <div className="row m-0 p-0">
                                         <div className="col-12">
                                             <div className="btm_bordr">
- <h4 className="mb-2">For Sale</h4>
+                                                <h4 className="mb-2">For Sale</h4>
                                             </div>
                                             <div className="row">
                                                 {RenderingServicesSale}

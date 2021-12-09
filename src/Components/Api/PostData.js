@@ -76,6 +76,7 @@ class PostData {
         }
         return res();
     }
+
     UnLikeComment = (data, mthd) => {
         const res = async () => {
             const resp = await axios.post('professors/comments/dislike', {
@@ -91,6 +92,7 @@ class PostData {
         }
         return res();
     }
+    
     BlockComment = (data, mthd) => {
         const res = async () => {
             const resp = await axios.post('professors/comments/report', {
@@ -106,6 +108,25 @@ class PostData {
         }
         return res();
     }
+
+    AddProf = (data, mthd) => {
+        const res = async () => {
+            const resp = await axios.post('professors/submit', {
+                majorID:JSON.stringify(data.majorID),
+                arName:data.nameAr,
+                name:data.profName
+            })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            this.result = resp;
+            console.log(resp)
+            return resp;
+
+        }
+        return res();
+    }
+    
 
 }
 export default new PostData();

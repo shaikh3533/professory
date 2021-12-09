@@ -11,12 +11,12 @@ class SelectionBar extends React.Component {
             Major: "",
             Search: "",
             countryID: localStorage.getItem('countryID'),
-            universities:[],
-            univID:"Select University",
-            univError:false,
+            universities: [],
+            univID: "Select University",
+            univError: false,
             collegeID: "Select College",
             colleges: [],
-            collgeError: false,
+            collegeError: false,
             majorID: "Select Major",
             majors: [],
             majorError: false
@@ -85,35 +85,35 @@ class SelectionBar extends React.Component {
                                     <div className="col-12 col-md-4 pl-1">
                                         <div className="form-group pb-3 mb-0 h-100 RoundFeild">
 
-                                        <SearchableSelect name="univID"
-                                                    value={this.state.univID}
-                                                    function={this.onChange}
-                                                    list={this.state.universities}
-                                                    objName='univName'
-                                                    label="University"
-                                                    Error={this.state.univError}/>
+                                            <SearchableSelect name="univID"
+                                                value={this.state.univID}
+                                                function={this.onChange}
+                                                list={this.state.universities}
+                                                objName='univName'
+                                                label="University"
+                                                Error={this.state.univError} />
                                         </div>
                                     </div>
                                     <div className="col-12 col-md-4 pl-1">
                                         <div className="form-group pb-3 mb-0 h-100 RoundFeild">
-                                        <SearchableSelect name="collegeID"
-                                                    value={this.state.collegeID}
-                                                    function={this.onChange}
-                                                    list={this.state.colleges}
-                                                    objName='collegeName'
-                                                    label="College"
-                                                    Error={this.state.collegeError} />        
+                                            <SearchableSelect name="collegeID"
+                                                value={this.state.collegeID}
+                                                function={this.onChange}
+                                                list={this.state.colleges}
+                                                objName='collegeName'
+                                                label="College"
+                                                Error={this.state.collegeError} />
                                         </div>
                                     </div>
                                     <div className="col-12 col-md-4 pl-1">
                                         <div className="form-group pb-3 mb-0 h-100 RoundFeild">
-                                        <SearchableSelect name="majorID"
-                                                    value={this.state.majorID}
-                                                    function={this.onChange}
-                                                    list={this.state.majors}
-                                                    objName='majorName'
-                                                    label="Major"
-                                                    Error={this.state.majorError} />
+                                            <SearchableSelect name="majorID"
+                                                value={this.state.majorID}
+                                                function={this.onChange}
+                                                list={this.state.majors}
+                                                objName='majorName'
+                                                label="Major"
+                                                Error={this.state.majorError} />
                                         </div>
                                     </div>
                                 </div>

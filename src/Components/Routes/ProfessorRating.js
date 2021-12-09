@@ -3,12 +3,12 @@ import SecondNavbar from "../SubComponents/SecondNavbar"
 import SelectionBar from "../SubComponents/Shared/SelectionBar"
 import DisplayProfessorsSubject from "../SubComponents/Shared/DisplayProfessorsSubject"
 import GetData from '../Api/GetData';
+import PostData from '../Api/PostData';
 import kuwaitProfessorImg from "../../Assets/img/KuwaitProfessor.png"
 import ProfessorImg from "../../Assets/img/Professor.png"
 import Model from "../atoms/Model";
-
-
-
+import SearchableSelect from "../atoms/SearchableSelect";
+import { message } from 'antd'
 class ProfessorRating extends React.Component {
     constructor() {
         super();
@@ -20,33 +20,71 @@ class ProfessorRating extends React.Component {
             majorID: "Select Major",
             showVolunteerModel: false,
             showAddModel: false,
-            user: JSON.parse(localStorage.getItem('User'))
+            user: JSON.parse(localStorage.getItem('User')),
+            countryID: localStorage.getItem('countryID'),
+            universities: [],
+            univError: false,
+            colleges: [],
+            collegeError: false,
+            majors: [],
+            majorError: false,
+            profName: '',
+            nameAr: '',
+            count: 0
         }
         this.LoadMore = this.LoadMore.bind(this)
         this.ShowLess = this.ShowLess.bind(this)
     }
 
 
+    componentDidMount() {
+        GetData.Universities(this.state.countryID, this.Set)
+    }
+
+    Set = (name, data) => {
+        // console.log(name, data)
+        this.setState({
+            [name]: data,
+            update: true
+        });
+    }
+
+    onChange = (value, name) => {
+        this.handleChange(name, value)
+    }
 
     handleChange = (name, value) => {
-        console.log({ name, value })
-        this.setState({ [name]: value });
-        if (name == "collegeID") {
-            const res = GetData.CollegeProfessors(value)
-            res.then(value => {
-                
-            this.setState({ DataofProfessors: value.data.data.docs,
-            university: value.data.data.universityName,college: value.data.data.collegeName });
-            })
-        }
+        this.setState({ [name]: value }, () => {
+            if (name === "univID") {
+                GetData.Colleges(value, this.Set);
+                this.setState({
+                    collegeID: "Select College",
+                    majorID: "Select Major",
+                    univError: false
+                });
+            }
+            else if (name === "collegeID") {
+                GetData.Majors(value, this.Set);
+                const res = GetData.CollegeProfessors(value)
+                res.then(value => {
 
-        if (name === "majorID") {
-            const res = GetData.MajorProfessors(value)
-            res.then(value => {
-                console.log({value})
-            this.setState({ DataofProfessors: value.data.data.docs});    
-        })
-        }
+                    this.setState({
+                        DataofProfessors: value.data.data.docs,
+                        university: value.data.data.universityName, college: value.data.data.collegeName,
+                        collegeError: false,
+                        majorID: "Select Major"
+                    });
+                })
+            }
+
+            else if (name === "majorID") {
+                const res = GetData.MajorProfessors(value)
+                res.then(value => {
+                    console.log({ value })
+                    this.setState({ DataofProfessors: value.data.data.docs, count: 0 });
+                })
+            }
+        });
 
     }
 
@@ -61,16 +99,59 @@ class ProfessorRating extends React.Component {
         })
     }
 
-    handleAdd = (e) => {
-        if (this.state.user.permissionPost !== 'Requested') {
-            this.setState({
-                showAddModel: true
+    AddProf = () => {
+        const { major, profName, nameAr } = this.state
+        if (major !== 'Select Major' && profName!=='' && nameAr!=='') {
+            const res = PostData.AddProf(this.state)
+            res.then(value => {
+                console.table('Prof', value)
+                if (value.data.success) {
+                    this.setState({ showAddModel: false });
+                    message.success(value.data.message)
+                }
+                else {
+                    message.error(value.data.message)
+                }
             })
         }
-        else{
-            this.setState({
-                showVolunteerModel: true
-            })
+        else this.setState({ count: 1 })
+    }
+
+    volunteer = () => {
+
+        if (this.state.user.accountStatus!==1){
+this.setState({
+    showVolunteerModel: false,
+    showPhoneModel:true
+})
+        }
+
+    }
+
+    handleAdd = (e) => {
+        if (e.target.type === 'button') {
+            if (this.state.user.permissionPost === 'Requested') {
+                this.setState({
+                    showAddModel: true
+                })
+            }
+            else if (this.state.user.permissionPost !== 'Requested') {
+                this.setState({
+                    showVolunteerModel: true
+                })
+            }
+        }
+        else if (e.target.type === 'text') {
+            if (e.target.name === "nameAr") {
+                this.setState({
+                    nameAr: e.target.value.replace(/[^\u0621-\u064A\s]/ig, ''),
+                })
+            }
+            else {
+                this.setState({
+                    [e.target.name]: e.target.value
+                })
+            }
         }
     }
 
@@ -78,7 +159,7 @@ class ProfessorRating extends React.Component {
 
         const RenderingProfessors = this.state.DataofProfessors.slice(0, this.state.visible).map(Professor => {
 
-            return <DisplayProfessorsSubject Key={Professor.profID} from="/ProfessorRating/" Img={kuwaitProfessorImg} Id={Professor.profID} Name={Professor.profName} Rating={Professor.Rating} SchoolName={this.state.university} CollegeName={this.state.college} Major={Professor.majort.majorName} />
+            return <DisplayProfessorsSubject key={Professor.profID} from="/ProfessorRating/" Img={kuwaitProfessorImg} Id={Professor.profID} Name={Professor.profName} Rating={Professor.Rating} SchoolName={this.state.university} CollegeName={this.state.college} Major={Professor.majort.majorName} />
 
         })
 
@@ -109,17 +190,70 @@ class ProfessorRating extends React.Component {
                     <img src={ProfessorImg} alt="professor" />
                     <p className="my-5">if you would like to volunteer adding data in the app, Please click the volunteer button. We will contact you to guide you </p>
                     <div class="d-grid gap-2 col-12">
-                        <button class="btn btn-primary w-100 rounded-pill valunter-button" type="button">volunteer</button>
+                        <button class="btn btn-primary w-100 rounded-pill valunter-button" onClick={this.volunteer} type="button">volunteer</button>
                     </div>
                 </div>
                 </Model>
-                <Model openModel={this.state.showAddModel} closable={true} handleChange={this.handleChange} name='showAddModel'><div className="text-center p-3" width='50px'>
-                    <img src={ProfessorImg} alt="professor" />
-                    <p className="my-5">if you would like to volunteer adding data in the app, Please click the volunteer button. We will contact you to guide you </p>
-                    <div class="d-grid gap-2 col-12">
-                        <button class="btn btn-primary w-100 rounded-pill valunter-button" type="button">volunteer</button>
+                <Model openModel={this.state.showAddModel} closable={true} handleChange={this.handleChange} name='showAddModel'>
+                    <div className="p-3 form">
+                        <div className="form-group pb-3 mb-0 h-100 RoundFeild">
+                            <SearchableSelect name="univID"
+                                value={this.state.univID}
+                                function={this.onChange}
+                                list={this.state.universities}
+                                objName='univName'
+                                label="University"
+                                Error={this.state.univError} />
+                        </div>
+                        <div className="form-group pb-3 mb-0 h-100 RoundFeild">
+                            <SearchableSelect name="collegeID"
+                                value={this.state.collegeID}
+                                function={this.onChange}
+                                list={this.state.colleges}
+                                objName='collegeName'
+                                label="College"
+                                Error={this.state.collegeError} />
+                        </div>
+                        <div className="form-group pb-3 mb-0 h-100 RoundFeild">
+                            <SearchableSelect name="majorID"
+                                value={this.state.majorID}
+                                function={this.onChange}
+                                list={this.state.majors}
+                                objName='majorName'
+                                label="Major"
+                                Error={this.state.majorError} />
+                            {(this.state.majorID == 'Select Major' && this.state.count) ? <p className="Errored text-center">Major is Required</p> : null}
+                        </div>
+                        <div className="feild px-1 pb-3 mt-0 mb-3">
+                            <input
+                                type="text"
+                                name="profName"
+                                value={this.state.profName}
+                                onChange={this.handleAdd}
+                                className="p-2 w-100 h-100 FS-14 form-control Round25"
+                                placeholder="Profesor Name" />
+                        </div>
+                        {(this.state.profName === '' && this.state.count) ? <p className="Errored text-center">Professor Name is Required</p> : null}
+                        <div className="feild px-1 pb-3 mt-0">
+                            <input
+                                type="text"
+                                name="nameAr"
+                                value={this.state.nameAr}
+                                onChange={this.handleAdd}
+                                dir="rtl"
+                                className="p-2 w-100 h-100 FS-14 form-control Round25"
+                                placeholder="اسم الأستاذ" />
+                        </div>
+                        {(this.state.nameAr === '' && this.state.count) ? <p className="Errored text-center">Professor Name in Arabic is Required</p> : null}
+                        <div className="px-1 pb-3 mt-0">
+                            <button
+                                className="Round_edge button filled_btn widthMaxContent px-3 py-2 mx-auto d-block"
+                                onClick={this.AddProf}
+                                type="button">
+                                Add Professor
+                            </button>
+                        </div>
                     </div>
-                </div>
                 </Model>
             </>
         )

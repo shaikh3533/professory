@@ -12,20 +12,20 @@ const ServiceRequest = () => {
     const { ServiceId, ServiceCategory } = useParams();
     const RenderSpecificService = ServicesData.map(Service => {
         if (Service.id == ServiceId) {
-            return <BookDescription Key={Service.id} Id={Service.id} Name={Service.Name} Price={Service.Price} Date={Service.Date} icon={Icon} Description={Service.DetailDescription} />
+            return <BookDescription key={Service.id} Id={Service.id} Name={Service.Name} Price={Service.Price} Date={Service.Date} icon={Icon} Description={Service.DetailDescription} />
         }
         return (null);
     })
     const RenderRelatedServices = ServicesData.map(Service => {
         if (Service.Category == ServiceCategory) {
-            return <ServiceForRequest Key={Service.id} Id={Service.id} Name={Service.Name} Date={Service.Date} Category={Service.Category} Description={Service.ShortDescription} icon={Icon} />
+            return <ServiceForRequest key={Service.id} Id={Service.id} Name={Service.Name} Date={Service.Date} Category={Service.Category} Description={Service.ShortDescription} icon={Icon} />
         }
         return (null);
     })
     return (
         <>
             <SecondNavbar />
-            <Searchbars ButtonValue="Post a Request"  from="ServiceProvider"/>
+            <Searchbars ButtonValue="Post a Request" from="ServiceProvider" />
             <div className="container-fluid mt-5">
                 <div className="row mt-5">
                     <div className="row col-11 mx-auto">
