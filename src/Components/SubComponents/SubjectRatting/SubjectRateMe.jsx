@@ -20,8 +20,10 @@ class SubjectRateMe extends React.Component {
       subjectID: props.match.params.subjectID,
       majorID: props.match.params.majorID,
       again: "",
-      rating: "",
+      ratting: "",
+      hardRating: "",
       YearTaken: "",
+      hardlevels: [],
       Project: "",
       Homework: "",
       name: "Select Grade",
@@ -31,6 +33,7 @@ class SubjectRateMe extends React.Component {
       years: [],
       grades: [],
       hardlevels: [],
+      rating:[],
       examform: [],
       teachingstyle: [],
       Description: "",
@@ -49,7 +52,8 @@ class SubjectRateMe extends React.Component {
     console.log("props", this.props);
     GetData.Grades(this.Set);
     GetData.YearTaken(this.Set);
-    // GetData.HardLevels(this.Set);
+    GetData.HardLevels(this.Set);
+    GetData.Rating(this.Set);
     GetData.ExamForm(this.Set);
     GetData.TeachingStyle(this.Set);
     GetData.SubjectTags(this.Set);
@@ -66,7 +70,9 @@ class SubjectRateMe extends React.Component {
         if (
           this.state.examform.length &&
           this.state.tags.length &&
-          this.state.grades.length
+          this.state.hardlevels.length &&
+          this.state.grades.length &&
+          this.state.rating.length
         ) {
           this.setState({
             isLoading: false,
@@ -114,20 +120,20 @@ class SubjectRateMe extends React.Component {
       examform,
       Description,
       again,
-      rating,
+      ratting,
     } = this.state;
     this.setState({
       count: 1,
     });
 
     if (
-      // hardRating &&
+      hardRating &&
       Project &&
       Homework &&
       examform &&
       Description &&
       again &&
-      rating
+      ratting
     ) {
       PostData.SubjectRattingAdd(this.state, this.set);
     }
@@ -186,96 +192,30 @@ class SubjectRateMe extends React.Component {
                       <div className="col-12 rating-wrapper mt-3 px-0">
                         <label className="rating-label mx-auto w-100">
                           <div className="ratingItemList mx-auto p-0 d-flex">
-                            <input
-                              className="d-none rating rating-1"
-                              id="rating-1-2"
-                              type="radio"
-                              value="1"
-                              onClick={this.handleChange}
-                              name="rating"
-                            />
-                            <label
-                              className="rating rating-1"
-                              htmlFor="rating-1-2"
-                            >
-                              <FontAwesomeIcon
-                                icon="star"
-                                color="rgb(254, 193, 7)"
+                          {this.state.rating.map((each)=>{
+                            
+                            return(
+                              <>
+                              <input
+                                className="d-none rating rating-5"
+                                id={each.name}
+                                type="radio"
+                                value={each.ratingID}
+                                onClick={this.handleChange}
+                                name="ratting"
                               />
-                              <p className="Bold Black FS_10">Very Poor</p>
-                            </label>
-                            <input
-                              className="d-none rating rating-2"
-                              id="rating-2-2"
-                              type="radio"
-                              value="2"
-                              onClick={this.handleChange}
-                              name="rating"
-                            />
-                            <label
-                              className="rating rating-2"
-                              htmlFor="rating-2-2"
-                            >
-                              <FontAwesomeIcon
-                                icon="star"
-                                color="rgb(254, 193, 7)"
-                              />
-                              <p className="Bold Black FS_10"> Poor</p>
-                            </label>
-                            <input
-                              className="d-none rating rating-3"
-                              id="rating-3-2"
-                              type="radio"
-                              value="3"
-                              onClick={this.handleChange}
-                              name="rating"
-                            />
-                            <label
-                              className="rating rating-3"
-                              htmlFor="rating-3-2"
-                            >
-                              <FontAwesomeIcon
-                                icon="star"
-                                color="rgb(254, 193, 7)"
-                              />
-                              <p className="Bold Black FS_10"> Good</p>
-                            </label>
-                            <input
-                              className="d-none rating rating-4"
-                              id="rating-4-2"
-                              type="radio"
-                              value="4"
-                              onClick={this.handleChange}
-                              name="rating"
-                            />
-                            <label
-                              className="rating rating-4"
-                              htmlFor="rating-4-2"
-                            >
-                              <FontAwesomeIcon
-                                icon="star"
-                                color="rgb(254, 193, 7)"
-                              />
-                              <p className="Bold Black FS_10"> Very Good</p>
-                            </label>
-                            <input
-                              className="d-none rating rating-5"
-                              id="rating-5-2"
-                              type="radio"
-                              value="5"
-                              onClick={this.handleChange}
-                              name="rating"
-                            />
-                            <label
-                              className="rating rating-5"
-                              htmlFor="rating-5-2"
-                            >
-                              <FontAwesomeIcon
-                                icon="star"
-                                color="rgb(254, 193, 7)"
-                              />
-                              <p className="Bold Black FS_10"> One of a Kind</p>
-                            </label>
+                              <label
+                                className="rating rating-5"
+                                htmlFor={each.name}
+                              >
+                                <FontAwesomeIcon
+                                  icon="star"
+                                  color="rgb(254, 193, 7)"
+                                />
+                                <p className="Bold Black FS_10">{each.name}</p>
+                              </label>
+                              
+                              </>)})}
                           </div>
                         </label>
                         {this.state.count == 1 && this.state.rating == "" ? (
@@ -284,7 +224,7 @@ class SubjectRateMe extends React.Component {
                           </p>
                         ) : null}
                       </div>
-                      {/* <div className="col-12 text-center mt-3">
+                      <div className="col-12 text-center mt-3">
                         <p className="FS_16 mb-0">Hardness level</p>
                       </div>
                       <div className="col-12 rating-wrapper mt-2 px-0">
@@ -423,7 +363,7 @@ class SubjectRateMe extends React.Component {
                         this.state.hardRating == "" ? (
                           <p className="Errored text-center">Select one of These</p>
                         ) : null}
-                      </div> */}
+                      </div>
 
                       <div className="col-lg-12 col-md-6 col-12 text-center ">
                         <h5 className="mt-3">Project</h5>

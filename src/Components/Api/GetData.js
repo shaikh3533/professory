@@ -114,6 +114,15 @@ class GetData {
       }
     });
   }
+  Rating(mthd) {
+    axios.get("subjects/rating").then((res) => {
+      if (res.data.success) {
+        mthd("rating", res.data.data.rows);
+      } else {
+        message.error(res.data.message);
+      }
+    });
+  }
   ExamForm(mthd) {
     axios.get("subjects/examFrom").then((res) => {
       if (res.data.success) {
@@ -153,23 +162,11 @@ class GetData {
     return res();
   };
 
-    MajorProfessors = (data) => {
-        const res = async () => {
-            const resp = await axios.get(`/professors/get?id=38${data}`)
-            .catch(function (error) {
-                console.log(error);
-            });
-           
-            return resp;
-        }
-        return res();
-    }
 
-
-  MajorProfessors = (data) => {
+    CollegeProfessors = (data) => {
     const res = async () => {
       const resp = await axios
-        .get(`/professors/getProfessorByCollege?id=38${data}`)
+        .get(`/professors/getProfessorByCollege?id=${data}`)
         .catch(function (error) {
           console.log(error);
         });
@@ -178,6 +175,18 @@ class GetData {
     };
     return res();
   };
+
+  MajorProfessors = (data) => {
+      const res = async () => {
+          const resp = await axios.get(`/professors/get?id=${data}`)
+          .catch(function (error) {
+              console.log(error);
+          });
+         
+          return resp;
+      }
+      return res();
+  }
 
   MajorSubjects = (data) => {
     const res = async () => {
@@ -197,4 +206,4 @@ class GetData {
     else message.error(response.data.message);
   }
 }
-export default new GetData();
+export default new GetData()
