@@ -9,6 +9,8 @@ import ProfessorImg from "../../Assets/img/Professor.png"
 import Model from "../atoms/Model";
 import SearchableSelect from "../atoms/SearchableSelect";
 import { message } from 'antd'
+import Modall from "../atoms/Modall";
+import Account from "../Api/Account";
 class ProfessorRating extends React.Component {
     constructor() {
         super();
@@ -30,7 +32,9 @@ class ProfessorRating extends React.Component {
             majorError: false,
             profName: '',
             nameAr: '',
-            count: 0
+            count: 0,
+            otp: "",
+            otpError: "",
         }
         this.LoadMore = this.LoadMore.bind(this)
         this.ShowLess = this.ShowLess.bind(this)
@@ -54,6 +58,7 @@ class ProfessorRating extends React.Component {
     }
 
     handleChange = (name, value) => {
+        console.log({ name, value })
         this.setState({ [name]: value }, () => {
             if (name === "univID") {
                 GetData.Colleges(value, this.Set);
@@ -101,7 +106,7 @@ class ProfessorRating extends React.Component {
 
     AddProf = () => {
         const { major, profName, nameAr } = this.state
-        if (major !== 'Select Major' && profName!=='' && nameAr!=='') {
+        if (major !== 'Select Major' && profName !== '' && nameAr !== '') {
             const res = PostData.AddProf(this.state)
             res.then(value => {
                 console.table('Prof', value)
@@ -119,11 +124,23 @@ class ProfessorRating extends React.Component {
 
     volunteer = () => {
 
-        if (this.state.user.accountStatus!==1){
-this.setState({
-    showVolunteerModel: false,
-    showPhoneModel:true
-})
+        if (this.state.user.accountStatus !== 1) {
+            const res = Account.PhoneCode()
+            res.then(responce => {
+                if (responce.data.success) {
+                    this.setState({
+                        showVolunteerModel: false,
+                        showPhoneModel: true
+                    })
+
+                }
+                else {
+                    message.error(responce.data.message)
+                }
+            })
+        }
+        else if (this.state.user.accountStatus === 1 && this.state.user.permissionPost === "NotRequested") {
+            this.AskPermission()
         }
 
     }
@@ -154,6 +171,61 @@ this.setState({
             }
         }
     }
+
+
+    otpChange = (otp) => {
+        this.setState({
+            otp: otp,
+            otpError: "",
+        });
+
+        if (otp.length > 3) {
+            this.VerifyCode(otp);
+        }
+    };
+
+    VerifyCode = (otp) => {
+        const res = Account.SendCode(otp)
+        res.then(responce => {
+            if (responce.data.success) {
+                this.setState({
+                    showPhoneModel: false,
+                })
+                this.AskPermission()
+            }
+            else {
+                message.error(responce.data.message);
+                this.setState({ otpError: responce.data.message });
+            }
+        })
+    };
+
+    ResendCode = () => {
+        const res = Account.PhoneCode()
+        res.then(responce => {
+            if (!responce.data.success) {
+                message.error(responce.data.message)
+            }
+        })
+    };
+
+    AskPermission = () => {
+        const res = Account.AskPermission()
+        res.then(responce => {
+            if (responce.data.success) {
+                this.setState({
+                    showVolunteerModel: false,
+                    showPhoneModel: false,
+                    showAddModel: true,
+                })
+                message.success('You are now the volunteer, Thank you')
+            }
+            else {
+                message.error(responce.data.message)
+            }
+        })
+    }
+
 
     render() {
 
@@ -186,14 +258,6 @@ this.setState({
                                 </div>}
                         </div>
                     </div>}
-                <Model openModel={this.state.showVolunteerModel} closable={true} handleChange={this.handleChange} name='showVolunteerModel'><div className="text-center p-3" width='50px'>
-                    <img src={ProfessorImg} alt="professor" />
-                    <p className="my-5">if you would like to volunteer adding data in the app, Please click the volunteer button. We will contact you to guide you </p>
-                    <div class="d-grid gap-2 col-12">
-                        <button class="btn btn-primary w-100 rounded-pill valunter-button" onClick={this.volunteer} type="button">volunteer</button>
-                    </div>
-                </div>
-                </Model>
                 <Model openModel={this.state.showAddModel} closable={true} handleChange={this.handleChange} name='showAddModel'>
                     <div className="p-3 form">
                         <div className="form-group pb-3 mb-0 h-100 RoundFeild">
@@ -255,6 +319,27 @@ this.setState({
                         </div>
                     </div>
                 </Model>
+                <Model openModel={this.state.showVolunteerModel} closable={true} handleChange={this.handleChange} name='showVolunteerModel'><div className="text-center p-3" width='50px'>
+                    <img src={ProfessorImg} alt="professor" />
+                    <p className="my-5">if you would like to volunteer adding data in the app, Please click the volunteer button. We will contact you to guide you </p>
+                    <div class="d-grid gap-2 col-12">
+                        <button class="btn btn-primary w-100 rounded-pill valunter-button" onClick={this.volunteer} type="button">volunteer</button>
+                    </div>
+                </div>
+                </Model>
+
+                <Modall openModel={this.state.showPhoneModel}
+                    name="showPhoneModel"
+                    closable={true}
+                    value={this.state.otp}
+                    handleChange={this.handleChange}
+                    otpChange={this.otpChange}
+                    error={this.state.otpError}
+                    reciver='Phone Number'
+                    ResendCode={this.ResendCode} />
+                {/* <Model openModel={this.state.showPhoneModel} closable={true} handleChange={this.handleChange} name='showPhoneModel'>
+                <p>Phone Verification</p>
+                </Model> */}
             </>
         )
     }

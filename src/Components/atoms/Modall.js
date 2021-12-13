@@ -5,9 +5,9 @@ import OtpInput from "react-otp-input";
 const Modall = (props) => {
   return (
     <>
-      <Modal title={"Enter the Code"} className="OptPopUp" visible={props.openModel} closable={props.closable} footer={null}  > {/* //width="80%" */}
+      <Modal title={"Enter the Code"} className="OptPopUp" visible={props.openModel} closable={props.closable} footer={null} onCancel={()=>props.handleChange(props.name, false)}  > {/* //width="80%" */}
 
-        <p className="font10">Check your Email, 4-digit Code has been sent</p>
+        <p className="font10 text-center">4-digit Code has been sent to your {props.reciver}, Check inbox</p>
         <div className="mx-auto my-4" style={{width:"fit-content"}}>
           <OtpInput
             value={props.value}
@@ -15,6 +15,7 @@ const Modall = (props) => {
             numInputs={4}
             separator={<span>-</span>}
             shouldAutoFocus
+            isInputNum
           />
         </div>
         <p className="font13 text-center text-danger">{props.error}</p>
@@ -27,7 +28,7 @@ const Modall = (props) => {
 export default Modall;
 
 // openModel
-// handleCancel
+// closable
 // value
 // otpChange
 // error

@@ -35,9 +35,45 @@ class Account {
         return res();
     }
 
-    Return() {
-        console.log('Reeturn')
-        return this.result
+    PhoneCode = () => {
+        const res = async () => {
+            const resp = await axios.post('user/phoneVerification/send', )
+            .catch(function (error) {
+                console.log(error);
+            });
+            console.log({resp})
+            return resp;
+
+        }
+        
+        return res();
+    }
+    SendCode = (data) => {
+        const res = async () => {
+            const resp = await axios.post('user/phoneVerification/verify',{
+                code:data
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+            console.log({resp})
+            return resp;
+
+        }
+        
+        return res();
+    }
+    AskPermission = (data) => {
+        const res = async () => {
+            const resp = await axios.post('user/permission/request')
+            .catch(function (error) {
+                console.log(error);
+            });
+            console.log({resp})
+            return resp;
+        }
+        
+        return res();
     }
 }
 export default new Account();
