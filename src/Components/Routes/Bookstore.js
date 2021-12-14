@@ -44,7 +44,7 @@ class Bookstore extends React.Component {
   }
 
   componentDidMount() {
-    const res = GetData.BookDetails(this.state.BooksData);
+    const res = GetData.BookListing(this.state.BooksData);
     res.then((value) => {
       console.table("bbb", value);
       this.setState({ BooksData: value.data.data.docs });

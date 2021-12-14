@@ -911,7 +911,7 @@ textarea {
 }
 
 .RadioToButton input:checked+label,
-.Checked+label {
+.Checked+label , .bookloadmore {
     background: rgb(122, 172, 179);
     color     : white;
 }

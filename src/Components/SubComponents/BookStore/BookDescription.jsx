@@ -1,5 +1,5 @@
 import React from 'react';
-
+import moment from "moment";
 const BookDescription = (props) => {
     return (
         <>
@@ -9,7 +9,7 @@ const BookDescription = (props) => {
                     <div className="col d-inline-flex px-0 px-md-2 widthMaxContent">
                         <div>
                             <h5>{props.Name}</h5>
-                            <p className="mb-1">{props.Date}</p>
+                            <p className="mb-1">  {moment(props.Date).format("DD MMMM YYYY")}</p>
                         </div>
                         <div className="d-flex px-2">
                             <img src={props.icon} alt="" className=" my-auto" />
