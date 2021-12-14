@@ -152,8 +152,13 @@ class GetData {
         });
     }
 
+<<<<<<< HEAD
     UsedBookListing = (data) => {
         const res = async() => {
+=======
+    BookListing = (data) => {
+        const res = async () => {
+>>>>>>> refs/remotes/origin/master
             const resp = await axios
                 .get("/user/BookStore/bookStore?bookType=Used Books")
                 // .then((response) => {
@@ -162,7 +167,7 @@ class GetData {
                 //     }
                 // })
                 //     console.log(this.result)
-                .catch(function(error) {
+                .catch(function (error) {
                     console.log(error);
                 });
 
@@ -193,10 +198,10 @@ class GetData {
 
 
     CollegeProfessors = (data) => {
-        const res = async() => {
+        const res = async () => {
             const resp = await axios
                 .get(`/professors/getProfessorByCollege?id=${data}`)
-                .catch(function(error) {
+                .catch(function (error) {
                     console.log(error);
                 });
 
@@ -206,9 +211,9 @@ class GetData {
     };
 
     MajorProfessors = (data) => {
-        const res = async() => {
+        const res = async () => {
             const resp = await axios.get(`/professors/get?id=${data}`)
-                .catch(function(error) {
+                .catch(function (error) {
                     console.log(error);
                 });
 
@@ -218,10 +223,10 @@ class GetData {
     }
 
     MajorSubjects = (data) => {
-        const res = async() => {
+        const res = async () => {
             const resp = await axios
                 .get(`subjects/get?id=${data}`)
-                .catch(function(error) {
+                .catch(function (error) {
                     console.log(error);
                 });
 
@@ -229,17 +234,19 @@ class GetData {
         };
         return res();
     };
+
     async SubjectMajorDetails(SubjectId) {
         const response = await axios.get(`subjects/detail?id=${SubjectId}`);
         if (response.data.success) return response.data.data;
         else message.error(response.data.message);
     }
+
+
     async SubjectAllComments(SubjectId) {
         const response = await axios.get(`subjects/comments/get?id=${SubjectId}`);
         console.log(response)
         if (response.data.success) return response.data.data.docs;
         else message.error(response.data.message);
-       
     }
   
 }

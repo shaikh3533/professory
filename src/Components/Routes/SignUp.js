@@ -370,6 +370,7 @@ class SignUp extends React.Component {
                       openModel={this.state.otpModal}
                       closable={false}
                       value={this.state.otp}
+                      reciver='Email'
                       otpChange={this.otpChange}
                       error={this.state.otpError}
                       ResendCode={this.ResendCode}
