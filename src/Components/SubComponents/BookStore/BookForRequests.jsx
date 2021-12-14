@@ -9,13 +9,16 @@ const BookForRequests = (props) => {
         to={"/Bookstore/Request/" + props.Category + "/" + props.Id}
       >
         <div className="bordr p-1">
+          {console.log({props})}
+          {props.Img.length?
           <img
             className="d-bock mx-auto"
             src={props.Img[0].image}
             width="100%"
             height="100%"
             alt=""
-          />
+            loading="lazy"
+          />:null}
           <div className="row m-0 mt-1">
             <div className="col-4 pl-1 pr-1">
               <p className="text-left mb-1 FS_18 Bold Black">${props.Price}</p>

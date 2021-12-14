@@ -152,10 +152,29 @@ class GetData {
         });
     }
 
-    BookListing = (data) => {
+    UsedBookListing = (data) => {
         const res = async() => {
             const resp = await axios
                 .get("/user/BookStore/bookStore?bookType=Used Books")
+                // .then((response) => {
+                //     if (response) {
+                //         this.result = response;
+                //     }
+                // })
+                //     console.log(this.result)
+                .catch(function(error) {
+                    console.log(error);
+                });
+
+            this.result = resp;
+            return resp;
+        };
+        return res();
+    };
+    RequestedBookListing = (data) => {
+        const res = async() => {
+            const resp = await axios
+                .get("/user/BookStore/bookStore?bookType=Requested")
                 // .then((response) => {
                 //     if (response) {
                 //         this.result = response;
@@ -222,6 +241,7 @@ class GetData {
         else message.error(response.data.message);
        
     }
+  
 }
 
 

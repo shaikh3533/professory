@@ -50,7 +50,7 @@ const BookSale = () => {
                                 <div className="mt-3">
                                 {bookDetail && (
                                         <BookDescription
-                                        // Images={bookDetail.bookimages}
+                                        Img={bookDetail.bookimages}
                                         Date={bookDetail.modifiedOn}
                                         Price={bookDetail.price}
                                         Description={bookDetail.description}
