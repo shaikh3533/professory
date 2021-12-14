@@ -12,6 +12,7 @@ import PostData from "../../Api/PostData";
 import SearchableSelect from "../../atoms/SearchableSelect";
 import Account from "../../Api/Account";
 import { message } from "antd";
+import { each } from "jquery";
 
 class ProfessorRateMe extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class ProfessorRateMe extends React.Component {
       profID: props.match.params.professorID,
       again: "",
       YearTaken: "",
-      rating: "",
+      ratting: "",
       hardRating: "",
       TeachingStyle: "",
       Attandance: "",
@@ -34,6 +35,7 @@ class ProfessorRateMe extends React.Component {
       years: [],
       grades: [],
       hardlevels: [],
+      rating:[],
       examform: [],
       teachingstyle: [],
       subjectID: "Select Subject",
@@ -56,6 +58,7 @@ class ProfessorRateMe extends React.Component {
     GetData.Grades(this.Set);
     GetData.YearTaken(this.Set);
     GetData.HardLevels(this.Set);
+    GetData.Rating(this.Set);
     GetData.ExamForm(this.Set);
     GetData.TeachingStyle(this.Set);
     GetData.SubjectTags(this.Set);
@@ -75,7 +78,8 @@ class ProfessorRateMe extends React.Component {
           this.state.hardlevels.length &&
           this.state.subjects.length &&
           this.state.tags.length &&
-          this.state.grades.length
+          this.state.grades.length &&
+          this.state.rating.length
         ) {
           this.setState({
             isLoading: false,
@@ -126,7 +130,7 @@ class ProfessorRateMe extends React.Component {
       examform,
       Description,
       again,
-      rating,
+      ratting,
     } = this.state;
     this.setState({
       count: 1,
@@ -142,7 +146,7 @@ class ProfessorRateMe extends React.Component {
       examform &&
       Description &&
       again &&
-      rating
+      ratting
     ) {
       PostData.RattingAdd(this.state, this.set);
     }
@@ -214,99 +218,37 @@ class ProfessorRateMe extends React.Component {
                       </div>
                       <div className="col-12 rating-wrapper mt-3 px-0">
                         <label className="rating-label mx-auto">
+                       
                           <div className="ratingItemList mx-auto p-0 d-flex">
-                            <input
-                              className="d-none rating rating-1"
-                              id="rating-1-2"
-                              type="radio"
-                              value="1"
-                              onClick={this.handleChange}
-                              name="rating"
-                            />
-                            <label
-                              className="rating rating-1"
-                              htmlFor="rating-1-2"
-                            >
-                              <FontAwesomeIcon
-                                icon="star"
-                                color="rgb(254, 193, 7)"
-                              />
-                              <p className="Bold Black FS_10">Very Poor</p>
-                            </label>
-                            <input
-                              className="d-none rating rating-2"
-                              id="rating-2-2"
-                              type="radio"
-                              value="2"
-                              onClick={this.handleChange}
-                              name="rating"
-                            />
-                            <label
-                              className="rating rating-2"
-                              htmlFor="rating-2-2"
-                            >
-                              <FontAwesomeIcon
-                                icon="star"
-                                color="rgb(254, 193, 7)"
-                              />
-                              <p className="Bold Black FS_10"> Poor</p>
-                            </label>
-                            <input
-                              className="d-none rating rating-3"
-                              id="rating-3-2"
-                              type="radio"
-                              value="3"
-                              onClick={this.handleChange}
-                              name="rating"
-                            />
-                            <label
-                              className="rating rating-3"
-                              htmlFor="rating-3-2"
-                            >
-                              <FontAwesomeIcon
-                                icon="star"
-                                color="rgb(254, 193, 7)"
-                              />
-                              <p className="Bold Black FS_10"> Good</p>
-                            </label>
-                            <input
-                              className="d-none rating rating-4"
-                              id="rating-4-2"
-                              type="radio"
-                              value="4"
-                              onClick={this.handleChange}
-                              name="rating"
-                            />
-                            <label
-                              className="rating rating-4"
-                              htmlFor="rating-4-2"
-                            >
-                              <FontAwesomeIcon
-                                icon="star"
-                                color="rgb(254, 193, 7)"
-                              />
-                              <p className="Bold Black FS_10"> Very Good</p>
-                            </label>
+                          {this.state.rating.map((each)=>{
+                            
+                          return(
+                            <>
                             <input
                               className="d-none rating rating-5"
-                              id="rating-5-2"
+                              id={each.name}
                               type="radio"
-                              value="5"
+                              value={each.ratingID}
                               onClick={this.handleChange}
-                              name="rating"
+                              name="ratting"
                             />
                             <label
                               className="rating rating-5"
-                              htmlFor="rating-5-2"
+                              htmlFor={each.name}
                             >
                               <FontAwesomeIcon
                                 icon="star"
                                 color="rgb(254, 193, 7)"
                               />
-                              <p className="Bold Black FS_10"> One of a Kind</p>
+                              <p className="Bold Black FS_10">{each.name}</p>
                             </label>
+                            
+                            </>)})}
+                             
                           </div>
+                           
                         </label>
+ 
                         {this.state.count == 1 && this.state.rating == "" ? (
                           <p className="Errored text-center">
                             Select one of These

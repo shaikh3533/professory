@@ -15,14 +15,26 @@ const BookForSale = (props) => {
                            <img className="d-bock mx-auto" src={bookImg.image} width="100%" height="100%" alt="" />
                            {console.log(bookImg.image)}
                     })} */}
-
-          <img
+{/* {props.Images.length ===0 ? (<h4 className="my-4">No Tags</h4>):(
+  props.Images.map((each)=>{
+    return(
+<img
             className="d-bock mx-auto"
-            src={props.Img[0].image}
+            src={each.image}
             width="100%"
             height="100%"
             alt=""
           />
+    )
+  })
+)} */}
+{/* {
+  props.Images.map((each)=>{return(
+    <div>
+    <img src={each} alt="" /></div>
+  )})
+} */}
+          
           <div className="row m-0 mt-1">
             <div className="col-4 pl-1 pr-1">
               <p className="text-left mb-1 FS_18 Bold Black">${props.Price}</p>

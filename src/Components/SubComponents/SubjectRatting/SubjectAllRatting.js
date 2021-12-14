@@ -6,11 +6,11 @@ import GetData from "../../Api/GetData";
 import { Spin } from "antd";
 
 export default function SubjectAllRatting() {
+  const { SubjectID } = useParams();
   const [subjectComments, setSubjectComments] = useState([]);
   const [Loading, setLoading] = useState(true);
-  const { SubjectID } = useParams();
   const getData = async () => {
-    const data = await GetData.SubjectMajorDetails(SubjectID);
+    const data = await GetData.SubjectAllComments(SubjectID);
     setSubjectComments(data);
     setLoading(false);
   };
