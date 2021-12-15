@@ -12,7 +12,8 @@ class Bookstore extends React.Component {
   constructor() {
     super();
     this.state = {
-      BooksData: [],
+      UsedBooksData: [],
+      RequestedBooksData: [],
       SaleVisible: 3,
       RequestVisible: 3,
     };
@@ -44,15 +45,20 @@ class Bookstore extends React.Component {
   }
 
   componentDidMount() {
-    const res = GetData.BookListing(this.state.BooksData);
+    const res = GetData.UsedBookListing(this.state.UsedBooksData);
     res.then((value) => {
-      console.table("bbb", value);
-      this.setState({ BooksData: value.data.data.docs });
+      this.setState({ UsedBooksData: value.data.data.docs });
+    });
+
+    const response = GetData.RequestedBookListing(this.state.RequestedBooksData);
+    response.then((value) => {
+      this.setState({ RequestedBooksData: value.data.data.docs });
     });
   }
 
   render() {
-    const RenderingSaleBooks = this.state.BooksData.slice(
+    {console.log("booksData",this.state.UsedBooksData)}
+    const RenderingSaleBooks = this.state.UsedBooksData.slice(
       0,
       this.state.SaleVisible
     ).map((Book) => {
@@ -69,15 +75,15 @@ class Bookstore extends React.Component {
         />
       );
     });
-    const RenderingRequestedBooks = this.state.BooksData.slice(
+    const RenderingRequestedBooks = this.state.RequestedBooksData.slice(
       0,
       this.state.RequestVisible
     ).map((Book) => {
       return (
         <BookForRequests
-          key={Book.bookId}
+          key={Book.bookID}
           Img={Book.bookimages}
-          Id={Book.bookId}
+          Id={Book.bookID}
           Name={Book.bookName}
           Date={Book.createdOn}
           Price={Book.price}
@@ -106,7 +112,7 @@ class Bookstore extends React.Component {
                         <div className="row">
                           {RenderingSaleBooks}
                           {this.state.SaleVisible <
-                            this.state.BooksData.length ? (
+                            this.state.UsedBooksData.length ? (
                             <div
                               className="col-12 text-center"
                               onClick={this.LoadMoreSale}
@@ -144,7 +150,7 @@ class Bookstore extends React.Component {
                         <div className="row">
                           {RenderingRequestedBooks}
                           {this.state.RequestVisible <
-                            this.state.BooksData.length ? (
+                            this.state.RequestedBooksData.length ? (
                             <div
                               className="col-12 text-center"
                               onClick={this.LoadMoreRequest}
