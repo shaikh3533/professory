@@ -2,8 +2,6 @@
     font-family: Poppins;
     font-weight: 300;
     font-size  : 14px;
-    /* border: 2px solid red;
-    color: yellow; */
 }
 
 html,
@@ -64,7 +62,9 @@ textarea {
     border-radius        : 50px;
 }
 
-.Round25, .RoundFeild .ant-select-show-search, .RoundFeild .ant-select-selector {
+.Round25,
+.RoundFeild .ant-select-show-search,
+.RoundFeild .ant-select-selector {
     -webkit-border-radius: 25px !important;
     -moz-border-radius   : 25px !important;
     border-radius        : 25px !important;
@@ -233,7 +233,13 @@ footer {
     min-width          : 90%;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     cursor: context-menu
 }
 
@@ -306,7 +312,8 @@ p, h1, h2, h3, h4, h5, h6 {
     background-color: #F8FAFF !important;
     width           : 100% !important;
 }
-.form-control{
+
+.form-control {
     min-height: 40px;
 }
 
@@ -329,7 +336,7 @@ p, h1, h2, h3, h4, h5, h6 {
     min-height      : 36px;
 }
 
-.form .ant-select{
+.form .ant-select {
     padding: 0;
 }
 
@@ -345,6 +352,7 @@ p, h1, h2, h3, h4, h5, h6 {
 .ant-select-arrow .anticon:not(.ant-select-suffix) {
     pointer-events: none;
 }
+
 .yes-no-radiobtn {
     width: 100px !important;
 }
@@ -427,7 +435,7 @@ select {
     color: transparent !important;
 }
 
-.form-group .ant-select-selection-placeholder{
+.form-group .ant-select-selection-placeholder {
     color: rgb(139, 139, 139);
 }
 
@@ -640,12 +648,14 @@ textarea {
 .OptPopUp {
     width: fit-content !important;
 }
+
 .OptPopUp .ant-modal-content {
     padding: 16px;
-    width: fit-content;
+    width  : fit-content;
 }
+
 .OptPopUp input {
-    width: 2rem !important;
+    width : 2rem !important;
     border: 1px solid rgb(0, 0, 0, 0.25)
 }
 
@@ -682,95 +692,106 @@ textarea {
 .SeconNavbar .navbar-nav {
     max-width: max-content;
 }
+
 .secondnavbar-notificaions,
 .navbar-notifications,
 .secondnavbar-messages,
-.secondnavbar-profile{
-    cursor: pointer !important;
+.secondnavbar-profile {
+    cursor  : pointer !important;
     position: relative;
 }
+
 .secondnavbar-notifications_dd {
-    position:absolute;
-    top: 48px;
-    right: 85%;
+    position        : absolute;
+    top             : 48px;
+    right           : 85%;
     background-color: #fff;
-    width: 350px;
-    height: auto;
-    border: 1px solid #c7d8e2;
-    border-radius: 3px;
-    box-shadow: 10px 10px 30px rgba(0,0,0,0.125),
-    -10px -10px 30px rgba(0,0,0,0.125);
+    width           : 350px;
+    height          : auto;
+    border          : 1px solid #c7d8e2;
+    border-radius   : 3px;
+    box-shadow      : 10px 10px 30px rgba(0, 0, 0, 0.125),
+        -10px -10px 30px rgba(0, 0, 0, 0.125);
     z-index: 99;
 }
+
 .secondnavbar-notifications_dd ul,
 .secondnavbar-messagebox_dd ul {
     padding: 0;
 }
 
-.secondnavbar-notifications_dd li .secondnavbar-notify_icon{
+.secondnavbar-notifications_dd li .secondnavbar-notify_icon {
     display: flex;
 }
-.secondnavbar-notifications_dd li .secondnavbar-notify_icon .secondnavbar-notification-profile-icon{
-    background: url("./Assets/img/notification-icon.png") no-repeat 0 0;
-    width: 59px;
-    height: 55px;
+
+.secondnavbar-notifications_dd li .secondnavbar-notify_icon .secondnavbar-notification-profile-icon {
+    background   : url("./Assets/img/notification-icon.png") no-repeat 0 0;
+    width        : 59px;
+    height       : 55px;
     border-radius: 50px;
 }
-.secondnavbar-notifications_dd li .secondnavbar-notify_data .secondnavbar-notification_title{
-    color: #000;
+
+.secondnavbar-notifications_dd li .secondnavbar-notify_data .secondnavbar-notification_title {
+    color      : #000;
     font-weight: 600;
-    font-size: 15px;
+    font-size  : 15px;
 }
-.secondnavbar-notifications_dd li .secondnavbar-notify_data .secondnavbar-notification_subtitle{
-    font-size: 13px;
-    white-space: nowrap;
-    overflow: hidden;
+
+.secondnavbar-notifications_dd li .secondnavbar-notify_data .secondnavbar-notification_subtitle {
+    font-size    : 13px;
+    white-space  : nowrap;
+    overflow     : hidden;
     text-overflow: ellipsis;
-    margin-top: 5px;
+    margin-top   : 5px;
 }
+
 .secondnavbar-notification-showall,
-.secondnavbar-messagebox-showall{
- padding: 20px;
- display: flex;
- justify-content: center;
+.secondnavbar-messagebox-showall {
+    padding        : 20px;
+    display        : flex;
+    justify-content: center;
 }
+
 .secondnavbar-notification-showall p,
-.secondnavbar-messagebox-showall p{
+.secondnavbar-messagebox-showall p {
     font-weight: 700;
-    color: #3b80f9;
-    cursor: pointer;
+    color      : #3b80f9;
+    cursor     : pointer;
 }
+
 .secondnavbar-notification-showall p:hover,
-.secondnavbar-messagebox-showall p:hover{
+.secondnavbar-messagebox-showall p:hover {
     text-decoration: underline;
 }
 
 .secondnavbar-notifications_dd li:last-child,
-.secondnavbar-messagebox_dd li:last-child{
+.secondnavbar-messagebox_dd li:last-child {
     border-bottom: 0;
 }
+
 .secondnavbar-notifications_dd li,
-.secondnavbar-messagebox_dd li{
+.secondnavbar-messagebox_dd li {
     border-bottom: 1px solid #f1f2f4;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
+    padding      : 10px 20px;
+    display      : flex;
+    align-items  : center;
 
 }
 
 .secondnavbar-messagebox_dd {
-    position:absolute;
-    top: 48px;
-    right: 55%;
+    position        : absolute;
+    top             : 48px;
+    right           : 55%;
     background-color: #fff;
-    width: 350px;
-    height: auto;
-    border: 1px solid #c7d8e2;
-    border-radius: 3px;
-    box-shadow: 10px 10px 30px rgba(0,0,0,0.125),
-    -10px -10px 30px rgba(0,0,0,0.125);
+    width           : 350px;
+    height          : auto;
+    border          : 1px solid #c7d8e2;
+    border-radius   : 3px;
+    box-shadow      : 10px 10px 30px rgba(0, 0, 0, 0.125),
+        -10px -10px 30px rgba(0, 0, 0, 0.125);
     z-index: 99;
 }
+
 /*My Backpack*/
 
 .card {
@@ -873,7 +894,7 @@ input[type='radio']:checked:before {
     white-space: pre-line
 }
 
-.ant-upload-list-item-error{
+.ant-upload-list-item-error {
     border-color: rgb(122, 172, 179) !important;
 }
 
@@ -911,7 +932,8 @@ textarea {
 }
 
 .RadioToButton input:checked+label,
-.Checked+label , .bookloadmore {
+.Checked+label,
+.bookloadmore {
     background: rgb(122, 172, 179);
     color     : white;
 }
@@ -973,53 +995,64 @@ textarea {
 .vhTo50 {
     font-size: 2.5vw;
 }
+
 .Edge {
     height: 100%;
 }
-.overallRating{
+
+.overallRating {
     height: 85%;
 }
+
 .ratingbesttags {
     place-content: center;
 }
-.backStar{
-    background-image:url(./Assets/img/5Star.svg);
-    background-repeat: no-repeat;
+
+.backStar {
+    background-image   : url(./Assets/img/5Star.svg);
+    background-repeat  : no-repeat;
     background-position: center;
-    background-size: contain;
-    height: 72%;
+    background-size    : contain;
+    height             : 72%;
 }
+
 .overallrating-value {
     transform: translateY(147%);
 }
-.professor-ratingloadmore{
+
+.professor-ratingloadmore {
     text-align: center;
 }
-.professor-ratingloadmore button{
-    width: 30%;
-    border: solid 1px #17a2b8;
+
+.professor-ratingloadmore button {
+    width           : 30%;
+    border          : solid 1px #17a2b8;
     background-color: #17a2b8;
-    color: white;
+    color           : white;
 }
+
 .space-between {
     margin-bottom: 20% !important;
 }
 
-.anticon-enter{
+.anticon-enter {
     transform: scaleX(-1);
 }
-.anticon-enter svg{
+
+.anticon-enter svg {
     margin-top: 4px;
 }
+
 /*SPINNER*/
 .antd-spinner {
-    margin: 20px 0;
-  margin-bottom: 20px;
-  padding: 30px 50px;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
+    margin       : 20px 0;
+    margin-bottom: 20px;
+    padding      : 30px 50px;
+    text-align   : center;
+    background   : rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
 }
+
 /*Rate ME*/
 
 
@@ -1031,20 +1064,22 @@ textarea {
     height             : inherit;
 }
 
-.Errored{
-    color: red;
+.Errored {
+    color    : red;
     font-size: 10px
 }
-.ratting-document-btn button{
+
+.ratting-document-btn button {
     background-color: rgb(122, 172, 179) !important;
-    color: white !important;
-    text-align: center;
-    border: solid 1px rgb(122,172,179);
-    width: 100%;
-    display: block;
-    border-radius: 10px;
-    height: 40px;
+    color           : white !important;
+    text-align      : center;
+    border          : solid 1px rgb(122, 172, 179);
+    width           : 100%;
+    display         : block;
+    border-radius   : 10px;
+    height          : 40px;
 }
+
 /*Rating Star*/
 
 .rating-wrapper .rating-label {
@@ -1337,5 +1372,5 @@ position: inherit !important ;
 
 
 .black {
-    color:rgb(0, 0, 0)
+    color: rgb(0, 0, 0)
 }

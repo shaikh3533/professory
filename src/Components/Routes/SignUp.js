@@ -93,8 +93,13 @@ class SignUp extends React.Component {
       [name]: value,
     });
 
-    if ([name] === "email" && value.includes("@") && value.includes(".")) {
-      this.checkEmail(value);
+    // if ([name] === "email" && value.includes("@") && value.includes(".")) {
+    //   this.checkEmail(value);
+    // }
+    const regex = new RegExp("/^[a-z0-9\_\.\-]{2,20}\@[a-z0-9\_\-]{2,20}\.[a-z]{2,9}$/")
+
+    if (name === "email" && regex.test(value)) {
+      this.checkEmail(value)
     }
   }
 
@@ -299,9 +304,8 @@ class SignUp extends React.Component {
                           <option value="Female">Female</option>
                         </select>
                         <label
-                          className={` ${
-                            this.state.gender !== "" ? "Valued" : "d-none"
-                          }`}
+                          className={` ${this.state.gender !== "" ? "Valued" : "d-none"
+                            }`}
                           htmlFor="gender"
                         >
                           Gender

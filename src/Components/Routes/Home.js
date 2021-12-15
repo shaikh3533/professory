@@ -88,7 +88,7 @@ class Home extends React.Component {
                                         <div className="d-block mr-auto" style={{ maxWidth: "500px" }}>
                                             <h1 className="Black">Professory App</h1>
                                             <p className="Black" >What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                                            <img src={GooglePlay} alt="Play Store" id="img1" />
+                                            <img src={GooglePlay} alt="Play Store" id="img1" loading="Lazy" />
                                             <img src={AppStore} alt="App Store" id="img2" />
                                         </div>
                                     </div>

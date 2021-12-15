@@ -179,8 +179,7 @@ class GetData {
                 .get(`/professors/getProfessorByCollege?id=${data}`)
                 .catch(function (error) {
                     console.log(error);
-                });
-
+                })
             return resp;
         };
         return res();

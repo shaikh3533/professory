@@ -18,7 +18,7 @@ class Account {
                 college: data.countryID,
                 major: data.majorID,
                 isSocial: false,
-                providerType: "webiste"
+                providerType: "website"
             })
             // .then((response) => {
             //     if (response) {
