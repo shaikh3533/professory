@@ -152,13 +152,8 @@ class GetData {
         });
     }
 
-<<<<<<< HEAD
     UsedBookListing = (data) => {
         const res = async() => {
-=======
-    BookListing = (data) => {
-        const res = async () => {
->>>>>>> refs/remotes/origin/master
             const resp = await axios
                 .get("/user/BookStore/bookStore?bookType=Used Books")
                 // .then((response) => {

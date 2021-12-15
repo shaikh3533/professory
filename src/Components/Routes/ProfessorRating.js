@@ -231,7 +231,7 @@ class ProfessorRating extends React.Component {
 
         const RenderingProfessors = this.state.DataofProfessors.slice(0, this.state.visible).map(Professor => {
 
-            return <DisplayProfessorsSubject key={Professor.profID} from="/ProfessorRating/" Img={kuwaitProfessorImg} Id={Professor.profID} Name={Professor.profName} Rating={Professor.Rating} SchoolName={this.state.university} CollegeName={this.state.college} Major={Professor.majort.majorName} />
+            return <DisplayProfessorsSubject key={Professor.profID} from="/ProfessorRating/" Img={Professor.profLogo} Id={Professor.profID} Name={Professor.profName} Rating={Professor.Rating} SchoolName={this.state.university} CollegeName={this.state.college} Major={Professor.majort.majorName} />
 
         })
 
