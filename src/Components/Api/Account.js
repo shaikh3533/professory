@@ -75,5 +75,21 @@ class Account {
         
         return res();
     }
+    ForgotPassword = (data) => {
+        const res = async () => {
+            const resp = await axios.post('user/forgotPassword/request',{
+                paramValue: data,
+                ProviderType:"mail"
+            } )
+            .catch(function (error) {
+                console.log(error);
+            });
+            console.log({resp})
+            return resp;
+
+        }
+        
+        return res();
+    }
 }
 export default new Account();
