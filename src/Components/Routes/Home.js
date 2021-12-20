@@ -12,7 +12,7 @@ import axios from "axios";
 import Auth from "../Auth/Auth";
 import Model from "../atoms/Model";
 import Account from "../Api/Account";
-import { message } from 'antd'
+import { message } from "antd";
 
 class Home extends React.Component {
   constructor() {
@@ -20,7 +20,7 @@ class Home extends React.Component {
     this.state = {
       email: "",
       password: "",
-      forgotEmail:"",
+      forgotEmail: "",
       loggedIn: false,
       showFrgtModel: false,
     };
@@ -77,27 +77,21 @@ class Home extends React.Component {
         alert(error);
       });
   }
-  emailSubmit=()=>{
-      if(this.state.forgotEmail !== null)
-      {
-          const res = Account.ForgotPassword(this.state.forgotEmail)
-          res.then(response => {
-            if (response.data.success) {
-                this.setState({
-                    showFrgtModel: false
-                    
-                })
-
-            }
-            else {
-                message.error(response.data.message)
-            }
-          })
-    } 
-      else{
-            
-      }
-  }
+  emailSubmit = () => {
+    if (this.state.forgotEmail !== null) {
+      const res = Account.ForgotPassword(this.state.forgotEmail);
+      res.then((response) => {
+        if (response.data.success) {
+          this.setState({
+            showFrgtModel: false,
+          });
+        } else {
+          message.error(response.data.message);
+        }
+      });
+    } else {
+    }
+  };
   render() {
     if (localStorage.getItem("ProfessoryloggedIn")) {
       return <Redirect to="/BookStore" />;
@@ -120,7 +114,12 @@ class Home extends React.Component {
                         the printing and typesetting industry Lorem Ipsum has
                         been the industry's standard dummy text ever since
                       </p>
-                      <img src={GooglePlay} alt="Play Store" id="img1" />
+                      <img
+                        src={GooglePlay}
+                        alt="Play Store"
+                        id="img1"
+                        loading="Lazy"
+                      />
                       <img src={AppStore} alt="App Store" id="img2" />
                     </div>
                   </div>
@@ -263,53 +262,53 @@ class Home extends React.Component {
               </div>
             </div>
           </div>
-          
+
           <Model
-                      openModel={this.state.showFrgtModel}
-                      closable={true}
-                      handleChange={this.handleChange}
-                      name="showFrgtModel"
-                    >
-                      <form
-                        className="loginForm form mx-auto px-3 px-md-5 py-2 mr-lg-5 mb-0 mt-5 TopRoundEdge ShadowBordr "
-                        style={{ maxWidth: "400px" }}
-                        id="inputForm"
-                      >
-                        <p
-                          className="py-4 FS_24 mb-0 text-center"
-                          style={{ color: "rgb(38, 38, 38)" }}
-                        >
-                          Forgot Password?
-                        </p>
-                        <div className="form-group">
-                          <input
-                            type="email"
-                            id="forgotEmail"
-                            className="form-control mx-auto "
-                            placeholder="Enter your Phone number or Email"
-                            value={this.state.forgotEmail}
-                            name="forgotEmail"
-                            required
-                            onChange={this.handleChange}
-
-                          />
-                          <label htmlFor="forgotEmail">
-                          Enter your Phone number or Email
-                          </label>
-                        </div>
-                      </form>
-                      <div
-                        className="LoginFooter mx-auto mr-lg-5 p-3 btmRoundEdge"
-                        style={{ maxWidth: "400px" }}
-                      >
-                        <p className="mb-0" style={{ color: "white" }}  onClick={this.emailSubmit}>
-                            
-                          Submit
-                         
-                        </p>
-                      </div>
-                    </Model>
-
+            openModel={this.state.showFrgtModel}
+            closable={true}
+            handleChange={this.handleChange}
+            name="showFrgtModel"
+          >
+            <form
+              className="loginForm form mx-auto px-3 px-md-5 py-2 mr-lg-5 mb-0 mt-5 TopRoundEdge ShadowBordr "
+              style={{ maxWidth: "400px" }}
+              id="inputForm"
+            >
+              <p
+                className="py-4 FS_24 mb-0 text-center"
+                style={{ color: "rgb(38, 38, 38)" }}
+              >
+                Forgot Password?
+              </p>
+              <div className="form-group">
+                <input
+                  type="email"
+                  id="forgotEmail"
+                  className="form-control mx-auto "
+                  placeholder="Enter your Phone number or Email"
+                  value={this.state.forgotEmail}
+                  name="forgotEmail"
+                  required
+                  onChange={this.handleChange}
+                />
+                <label htmlFor="forgotEmail">
+                  Enter your Phone number or Email
+                </label>
+              </div>
+            </form>
+            <div
+              className="LoginFooter mx-auto mr-lg-5 p-3 btmRoundEdge"
+              style={{ maxWidth: "400px" }}
+            >
+              <p
+                className="mb-0"
+                style={{ color: "white" }}
+                onClick={this.emailSubmit}
+              >
+                Submit
+              </p>
+            </div>
+          </Model>
         </div>
       </>
     );
