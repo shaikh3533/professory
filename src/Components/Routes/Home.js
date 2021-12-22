@@ -13,6 +13,7 @@ import Auth from "../Auth/Auth";
 import Model from "../atoms/Model";
 import Account from "../Api/Account";
 import { message } from "antd";
+import Modall from "../atoms/Modall";
 
 class Home extends React.Component {
   constructor() {
@@ -21,8 +22,11 @@ class Home extends React.Component {
       email: "",
       password: "",
       forgotEmail: "",
+      otpError: "",
+      otp: "",
       loggedIn: false,
       showFrgtModel: false,
+      showOtpModall: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,6 +44,11 @@ class Home extends React.Component {
       [name]: value,
     });
   }
+  closeModal = (name, value) => {
+    this.setState({
+      [name]: value,
+    });
+  };
 
   handleSubmit(event) {
     // auth.login()
@@ -84,6 +93,7 @@ class Home extends React.Component {
         if (response.data.success) {
           this.setState({
             showFrgtModel: false,
+            showOtpModall: true,
           });
         } else {
           message.error(response.data.message);
@@ -91,6 +101,44 @@ class Home extends React.Component {
       });
     } else {
     }
+  };
+  otpChange = (otp) => {
+    this.setState({
+      otp: otp,
+      otpError: "",
+    });
+
+    if (otp.length > 3) {
+      this.VerifyCode(otp);
+    }
+  };
+
+  VerifyCode = (otp) => {
+    axios
+      .put("Email/verify", {
+        email: this.state.forgotEmail,
+        hash: otp,
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.data.success) {
+          this.setState({ otpModel: false });
+        } else if (res.data.success === false) {
+          message.error(res.data.message);
+          this.setState({ otpError: res.data.message });
+        }
+      });
+  };
+  ResendCode = () => {
+    axios
+      .post("user/resendActivate", {
+        email: this.state.forgotEmail,
+      })
+      .then((res) => {
+        if (res.data.success) {
+          message.success("sent");
+        }
+      });
   };
   render() {
     if (localStorage.getItem("ProfessoryloggedIn")) {
@@ -266,7 +314,7 @@ class Home extends React.Component {
           <Model
             openModel={this.state.showFrgtModel}
             closable={true}
-            handleChange={this.handleChange}
+            handleChange={this.closeModal}
             name="showFrgtModel"
           >
             <form
@@ -309,6 +357,17 @@ class Home extends React.Component {
               </p>
             </div>
           </Model>
+          <Modall
+            openModel={this.state.showOtpModall}
+            name="showOtpModall"
+            closable={false}
+            handleChange={this.closeModal}
+            value={this.state.otp}
+            reciver="Email"
+            error={this.state.otpError}
+            ResendCode={this.ResendCode}
+            otpChange={this.otpChange}
+          />
         </div>
       </>
     );
