@@ -76,7 +76,7 @@ const HelpfullRating = (props) => {
       canLike: !alreadyLiked.some((x) => x.userID == localStorage.getItem("UserID")),
     });
 
-  },[]);
+  }, []);
 
   const liked = () => {
     setFormData({
