@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useParams } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import { Nav } from "react-bootstrap";
 import profile from "../../Assets/img/Profile.png";
 import msg from "../../Assets/img/messages.png";
 import notification from "../../Assets/img/Notification.png";
-
+import GetData from "../Api/GetData";
+import Select from "react-select";
 const SecondNavbar = () => {
+  const [counteries, setCounteries] = useState([]);
+  const [countryID, setCountryID] = useState();
   const [notificationOPen, setNotificationOpen] = useState(false);
   const [messageboxOpen, setMessageboxOpen] = useState(false);
   function expand() {
@@ -21,14 +24,42 @@ const SecondNavbar = () => {
   function messageboxxClose() {
     setMessageboxOpen(false);
   }
+  const handleChange = (value) => {
+    setCountryID(value.countryID);
+    localStorage.setItem("countryID", JSON.parse(countryID));
+  };
+  const getData = async () => {
+    const data = await GetData.CounteriesData();
+    setCounteries(data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <>
+      {console.log("conteries", counteries)}
       <div className="SeconNavbar">
         <div className="MaxWidth">
           <Navbar className="row p-0">
             <div className="row col-11 mx-auto">
               <div className="col-10 my-auto">
+                <Nav className="=" navbar-nav></Nav>
                 <Nav className="navbar-nav mx-auto">
+                  <Select
+                    className=" px-4"
+                    value={counteries.countryID}
+                    options={counteries}
+                    isSearchable={false}
+                    defaultValue={
+                      JSON.parse(localStorage.getItem("User")).countryID
+                    }
+                    onChange={handleChange}
+                    formatOptionLabel={(country) => (
+                      <div className="country-option">
+                        <img src={country.flag} alt="country-image" />
+                      </div>
+                    )}
+                  />
                   <NavLink
                     className="nav-link white px-1 px-lg-3"
                     to="/BookStore"

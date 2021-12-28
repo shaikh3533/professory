@@ -319,7 +319,8 @@ class ProfessorRating extends React.Component {
                         </div>
                     </div>
                 </Model>
-                <Model openModel={this.state.showVolunteerModel} closable={true} handleChange={this.handleChange} name='showVolunteerModel'><div className="text-center p-3" width='50px'>
+                <Model openModel={this.state.showVolunteerModel} closable={true} handleChange={this.handleChange} name='showVolunteerModel'>
+                    <div className="text-center p-3" width='50px'>
                     <img src={ProfessorImg} alt="professor" />
                     <p className="my-5">if you would like to volunteer adding data in the app, Please click the volunteer button. We will contact you to guide you </p>
                     <div class="d-grid gap-2 col-12">

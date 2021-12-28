@@ -1,81 +1,148 @@
-import React from "react"
-import GooglePlay from "../../Assets/img/GooglePlay.png"
-import AppStore from "../../Assets/img/AppStore.png"
-import Google from "../../Assets/img/google.png"
-import Twitter from "../../Assets/img/Twitter.png"
-import Android from "../../Assets/img/Android.png"
-import Iphone from "../../Assets/img/Iphone.png"
-import { NavLink, Redirect } from "react-router-dom"
-import Slider from "../SubComponents/Shared/Slider"
-import auth from '../Auth/Auth'
-import axios from 'axios'
-import Auth from "../Auth/Auth"
-
+import React from "react";
+import GooglePlay from "../../Assets/img/GooglePlay.png";
+import AppStore from "../../Assets/img/AppStore.png";
+import Google from "../../Assets/img/google.png";
+import Twitter from "../../Assets/img/Twitter.png";
+import Android from "../../Assets/img/Android.png";
+import Iphone from "../../Assets/img/Iphone.png";
+import { NavLink, Redirect } from "react-router-dom";
+import Slider from "../SubComponents/Shared/Slider";
+import auth from "../Auth/Auth";
+import axios from "axios";
+import Auth from "../Auth/Auth";
+import Model from "../atoms/Model";
+import Account from "../Api/Account";
+import { message } from "antd";
+import Modall from "../atoms/Modall";
 
 class Home extends React.Component {
-
     constructor() {
         super();
         this.state = {
             email: "",
             password: "",
-            loggedIn: false
-        }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+            forgotEmail: "",
+            otpError: "",
+            otp: "",
+            loggedIn: false,
+            showFrgtModel: false,
+            showOtpModall: false,
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount = () => {
-
-        console.log(this.props)
+        console.log(this.props);
         // const element = document.getElementById("inputForm")
         // element.scrollIntoView()
-    }
+    };
 
     handleChange(event) {
-        const { name, value } = event.target
+        const { name, value } = event.target;
         this.setState({
-            [name]: value
-        })
+            [name]: value,
+        });
     }
+    closeModal = (name, value) => {
+        this.setState({
+            [name]: value,
+        });
+    };
 
     handleSubmit(event) {
         // auth.login()
         // console.log(auth.isAuthenticated())
-        axios.post('user/login', {
-            email: this.state.email,
-            password: this.state.password,
-            ProviderType: "website",
-            fCMToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MTA2OTYsImlhdCI6MTYwMjQwODI5NX0.WlwJWiGOHEkADrk97v_QDjRfW4CIHQQQSR5r_c_p7-I"
-        })
+        axios
+            .post("user/login", {
+                email: this.state.email,
+                password: this.state.password,
+                ProviderType: "website",
+                fCMToken:
+                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MTA2OTYsImlhdCI6MTYwMjQwODI5NX0.WlwJWiGOHEkADrk97v_QDjRfW4CIHQQQSR5r_c_p7-I",
+            })
             .then((res) => {
-                console.log(res)
+                console.log(res);
                 if (res.data.success) {
-                    localStorage.setItem('ProfessoryloggedIn', 'true')
-                    localStorage.setItem('x-auth-token', res.data.data.token)
-                    localStorage.setItem('countryID', res.data.data.user.countryID)
-                    localStorage.setItem('User', JSON.stringify(res.data.data.user))
-                    axios.defaults.headers= 
-                    {'x-auth-token': res.data.data.token,
-                    'Content-Type': 'application/json'}
-                    
-                    Auth.login()
-                    this.props.onChange()
+                    localStorage.setItem("ProfessoryloggedIn", "true");
+                    localStorage.setItem("x-auth-token", res.data.data.token);
+                    localStorage.setItem("countryID", res.data.data.user.countryID);
+                    localStorage.setItem("User", JSON.stringify(res.data.data.user));
+                    axios.defaults.headers = {
+                        "x-auth-token": res.data.data.token,
+                        "Content-Type": "application/json",
+                    };
+
+                    Auth.login();
+                    this.props.onChange();
                 }
                 let LoggedInStatus = res.data.success;
                 this.setState({
-                    loggedIn: LoggedInStatus
+                    loggedIn: LoggedInStatus,
                 });
             })
 
             .catch(function (error) {
                 alert(error);
             });
-
     }
+    emailSubmit = () => {
+        if (this.state.forgotEmail !== null) {
+            const res = Account.ForgotPassword(this.state.forgotEmail);
+            res.then((response) => {
+                if (response.data.success) {
+                    this.setState({
+                        showFrgtModel: false,
+                        showOtpModall: true,
+                    });
+                } else {
+                    message.error(response.data.message);
+                }
+            });
+        } else {
+        }
+    };
+    otpChange = (otp) => {
+        this.setState({
+            otp: otp,
+            otpError: "",
+        });
+
+        if (otp.length > 3) {
+            this.VerifyCode(otp);
+        }
+    };
+
+    VerifyCode = (otp) => {
+        axios
+            .put("Email/verify", {
+                email: this.state.forgotEmail,
+                hash: otp,
+            })
+            .then((res) => {
+                console.log(res);
+                if (res.data.success) {
+                    this.setState({ otpModel: false });
+                } else if (res.data.success === false) {
+                    message.error(res.data.message);
+                    this.setState({ otpError: res.data.message });
+                }
+            });
+    };
+    ResendCode = () => {
+        axios
+            .post("user/resendActivate", {
+                email: this.state.forgotEmail,
+            })
+            .then((res) => {
+                if (res.data.success) {
+                    message.success("sent");
+                }
+            });
+    };
     render() {
-        if (localStorage.getItem('ProfessoryloggedIn')) {
-            return <Redirect to="/BookStore" />
+        if (localStorage.getItem("ProfessoryloggedIn")) {
+            return <Redirect to="/BookStore" />;
         }
         return (
             <>
@@ -136,16 +203,22 @@ class Home extends React.Component {
                                                 </div>
                                             </div>
                                             <div className="form-group">
-
                                                 <div className="row mx-auto a">
                                                     <div className="col-6 pl-0 pr-1 mb-3">
                                                         <div className="mr-auto bordr">
                                                             <div className="row text-center mx-auto p-2">
                                                                 <div className="col-12 col-md-3 p-0 my-auto">
-                                                                    <img className="pr-0" src={Google} alt="Google" />
+                                                                    <img
+                                                                        className="pr-0"
+                                                                        src={Google}
+                                                                        alt="Google"
+                                                                    />
                                                                 </div>
                                                                 <div className="col-12 col-md-9 p-0 my-auto">
-                                                                    <h6 className="FS_10 LightGray mb-0"> Login with Google</h6>
+                                                                    <h6 className="FS_10 LightGray mb-0">
+                                                                        {" "}
+                                                                        Login with Google
+                                                                    </h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -154,22 +227,47 @@ class Home extends React.Component {
                                                         <div className="mr-auto bordr">
                                                             <div className="row text-center mx-auto p-2">
                                                                 <div className="col-12 col-md-3 p-0 my-auto">
-                                                                    <img className="pr-0 py-1" src={Twitter} alt="Twitter" />
+                                                                    <img
+                                                                        className="pr-0 py-1"
+                                                                        src={Twitter}
+                                                                        alt="Twitter"
+                                                                    />
                                                                 </div>
                                                                 <div className="col-12 col-md-9 p-0 my-auto">
-                                                                    <h6 className="FS_10 LightGray mb-0"> Login with Twitter</h6>
+                                                                    <h6 className="FS_10 LightGray mb-0">
+                                                                        {" "}
+                                                                        Login with Twitter
+                                                                    </h6>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div className="mx-auto">
-                                                        <p className="mb-0" style={{ color: "rgb(70, 116, 122)" }}>Forget Password?</p>
+                                                        <p
+                                                            onClick={() =>
+                                                                this.setState({
+                                                                    showFrgtModel: true,
+                                                                })
+                                                            }
+                                                            className="mb-0"
+                                                            style={{ color: "rgb(70, 116, 122)" }}
+                                                        >
+                                                            Forget Password?
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
-                                        <div className="LoginFooter mr-lg-5 p-3 btmRoundEdge" style={{ maxWidth: "400px" }}>
-                                            <p className="mb-0" style={{ color: "white" }}>Don't have a account? <NavLink to="/SignUp"><strong style={{ color: "white" }}>SignUp</strong></NavLink></p>
+                                        <div
+                                            className="LoginFooter mr-lg-5 p-3 btmRoundEdge"
+                                            style={{ maxWidth: "400px" }}
+                                        >
+                                            <p className="mb-0" style={{ color: "white" }}>
+                                                Don't have a account?{" "}
+                                                <NavLink to="/SignUp">
+                                                    <strong style={{ color: "white" }}>SignUp</strong>
+                                                </NavLink>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -188,14 +286,72 @@ class Home extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                        </div></div>
+                        </div>
+                    </div>
+
+                    <Model
+                        openModel={this.state.showFrgtModel}
+                        closable={true}
+                        handleChange={this.closeModal}
+                        name="showFrgtModel"
+                    >
+                        <form
+                            className="loginForm form mx-auto px-3 px-md-5 py-2 mr-lg-5 mb-0 mt-5 TopRoundEdge ShadowBordr "
+                            style={{ maxWidth: "400px" }}
+                            id="inputForm"
+                        >
+                            <p
+                                className="py-4 FS_24 mb-0 text-center"
+                                style={{ color: "rgb(38, 38, 38)" }}
+                            >
+                                Forgot Password?
+                            </p>
+                            <div className="form-group">
+                                <input
+                                    type="email"
+                                    id="forgotEmail"
+                                    className="form-control mx-auto "
+                                    placeholder="Enter your Phone number or Email"
+                                    value={this.state.forgotEmail}
+                                    name="forgotEmail"
+                                    required
+                                    onChange={this.handleChange}
+                                />
+                                <label htmlFor="forgotEmail">
+                                    Enter your Phone number or Email
+                                </label>
+                            </div>
+                        </form>
+                        <div
+                            className="LoginFooter mx-auto mr-lg-5 p-3 btmRoundEdge"
+                            style={{ maxWidth: "400px" }}
+                        >
+                            <p
+                                className="mb-0"
+                                style={{ color: "white" }}
+                                onClick={this.emailSubmit}
+                            >
+                                Submit
+                            </p>
+                        </div>
+                    </Model>
+                    <Modall
+                        openModel={this.state.showOtpModall}
+                        name="showOtpModall"
+                        closable={false}
+                        handleChange={this.closeModal}
+                        value={this.state.otp}
+                        reciver="Email"
+                        error={this.state.otpError}
+                        ResendCode={this.ResendCode}
+                        otpChange={this.otpChange}
+                    />
                 </div>
             </>
-        )
+        );
     }
 }
-export default Home
-
+export default Home;
 
 // const Home = () => {
 //     const InitialState = {
@@ -296,7 +452,7 @@ export default Home
 
 //                                     <div className="row mx-auto a">
 //                                         <div className="col-6 pl-0 pr-1 mb-3">
-//                                             <div className="mr-auto bordr">                                  
+//                                             <div className="mr-auto bordr">
 //                                                 <div className="row text-center mx-auto p-2">
 //                                                     <div className="col-12 col-md-3 p-0 my-auto">
 //                                                         <img className="pr-0" src={Google} alt="Google" />
@@ -347,7 +503,6 @@ export default Home
 //         </>
 //     )
 // }
-
 
 // export default Home
 
