@@ -104,6 +104,7 @@ class Home extends React.Component {
                                                     placeholder="Phone Number, Username, or Email"
                                                     value={this.state.email}
                                                     name="email"
+                                                    autoComplete={false}
                                                     onChange={this.handleChange}
                                                 />
                                                 <label htmlFor="phone" >Phone, Username, or Email</label>
@@ -116,6 +117,7 @@ class Home extends React.Component {
                                                     placeholder="Password"
                                                     value={this.state.password}
                                                     name="password"
+                                                    autoComplete={false}
                                                     onChange={this.handleChange}
                                                 />
                                                 <label htmlFor="password">Password</label>

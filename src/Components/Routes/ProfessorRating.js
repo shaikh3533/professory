@@ -16,7 +16,7 @@ class ProfessorRating extends React.Component {
         super();
         this.state = {
             DataofProfessors: [],
-            visible: 8,
+            visible: 30,
             univID: "Select University",
             collegeID: "Select College",
             majorID: "Select Major",
@@ -95,7 +95,7 @@ class ProfessorRating extends React.Component {
 
     LoadMore() {
         this.setState((old) => {
-            return { visible: old.visible + 4 }
+            return { visible: old.visible + 10 }
         })
     }
     ShowLess() {

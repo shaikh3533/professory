@@ -8,7 +8,7 @@ const DisplayProfessorsSubject = (props) => {
             <div className="col-12 col-sm-6 col-md-4 col-lg-3 px-2 mb-4">
                 <NavLink className="nav-link m-0 p-0" to={props.from + props.Id} >
                     <div className="card mx-1 text-center p-3">
-                        <img src={props.Img} alt="" className="d-block mx-auto" />
+                        <img src={props.Img} alt="" className="d-block mx-auto w-100" />
                         <div className="row mb-2">
                             <div className="col-12 p-0 mx-0 my-auto mx-auto">
                                 {/* <p className="Bold mb-0 FS_16 Black" style={{ fontSize: "100%" }}> {props.Name}

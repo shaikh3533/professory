@@ -42,34 +42,41 @@ const HelpfullRating = (props) => {
   } = FormData;
 
   useEffect(() => {
-    const len = !!alreadyLiked.filter(
-      (x) => x.userID == localStorage.getItem("UserID")
-    ).length;
-    if (len == canLike) {
-      setFormData({
-        ...FormData,
-        canLike: !len,
-      });
-    }
-    const lenDisLike = !!alreadyDisLiked.filter(
-      (x) => x.userID == localStorage.getItem("UserID")
-    ).length;
-    if (lenDisLike == canDisLike) {
-      setFormData({
-        ...FormData,
-        canDisLike: !lenDisLike,
-      });
-    }
-    const lenBlock = !!alreadyBlock.filter(
-      (x) => x.userID == localStorage.getItem("UserID")
-    ).length;
-    if (lenBlock == canBlock) {
-      setFormData({
-        ...FormData,
-        canBlock: !lenBlock,
-      });
-    }
-  }, []);
+    // const len = !!alreadyLiked.filter(
+    //   (x) => x.userID == localStorage.getItem("UserID")
+    // ).length;
+    // if (len == canLike) {
+    //   setFormData({
+    //     ...FormData,
+    //     canLike: !len,
+    //   });
+    // }
+    // const lenDisLike = !!alreadyDisLiked.filter(
+    //   (x) => x.userID == localStorage.getItem("UserID")
+    // ).length;
+    // if (lenDisLike == canDisLike) {
+    //   setFormData({
+    //     ...FormData,
+    //     canDisLike: !lenDisLike,
+    //   });
+    // }
+    // const lenBlock = !!alreadyBlock.filter(
+    //   (x) => x.userID == localStorage.getItem("UserID")
+    // ).length;
+    // if (lenBlock == canBlock) {
+    //   setFormData({
+    //     ...FormData,
+    //     canBlock: !lenBlock,
+    //   });
+    // }
+    setFormData({
+      ...FormData,
+      canBlock: !alreadyBlock.some((x) => x.userID == localStorage.getItem("UserID")),
+      canDisLike: !alreadyDisLiked.some((x) => x.userID == localStorage.getItem("UserID")),
+      canLike: !alreadyLiked.some((x) => x.userID == localStorage.getItem("UserID")),
+    });
+
+  },[]);
 
   const liked = () => {
     setFormData({
@@ -83,6 +90,7 @@ const HelpfullRating = (props) => {
     res.then((value) => {
       console.table("responce", value);
       if (!value.data.success) {
+        message.error(value.data.message);
         setFormData({
           ...FormData,
           canLike: true,
@@ -106,6 +114,7 @@ const HelpfullRating = (props) => {
     res.then((value) => {
       console.table("responce", value);
       if (!value.data.success) {
+        message.error(value.data.message);
         setFormData({
           ...FormData,
           canLike: true,
@@ -129,6 +138,7 @@ const HelpfullRating = (props) => {
     res.then((value) => {
       console.table("responce", value.data.success);
       if (!value.data.success) {
+        message.error(value.data.message);
         setFormData({
           ...FormData,
           canBlock: true,
@@ -155,7 +165,6 @@ const HelpfullRating = (props) => {
       $("#" + e + "comment").removeClass("d-flex");
     }
   };
-  console.log(props.Name, FormData);
   return (
     <>
       <div className="row ShadowBordr Round25 py-3 px-3 px-md-5 my-4 ">
@@ -288,7 +297,6 @@ const HelpfullRating = (props) => {
         </div>
         <div className="col-12 mt-3 p-0">
           <Replies Replies={allReplies} />
-          {console.log(allReplies)}
         </div>
       </div>
     </>

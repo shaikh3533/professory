@@ -42,7 +42,7 @@ const ProfessorDetails = () => {
                       professorID={professoryData.profID}
                       majorid={professoryData.majorID}
                       Id={professoryData.majorID}
-                      Img={DubaiProfessorImg}
+                      Img={professoryData.profLogo}
                       Name={professoryData.profName}
                       Ratting={professoryData.Rating}
                       Grade="B+"
@@ -55,7 +55,7 @@ const ProfessorDetails = () => {
                   <h3 className="mb-0 text-center">Most HelpFull Ratings</h3>
                   {professoryData.helpFull !== null ? (
                     <>
-                      {console.log("hardness", professoryData.hardLevel)}
+                      {console.log("hardness", professoryData)}
                       <HelpfullRating
                         commentID={professoryData.helpFull.commentID}
                         ID={professoryData.helpFull.profID}
