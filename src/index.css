@@ -584,7 +584,7 @@ select {
 .Mobile {
   margin-top: -410px;
   width: max-content;
-  z-index: 9999;
+  z-index: 1;
   padding-bottom: 25px;
 }
 
