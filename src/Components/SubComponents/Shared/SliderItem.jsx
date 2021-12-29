@@ -9,9 +9,9 @@ const SliderItem = (props) => {
                         <div className="half position-relative">
                             <img className="position-absolute" src={props.img} alt={props.title} />
                         </div>
-                        <div className="news-grid-txt">
+                        <div className="news-grid-txt ">
                             <h4>{props.title}</h4>
-                            <p>{props.text}</p>
+                            <p className="FS_15">{props.text}</p>
                         </div>
                     </NavLink>
             </div>
