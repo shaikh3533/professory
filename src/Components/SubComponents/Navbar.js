@@ -7,10 +7,10 @@ import notification from "../../Assets/img/Notification.png"
 import Auth from "../Auth/Auth"
 
 class Navbar extends React.Component {
-    constructor(){
+    constructor() {
         super();
     }
-    handleChange=()=>{
+    handleChange = () => {
         localStorage.clear();
         Auth.logout()
         this.props.LoginStatusChange()
@@ -18,13 +18,13 @@ class Navbar extends React.Component {
     render() {
         return (
             <>
-            
-                <div className="container-fluid">
+
+                <div className="container-fluid bgBlue">
                     <div className="MaxWidth">
                         <div className="row">
                             <div className="col-11 col-md-10 mx-auto ">
                                 <nav className="navbar navbar-expand-md navbar-light px-0">
-                                    <NavLink className="navbar-brand custom_color" to="/"><img className="Logo" src={Logo} alt="Logo" /> <span> Professory</span></NavLink>
+                                    <NavLink className="navbar-brand custom_color" to="/"><img className="Logo" src={Logo} alt="Logo" /> <span className="logoText"> Professory</span></NavLink>
                                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span className="navbar-toggler-icon"></span>
                                     </button>
@@ -32,7 +32,7 @@ class Navbar extends React.Component {
                                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                         <ul className="navbar-nav ml-auto">
                                             <li className="nav-item active">
-                                                <NavLink className="nav-link" to="/" style={{ color: "rgb(127, 130, 137)" }} >Home</NavLink>
+                                                <NavLink className="nav-link text-white" to="/">Home</NavLink>
                                             </li>
                                             <li className="nav-item">
                                                 <NavLink className="nav-link custom_color" to="/Feature">Feature</NavLink>
@@ -80,20 +80,20 @@ class Navbar extends React.Component {
                                         {!this.props.isLoggedIn ?
                                             <NavLink to="/Signup">
                                                 <button
-                                                    className="Round_edge button filled_btn px-3 mx-2"
+                                                    className="button filled_btn px-3 mx-2"
                                                     type="button"
                                                 >
                                                     Sign Up
                                                 </button>  </NavLink> :
                                             <button
-                                                className="Round_edge button filled_btn px-3 mx-2"
+                                                className="button filled_btn px-3 mx-2"
                                                 type="button"
-                                            onClick={this.handleChange}
+                                                onClick={this.handleChange}
                                             >
                                                 Log Out
                                             </button>}
                                         <button
-                                            className="Round_edge empty_btn button"
+                                            className="Round_edge py-1 empty_btn button"
                                             type="button"
                                             style={{ display: this.props.isLoggedIn ? "none" : null }}
                                         >en

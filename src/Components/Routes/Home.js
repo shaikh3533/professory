@@ -206,7 +206,7 @@ class Home extends React.Component {
                                                 <div className="row mx-auto a">
                                                     <div className="col-6 pl-0 pr-1 mb-3">
                                                         <div className="mr-auto bordr">
-                                                            <div className="row text-center mx-auto p-2">
+                                                            <div className="row text-center shadow mx-auto p-2">
                                                                 <div className="col-12 col-md-3 p-0 my-auto">
                                                                     <img
                                                                         className="pr-0"
@@ -223,7 +223,7 @@ class Home extends React.Component {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className="col-6 pr-0 pl-1 mb-3">
+                                                    <div className="col-6 pr-0 pl-1 mb-3 shadow">
                                                         <div className="mr-auto bordr">
                                                             <div className="row text-center mx-auto p-2">
                                                                 <div className="col-12 col-md-3 p-0 my-auto">

@@ -24,17 +24,27 @@ body {
   padding-right: 8px !important;
 }
 
+.bgBlue {
+  background-color: #123F6C;
+}
+
 .custom_color {
-  color: rgb(127, 130, 137) !important;
+  color: white !important;
 }
 
 .navbar-light .navbar-brand {
-  font-size: 24px;
+  font-size: 15px;
+  color: white !important;
 }
 
 .Logo {
-  width: 27px;
-  height: 40px;
+  width: 32px;
+  height: 51px;
+}
+
+.logoText{
+  font-size: 25px;
+  font-weight: normal;
 }
 
 .navbar-nav {
@@ -46,7 +56,7 @@ body {
 }
 
 .button {
-  border: 1px solid rgb(122, 172, 179) !important;
+  border: 1px solid #3679BC !important;
   border-radius: 2px;
 }
 
@@ -57,8 +67,8 @@ textarea {
 }
 
 .Round_edge {
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
   border-radius: 50px;
 }
 
@@ -71,9 +81,9 @@ textarea {
 }
 
 .TopRoundEdge {
-  -webkit-border-radius: 25px 25px 0px 0px;
-  -moz-border-radius: 25px 25px 0px 0px;
-  border-radius: 25px 25px 0px 0px;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .Edge {
@@ -108,13 +118,13 @@ textarea {
 }
 
 .filled_btn {
-  background-color: rgb(122, 172, 179) !important;
+  background-color: #3679BC !important;
   color: white !important;
 }
 
 .empty_btn {
-  background-color: transparent;
-  color: rgb(122, 172, 179);
+  background-color: white;
+  color: #3679BC !important;
 }
 
 footer {
@@ -126,7 +136,7 @@ footer {
 }
 
 .copyright {
-  background-color: rgb(236, 239, 242);
+  background-color: #123F6C;
 }
 
 .copyright p,
@@ -289,7 +299,7 @@ h6 {
 
 .loginForm {
   background-color: white;
-  box-shadow: 0px 0px 35px #78a9b0;
+  box-shadow: 0px 0px 5px #3679BC;
 }
 
 .loginForm .form-group,
@@ -363,8 +373,7 @@ h6 {
 } */
 
 select {
-  background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
-    no-repeat;
+  background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
   background-position: calc(100% - 0.75rem) center !important;
   -moz-appearance: none !important;
   -webkit-appearance: none !important;
@@ -394,7 +403,7 @@ select {
 }
 
 .form-group:focus-within label,
-.form-group input:not(:placeholder-shown) ~ label,
+.form-group input:not(:placeholder-shown)~label,
 .Valued {
   transform: translate(0, -6px) scale(0.6) !important;
   color: rgb(0, 0, 0) !important;
@@ -463,7 +472,13 @@ select {
 
 .ShadowBordr {
   background-color: rgb(255, 255, 255);
-  box-shadow: 0px 0px 6px 0.16px #7aacb3;
+  box-shadow: 0px 0px 6px 0.16px #3679BC;
+  border: 0.2px solid #3679BC;
+}
+
+.shadow{
+  box-shadow: 0px 0px 6px 0.16px #3679BC;
+  border: 0.1px  solid #3679BC;
 }
 
 .LoginFooter {
@@ -664,15 +679,19 @@ textarea {
   border-top: 1px solid rgb(196, 196, 196);
   background-color: #7aacb3;
 }
+
 .css-tlfecz-indicatorContainer {
   display: none !important;
 }
+
 .css-1hb7zxy-IndicatorsContainer {
   display: none !important;
 }
+
 .css-319lph-ValueContainer {
   background-color: #7aacb3;
 }
+
 .css-2613qy-menu {
   text-align: center !important;
   align-items: center !important;
@@ -734,29 +753,20 @@ textarea {
   display: flex;
 }
 
-.secondnavbar-notifications_dd
-  li
-  .secondnavbar-notify_icon
-  .secondnavbar-notification-profile-icon {
+.secondnavbar-notifications_dd li .secondnavbar-notify_icon .secondnavbar-notification-profile-icon {
   background: url('./Assets/img/notification-icon.png') no-repeat 0 0;
   width: 59px;
   height: 55px;
   border-radius: 50px;
 }
 
-.secondnavbar-notifications_dd
-  li
-  .secondnavbar-notify_data
-  .secondnavbar-notification_title {
+.secondnavbar-notifications_dd li .secondnavbar-notify_data .secondnavbar-notification_title {
   color: #000;
   font-weight: 600;
   font-size: 15px;
 }
 
-.secondnavbar-notifications_dd
-  li
-  .secondnavbar-notify_data
-  .secondnavbar-notification_subtitle {
+.secondnavbar-notifications_dd li .secondnavbar-notify_data .secondnavbar-notification_subtitle {
   font-size: 13px;
   white-space: nowrap;
   overflow: hidden;
@@ -949,8 +959,8 @@ textarea {
   width: 100%;
 }
 
-.RadioToButton input:checked + label,
-.Checked + label,
+.RadioToButton input:checked+label,
+.Checked+label,
 .bookloadmore {
   background: rgb(122, 172, 179);
   color: white;
@@ -1121,7 +1131,7 @@ textarea {
   transition: 100ms ease;
 }
 
-.rating-wrapper input.rating:checked + label.rating {
+.rating-wrapper input.rating:checked+label.rating {
   filter: grayscale(0);
   opacity: 1;
   transform: scale(1);
@@ -1317,6 +1327,7 @@ position: inherit !important ;
 }
 
 @media only screen and (min-width: 990px) {
+
   .Rating button,
   .Rating p,
   .vhTo50 {
@@ -1340,6 +1351,7 @@ position: inherit !important ;
 }
 
 @media only screen and (max-width: 767px) {
+
   /* for screen smaller than 767px */
   .SeconNavbar {
     display: none;
