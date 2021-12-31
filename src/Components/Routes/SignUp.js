@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import BecomeMember from "../../Assets/img/Professor (2).png";
+import BecomeMember from "../../Assets/img/signupDivImg1.png";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Select, message } from "antd";
@@ -209,177 +209,179 @@ class SignUp extends React.Component {
 
   render() {
     return this.state.update ? (
-      <div className="container-fluid">
-        <div className="row SignUp BackgroundImg py-5 mb-5">
-          <div className="MaxWidth my-auto py-4">
-            <div className="col-12 col-md-9 mx-auto py-2">
-              <div className="loginForm Round25">
-                <div className="row p-4">
-                  <div className="col-12 col-sm-6 col-md-12 col-lg-6 my-auto">
-                    <div className="p-3">
-                      <img
-                        src={BecomeMember}
-                        className="mx-auto d-block w-25"
-                        alt="Become a member"
-                      />
-                      <p className="text-center Bold my-3">
-                        Become a Member Now
-                      </p>
-                      <p className="text-center">
-                        What is Lorem Ipsum Lorem text of the printing and type
-                        has been the industry
-                      </p>
+      <div className="container-fluid SignUp BackgroundImg">
+        <div className="row py-5 my-5">
+          <div className="MaxWidth py-5">
+            <div className="col-12 col-md-9 px-0 mx-auto divShadow">
+              <div className="row">
+                <div className="col-12 col-sm-6 col-md-12 col-lg-6 bgBlue">
+                  <div className="h-100 d-flex">
+                    <div className="my-auto d-block">
+                      <div className="p-3">
+                        <img
+                          src={BecomeMember}
+                          className="mx-auto d-block w-50"
+                          alt="Become a member"
+                        />
+                        <p className="text-center text-white FS_20 Bold my-3">
+                          Become a Member Now
+                        </p>
+                        <p className="text-center text-white FS_14">
+                          What is Lorem Ipsum Lorem text of the printing and type
+                          has been the industry
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <div className="col-12 col-sm-6 col-md-12 col-lg-6">
-                    <form className="form" onSubmit={this.handleSubmit}>
-                      <h3
-                        className="p-4 text-center"
-                        style={{ color: "rgb(38, 38, 38)" }}
+                </div>
+                <div className="col-12 col-sm-6 col-md-12 col-lg-6">
+                  <form className=" my-5" onSubmit={this.handleSubmit}>
+                    <h3
+                      className="p-4 text-center"
+                      style={{ color: "rgb(38, 38, 38)" }}
+                    >
+                      Sign Up
+                    </h3>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        className="form-control mx-auto"
+                        name="full_name"
+                        required
+                        value={this.state.full_name}
+                        placeholder="Full Name"
+                        onChange={this.handleChange}
+                      />
+                      <label htmlFor="full_name">Full Name</label>
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="email"
+                        className="form-control mx-auto"
+                        name="email"
+                        required
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                        placeholder="Email"
+                      />
+                      <label htmlFor="email">Email</label>
+                      <p id="error" className="alert-danger p-0 m-0"></p>
+                    </div>
+
+                    <PhoneInput
+                      value={this.state.phone}
+                      placeholder="Enter phone"
+                      inputProps={{
+                        name: "phone",
+                        required: true,
+                      }}
+                      containerClass="mb-3"
+                      country={"kw"}
+                      // onChange={phone => this.setState({ phone })}
+                      onChange={this.updatePhone}
+                      isValid={(inputNumber, value, country) => {
+                        const newStr = inputNumber.replace(
+                          value.dialCode,
+                          ""
+                        );
+                        if (value.dialCode === "") {
+                          return "Select Country Code";
+                        } else if (newStr === "" && this.state.count) {
+                          return "Phone number required";
+                        } else {
+                          return true;
+                        }
+                      }}
+                    />
+                    <div className="form-group" id="custom-select ">
+                      <select
+                        id="gender"
+                        name="gender"
+                        required
+                        className={`form-control mx-auto `}
+                        value={this.state.gender}
+                        onChange={this.handleChange}
+                      >
+                        <option value="">Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                      <label
+                        className={` ${this.state.gender !== "" ? "Valued" : "d-none"
+                          }`}
+                        htmlFor="gender"
+                      >
+                        Gender
+                      </label>
+                    </div>
+
+                    <div className="form-group">
+                      <input
+                        type="password"
+                        className="form-control"
+                        name="password"
+                        value={this.state.password}
+                        required
+                        onChange={this.handleChange}
+                        rows="4"
+                        placeholder="Password"
+                      />
+                      <label htmlFor="password">Password</label>
+                    </div>
+                    <SearchableSelect
+                      name="countryID"
+                      value={this.state.countryID}
+                      function={this.onChange}
+                      list={this.state.countries}
+                      objName="countryName"
+                      label="Country"
+                      Error={this.state.countryError}
+                    />
+                    <SearchableSelect
+                      name="univID"
+                      value={this.state.univID}
+                      function={this.onChange}
+                      list={this.state.universities}
+                      objName="univName"
+                      label="University"
+                      Error={this.state.univError}
+                    />
+                    <SearchableSelect
+                      name="collegeID"
+                      value={this.state.collegeID}
+                      function={this.onChange}
+                      list={this.state.colleges}
+                      objName="collegeName"
+                      label="College"
+                      Error={this.state.collegeError}
+                    />
+                    <SearchableSelect
+                      name="majorID"
+                      value={this.state.majorID}
+                      function={this.onChange}
+                      list={this.state.majors}
+                      objName="majorName"
+                      label="Major"
+                      Error={this.state.majorError}
+                    />
+                    <div className="form-group">
+                      <button
+                        type="submit"
+                        className="form-control mx-auto button filled_btn"
                       >
                         Sign Up
-                      </h3>
-                      <div className="form-group">
-                        <input
-                          type="text"
-                          className="form-control mx-auto"
-                          name="full_name"
-                          required
-                          value={this.state.full_name}
-                          placeholder="Full Name"
-                          onChange={this.handleChange}
-                        />
-                        <label htmlFor="full_name">Full Name</label>
-                      </div>
-                      <div className="form-group">
-                        <input
-                          type="email"
-                          className="form-control mx-auto"
-                          name="email"
-                          required
-                          value={this.state.email}
-                          onChange={this.handleChange}
-                          placeholder="Email"
-                        />
-                        <label htmlFor="email">Email</label>
-                        <p id="error" className="alert-danger p-0 m-0"></p>
-                      </div>
-
-                      <PhoneInput
-                        value={this.state.phone}
-                        placeholder="Enter phone"
-                        inputProps={{
-                          name: "phone",
-                          required: true,
-                        }}
-                        containerClass="mb-3"
-                        country={"kw"}
-                        // onChange={phone => this.setState({ phone })}
-                        onChange={this.updatePhone}
-                        isValid={(inputNumber, value, country) => {
-                          const newStr = inputNumber.replace(
-                            value.dialCode,
-                            ""
-                          );
-                          if (value.dialCode === "") {
-                            return "Select Country Code";
-                          } else if (newStr === "" && this.state.count) {
-                            return "Phone number required";
-                          } else {
-                            return true;
-                          }
-                        }}
-                      />
-                      <div className="form-group" id="custom-select">
-                        <select
-                          id="gender"
-                          name="gender"
-                          required
-                          className={`form-control mx-auto `}
-                          value={this.state.gender}
-                          onChange={this.handleChange}
-                        >
-                          <option value="">Gender</option>
-                          <option value="Male">Male</option>
-                          <option value="Female">Female</option>
-                        </select>
-                        <label
-                          className={` ${this.state.gender !== "" ? "Valued" : "d-none"
-                            }`}
-                          htmlFor="gender"
-                        >
-                          Gender
-                        </label>
-                      </div>
-
-                      <div className="form-group">
-                        <input
-                          type="password"
-                          className="form-control"
-                          name="password"
-                          value={this.state.password}
-                          required
-                          onChange={this.handleChange}
-                          rows="4"
-                          placeholder="Password"
-                        />
-                        <label htmlFor="password">Password</label>
-                      </div>
-                      <SearchableSelect
-                        name="countryID"
-                        value={this.state.countryID}
-                        function={this.onChange}
-                        list={this.state.countries}
-                        objName="countryName"
-                        label="Country"
-                        Error={this.state.countryError}
-                      />
-                      <SearchableSelect
-                        name="univID"
-                        value={this.state.univID}
-                        function={this.onChange}
-                        list={this.state.universities}
-                        objName="univName"
-                        label="University"
-                        Error={this.state.univError}
-                      />
-                      <SearchableSelect
-                        name="collegeID"
-                        value={this.state.collegeID}
-                        function={this.onChange}
-                        list={this.state.colleges}
-                        objName="collegeName"
-                        label="College"
-                        Error={this.state.collegeError}
-                      />
-                      <SearchableSelect
-                        name="majorID"
-                        value={this.state.majorID}
-                        function={this.onChange}
-                        list={this.state.majors}
-                        objName="majorName"
-                        label="Major"
-                        Error={this.state.majorError}
-                      />
-                      <div className="form-group">
-                        <button
-                          type="submit"
-                          className="form-control mx-auto button filled_btn"
-                        >
-                          Sign Up
-                        </button>
-                      </div>
-                    </form>
-                    <Modall
-                      openModel={this.state.otpModal}
-                      closable={false}
-                      value={this.state.otp}
-                      reciver='Email'
-                      otpChange={this.otpChange}
-                      error={this.state.otpError}
-                      ResendCode={this.ResendCode}
-                    />
-                  </div>
+                      </button>
+                    </div>
+                  </form>
+                  <Modall
+                    openModel={this.state.otpModal}
+                    closable={false}
+                    value={this.state.otp}
+                    reciver='Email'
+                    otpChange={this.otpChange}
+                    error={this.state.otpError}
+                    ResendCode={this.ResendCode}
+                  />
                 </div>
               </div>
             </div>

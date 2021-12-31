@@ -2,6 +2,7 @@
   font-family: Poppins;
   font-weight: 300;
 }
+
 html {
   font-size: 62.5%;
 }
@@ -27,6 +28,11 @@ body {
 .row {
   margin-left : 0 !important;
   margin-right: 0 !important;
+}
+
+.margin_Y {
+  display       : table-cell;
+  vertical-align: middle;
 }
 
 .MaxWidth {
@@ -410,7 +416,7 @@ h6 {
 } */
 
 select {
-  background         : url("data:image/svg+xml,<svg height='10rem' width='10rem' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
+  background         : url("data:image/svg+xml,<svg height='1.0rem' width='0.7rem' viewBox='0 0 16 16' fill='rgba(0, 0, 0, 0.85)' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
   background-position: calc(100% - 0.75rem) center !important;
   -moz-appearance    : none !important;
   -webkit-appearance : none !important;
@@ -505,6 +511,10 @@ select {
 .bordr {
   border: .1rem solid #e0eeff;
   height: max-content;
+}
+
+.divShadow{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* 
@@ -638,15 +648,15 @@ select {
   width         : max-content;
   z-index       : 1;
   padding-bottom: 2.5rem;
-  margin-left: -3rem;
+  margin-left   : -3rem;
 }
 
 .MobileImg {
-  height            : 55rem;
-  width             : 43rem;
+  height: 55rem;
+  width : 43rem;
 }
 
-.imgDiv{
+.imgDiv {
   -webkit-box-shadow: .10rem .0rem -1rem #123F6C;
   -moz-box-shadow   : .10rem .0rem -1rem #123F6C;
   box-shadow        : .10rem .0rem -1rem #123F6C;
@@ -690,11 +700,12 @@ textarea {
 
 .Contact,
 .SignUp {
-  background-image: url(./Assets/img/SginupRight.svg),
+  background-image            : url(./Assets/img/Bg_SignUp.png);
+  /* background-image         : url(./Assets/img/SginupRight.svg),
     url(./Assets/img/SginUpLeft.svg);
   background-position         : right top, left top;
-  background-repeat           : no-repeat, no-repeat;
-  background-size             : contain;
+  background-size             : contain;*/
+  background-repeat           : no-repeat;
   height                      : inherit;
   /* The image used */
   /* background-image         : url(./Assets/img/Background2.png);
