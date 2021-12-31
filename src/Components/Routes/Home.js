@@ -3,8 +3,7 @@ import GooglePlay from "../../Assets/img/GooglePlay.png";
 import AppStore from "../../Assets/img/AppStore.png";
 import Google from "../../Assets/img/google.png";
 import Twitter from "../../Assets/img/Twitter.png";
-import Android from "../../Assets/img/Android.png";
-import Iphone from "../../Assets/img/Iphone.png";
+import MobileImg from "../../Assets/img/MobileImg.png";
 import { NavLink, Redirect } from "react-router-dom";
 import Slider from "../SubComponents/Shared/Slider";
 import auth from "../Auth/Auth";
@@ -146,7 +145,7 @@ class Home extends React.Component {
         }
         return (
             <>
-                <div className="container-fluid upper_div">
+                <div className="container-fluid upper_div py-5">
                     <div className="MaxWidth">
                         <div className="mb-5">
                             <div className="row">
@@ -161,7 +160,7 @@ class Home extends React.Component {
                                     </div>
                                     <div className="col-12 col-md-6 ml-auto px-0 px-md-3">
                                         <div className="loginForm">
-                                            <form className=" form px-3 px-md-5 py-2 mr-lg-5 mb-0 mt-5" style={{ maxWidth: "600px" }} id="inputForm">
+                                            <form className=" form px-4 px-md-5 py-3 mb-0 mt-5" style={{ maxWidth: "600px" }} id="inputForm">
                                                 <p className="py-4 FS_24 mb-0 text-center" style={{ color: "#9C9C9C" }}>Log in</p>
                                                 <div className="form-group">
                                                     <input
@@ -333,18 +332,19 @@ class Home extends React.Component {
                         otpChange={this.otpChange}
                     />
                 </div>
-                <div className="mb-5">
+                <div className="container-fluid pb-5">
                     <div className="row">
-                        <div className="row col-10 mx-auto pr-0">
-                            <div className="Right_to_center">
-                                <p className="FS_30 Bold mb-0">Our Features</p>
+                        <div className="col-11 mx-auto">
+                            <div className="container">
+                                <div className="row col-11 mx-auto px-0">
+                                    <div className="Right_to_center">
+                                        <p className="FS_30 Bold themeTxt mb-0 mt-5">Our Features</p>
+                                    </div>
+                                    <Slider />
+                                    <div className="Mobile imgDiv">
+                                <img src={MobileImg} className="MobileImg" id="Android" alt="Android Display" />
                             </div>
-                            <div className="col-11 ml-auto">
-                                <Slider />
-                            </div>
-                            <div className="Mobile">
-                                <img src={Android} id="Android" alt="Android Display" />
-                                <img src={Iphone} id="Iphone" alt="Iphone Display" />
+                                </div>
                             </div>
                         </div>
                     </div>

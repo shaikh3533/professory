@@ -1,8 +1,23 @@
 * {
   font-family: Poppins;
   font-weight: 300;
-  font-size  : 14px;
 }
+html {
+  font-size: 62.5%;
+}
+
+@media (max-width:1250px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width:768px) {
+  html {
+    font-size: 45%;
+  }
+}
+
 
 html,
 body {
@@ -15,13 +30,13 @@ body {
 }
 
 .MaxWidth {
-  max-width: 1280px;
+  max-width: 128.0rem;
   margin   : 0 auto;
 }
 
 .container-fluid {
-  padding-left : 8px !important;
-  padding-right: 8px !important;
+  padding-left : .8rem !important;
+  padding-right: .8rem !important;
 }
 
 .bgBlue {
@@ -33,22 +48,22 @@ body {
 }
 
 .navbar-light .navbar-brand {
-  font-size: 15px;
+  font-size: 1.5rem;
   color    : white !important;
 }
 
 .Logo {
-  width : 32px;
-  height: 51px;
+  width : 3.2rem;
+  height: 5.1rem;
 }
 
 .logoText {
-  font-size  : 25px;
+  font-size  : 2.5rem;
   font-weight: normal;
 }
 
 .navbar-nav {
-  font-size: 15px;
+  font-size: 1.5rem;
 }
 
 .widthMaxContent {
@@ -56,8 +71,8 @@ body {
 }
 
 .button {
-  border       : 1px solid #3679BC !important;
-  border-radius: 2px;
+  border       : .1rem solid #3679BC !important;
+  border-radius: .2rem;
 }
 
 button,
@@ -67,54 +82,54 @@ textarea {
 }
 
 .Round_edge {
-  -webkit-border-radius: 80px;
-  -moz-border-radius   : 80px;
-  border-radius        : 50px;
+  -webkit-border-radius: 8.0rem;
+  -moz-border-radius   : 8.0rem;
+  border-radius        : 5.0rem;
 }
 
 .Round25,
 .RoundFeild .ant-select-show-search,
 .RoundFeild .ant-select-selector {
-  -webkit-border-radius: 25px !important;
-  -moz-border-radius   : 25px !important;
-  border-radius        : 25px !important;
+  -webkit-border-radius: 2.5rem !important;
+  -moz-border-radius   : 2.5rem !important;
+  border-radius        : 2.5rem !important;
 }
 
 .TopRoundEdge {
-  -webkit-border-radius: 5px 5px 0px 0px;
-  -moz-border-radius   : 5px 5px 0px 0px;
-  border-radius        : 5px 5px 0px 0px;
+  -webkit-border-radius: .5rem .5rem 0rem 0rem;
+  -moz-border-radius   : .5rem .5rem 0rem 0rem;
+  border-radius        : .5rem .5rem 0rem 0rem;
 }
 
 .Edge {
-  -webkit-border-radius: 10px 10px 10px 10px;
-  -moz-border-radius   : 10px 10px 10px 10px;
-  border-radius        : 10px 10px 10px 10px;
+  -webkit-border-radius: 1.0rem 1.0rem 1.0rem 1.0rem;
+  -moz-border-radius   : 1.0rem 1.0rem 1.0rem 1.0rem;
+  border-radius        : 1.0rem 1.0rem 1.0rem 1.0rem;
 }
 
 .TopEdge {
-  -webkit-border-radius: 10px 10px 0px 0px;
-  -moz-border-radius   : 10px 10px 0px 0px;
-  border-radius        : 10px 10px 0px 0px;
+  -webkit-border-radius: 1.0rem 1.0rem 0rem 0rem;
+  -moz-border-radius   : 1.0rem 1.0rem 0rem 0rem;
+  border-radius        : 1.0rem 1.0rem 0rem 0rem;
 }
 
 .btmEdge {
-  -webkit-border-radius: 0px 0px 10px 10px;
-  -moz-border-radius   : 0px 0px 10px 10px;
-  border-radius        : 0px 0px 10px 10px;
+  -webkit-border-radius: 0rem 0rem 1.0rem 1.0rem;
+  -moz-border-radius   : 0rem 0rem 1.0rem 1.0rem;
+  border-radius        : 0rem 0rem 1.0rem 1.0rem;
 }
 
 .btmRoundEdge {
-  -webkit-border-radius: 0px 0px 25px 25px;
-  -moz-border-radius   : 0px 0px 25px 25px;
-  border-radius        : 0px 0px 25px 25px;
+  -webkit-border-radius: 0rem 0rem 2.5rem 2.5rem;
+  -moz-border-radius   : 0rem 0rem 2.5rem 2.5rem;
+  border-radius        : 0rem 0rem 2.5rem 2.5rem;
 }
 
 .lftRoundEdge,
 .flag-dropdown {
-  -webkit-border-radius: 25px 0px 0px 25px !important;
-  -moz-border-radius   : 25px 0px 0px 25px !important;
-  border-radius        : 25px 0px 0px 25px !important;
+  -webkit-border-radius: 2.5rem 0rem 0rem 2.5rem !important;
+  -moz-border-radius   : 2.5rem 0rem 0rem 2.5rem !important;
+  border-radius        : 2.5rem 0rem 0rem 2.5rem !important;
 }
 
 .filled_btn {
@@ -152,7 +167,7 @@ footer {
 
 .copyright-menu li {
   display      : inline-block;
-  padding-right: 20px;
+  padding-right: 2.0rem;
 }
 
 /*Formatting*/
@@ -178,55 +193,55 @@ footer {
 }
 
 .FS_8 {
-  font-size: 8px;
+  font-size: 0.8rem;
 }
 
 .FS_10 {
-  font-size: 10px;
+  font-size: 1rem;
 }
 
 .FS_11 {
-  font-size: 11px;
+  font-size: 1.1rem;
 }
 
 .FS_12 {
-  font-size: 12px;
+  font-size: 1.2rem;
 }
 
 .FS_13 {
-  font-size: 13px;
+  font-size: 1.3rem;
 }
 
 .FS_14 {
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .FS_15 {
-  font-size: 15px;
+  font-size: 1.5rem;
 }
 
 .FS_16 {
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .FS_18 {
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 .FS_20 {
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .FS_24 {
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .FS_30 {
-  font-size: 30px;
+  font-size: 3rem;
 }
 
 .FS_55 {
-  font-size: 55px;
+  font-size: 5.5rem;
 }
 
 .Bold {
@@ -239,6 +254,10 @@ footer {
 
 .Poppins {
   font-family: Poppins;
+}
+
+.themeTxt {
+  color: #123F6C;
 }
 
 #root {
@@ -278,11 +297,10 @@ h6 {
 } */
 
 .upper_div {
-  background         : linear-gradient(to right, rgba(0, 34, 68, 0.9), rgba(0, 66, 172, 0.698)), url(./Assets/img/HomeBackgroundRight.png);
+  background         : linear-gradient(to right, rgba(18, 63, 108, 0.9), rgba(54, 121, 188, 0.7)), url(./Assets/img/HomeBackgroundRight.png);
   background-position: right top, left top;
   background-repeat  : no-repeat, no-repeat;
   background-size    : cover;
-  height             : inherit;
 }
 
 /* .upper_Div {
@@ -307,18 +325,18 @@ h6 {
 }
 
 #img1 {
-  width : 123px;
-  height: 40px;
+  width : 12.3rem;
+  height: 4.0rem;
 }
 
 #img2 {
-  width : 123px;
-  height: 40px;
+  width : 12.3rem;
+  height: 4.0rem;
 }
 
 .loginForm {
   background-color: white;
-  box-shadow      : 0px 0px 5px #3679BC;
+  box-shadow      : 0rem 0rem .5rem #3679BC;
 }
 
 .loginForm .form-group,
@@ -331,17 +349,17 @@ h6 {
 }
 
 .react-tel-input .flag-dropdown {
-  border: 0px !important;
+  border: 0rem !important;
 }
 
 .react-tel-input .form-control {
-  border          : 0px !important;
+  border          : 0rem !important;
   background-color: #f8faff !important;
   width           : 100% !important;
 }
 
 .form-control {
-  min-height: 40px;
+  min-height: 4.0rem;
 }
 
 .form input[type='text'],
@@ -351,15 +369,15 @@ h6 {
 .form select,
 .form .ant-select,
 .form textarea {
-  border          : 0px !important;
+  border          : 0rem !important;
   background-color: #f8faff !important;
   font-family     : Poppins;
   color           : rgb(139, 139, 139) !important;
-  border-radius   : 4px;
+  border-radius   : .4rem;
   font-family     : Poppins;
-  font-size       : 12px;
-  padding         : 6px;
-  min-height      : 36px;
+  font-size       : 1.2rem;
+  padding         : .6rem;
+  min-height      : 3.6rem;
 }
 
 .form .ant-select {
@@ -367,11 +385,11 @@ h6 {
 }
 
 .anticon-caret-down svg {
-  width: 10px;
+  width: 1.0rem;
 }
 
 .form .ant-select-selector {
-  border          : 0px !important;
+  border          : 0rem !important;
   background-color: #f8faff !important;
 }
 
@@ -380,19 +398,19 @@ h6 {
 }
 
 .yes-no-radiobtn {
-  width: 100px !important;
+  width: 10.0rem !important;
 }
 
 /* .form .ant-select-selection-item {
     background-color: #F8FAFF !important;
-    border          : 0px !important;
-    border-radius   : 4px;
+    border          : 0rem !important;
+    border-radius   : .4rem;
     font-family     : Poppins;
-    font-size       : 12px;
+    font-size       : 1.2rem;
 } */
 
 select {
-  background         : url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
+  background         : url("data:image/svg+xml,<svg height='10rem' width='10rem' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
   background-position: calc(100% - 0.75rem) center !important;
   -moz-appearance    : none !important;
   -webkit-appearance : none !important;
@@ -412,19 +430,19 @@ select {
 .form-group label {
   position        : absolute;
   pointer-events  : none;
-  transform       : translate(0, 7.4px) scale(0.9);
+  transform       : translate(0, .74rem) scale(0.9);
   transform-origin: top left;
   transition      : 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   color           : rgb(139, 139, 139);
-  font-size       : 16px;
+  font-size       : 1.6rem;
   line-height     : 1;
-  left            : 10px;
+  left            : 1.0rem;
 }
 
 .form-group:focus-within label,
 .form-group input:not(:placeholder-shown)~label,
 .Valued {
-  transform          : translate(0, -6px) scale(0.6) !important;
+  transform          : translate(0, -0.6rem) scale(0.6) !important;
   color              : rgb(0, 0, 0) !important;
   background-color   : transparent !important;
   /* left            : 40% !important; */
@@ -465,7 +483,7 @@ select {
 }
 
 #feild option {
-  font-size       : 12px;
+  font-size       : 1.2rem;
   background-color: rgb(139, 139, 139);
   font-family     : Poppins;
   color           : white;
@@ -476,7 +494,7 @@ select {
   color        : #3679BC;
   width        : 100%;
   text-align   : center;
-  border-bottom: 1px solid #3679BC;
+  border-bottom: .1rem solid #3679BC;
   line-height  : 0.1em;
 }
 
@@ -485,14 +503,14 @@ select {
 }
 
 .bordr {
-  border: 1px solid #e0eeff;
+  border: .1rem solid #e0eeff;
   height: max-content;
 }
 
 /* 
 .shadow{
-  box-shadow: 0px 0px 6px 0.16px #3679BC;
-  border: 0.1px  solid #3679BC;
+  box-shadow: 0rem 0rem .6rem .016rem #3679BC;
+  border: 0.1rem  solid #3679BC;
 } */
 
 .LoginFooter {
@@ -509,7 +527,7 @@ select {
 }
 
 .owl-carousel {
-  margin-top: 30px;
+  margin-top: 3.0rem;
 }
 
 .owl-dots {
@@ -518,7 +536,7 @@ select {
 
 .owl-nav {
   float     : right;
-  margin-top: 5px !important;
+  margin-top: .5rem !important;
 }
 
 .owl-carousel .owl-nav .owl-prev,
@@ -528,15 +546,15 @@ select {
 }
 
 .owl-nav button {
-  border : 1px solid rgb(196, 196, 196) !important;
-  padding: 40px;
+  border          : .1rem solid rgb(196, 196, 196) !important;
+  padding         : 4.0rem;
   background-color: #123F6C !important;
-  color: #FFFFFF !important;
+  color           : #FFFFFF !important;
 }
 
 .owl-nav button span {
   font-weight: 500 !important;
-  margin     : 10px;
+  margin     : 1.0rem;
 }
 
 .owl-carousel .owl-item img {
@@ -546,13 +564,13 @@ select {
 
 .news-grid {
   width           : 95%;
-  height          : 250px;
+  height          : 25.0rem;
   background      : #fff;
-  border-radius   : 25px;
-  margin          : 20px auto;
+  border-radius   : 2.5rem;
+  margin          : 2.0rem auto;
   /* margin-left  : auto;
   margin-right    : auto; */
-  box-shadow      : 0px 3px 18px 1px #7aacb3;
+  box-shadow      : 0rem .3rem 1.8rem .1rem #7aacb3;
 }
 
 .half {
@@ -578,9 +596,9 @@ select {
 }
 
 .news-grid-txt h4 {
-  margin-top : 10px;
+  margin-top : 1.0rem;
   font-weight: 400;
-  font-size  : 17px;
+  font-size  : 1.7rem;
   color      : #123F6C;
 
 }
@@ -596,42 +614,55 @@ select {
   text-decoration-line: none;
 }
 
+/* 
 #Iphone {
-  margin-left       : -590px;
-  height            : 750px;
-  margin-top     : -50px;
+  margin-left       : -59.0rem;
+  height            : 75.0rem;
+  margin-top        : -5.0rem;
   width             : auto;
-  -webkit-box-shadow: 0 8px -6px rgb(86, 86, 86);
-  -moz-box-shadow   : 0 8px -6px rgb(86, 86, 86);
-  box-shadow        : 0 8px -6px rgb(86, 86, 86);
-  /* box-shadow     : 0px 8px 18px 1px rgb(86, 86, 86); */
+  -webkit-box-shadow: 0 .8rem -.6rem rgb(86, 86, 86);
+  -moz-box-shadow   : 0 .8rem -.6rem rgb(86, 86, 86);
+  box-shadow        : 0 .8rem -.6rem rgb(86, 86, 86);
+  box-shadow     : 0rem .8rem 1.8rem .1rem rgb(86, 86, 86);
 }
 
 #Android {
-  margin-left   : 70px;
-  height        : 650px;
+  margin-left   : 7.0rem;
+  height        : 65.0rem;
   width         : auto;
   vertical-align: top;
-}
+} */
 
 .Mobile {
-  margin-top    : -450px;
+  margin-top    : -50rem;
   width         : max-content;
   z-index       : 1;
-  padding-bottom: 25px;
+  padding-bottom: 2.5rem;
+  margin-left: -3rem;
+}
+
+.MobileImg {
+  height            : 55rem;
+  width             : 43rem;
+}
+
+.imgDiv{
+  -webkit-box-shadow: .10rem .0rem -1rem #123F6C;
+  -moz-box-shadow   : .10rem .0rem -1rem #123F6C;
+  box-shadow        : .10rem .0rem -1rem #123F6C;
 }
 
 /* About */
 
 .AboutUs h1 {
-  font-size: 42px;
+  font-size: 4.2rem;
 }
 
 .About {
   background-image: url(./Assets/img/AboutUs.png);
   background-size : 100% 100%;
   width           : 100%;
-  min-height      : 300px;
+  min-height      : 30.0rem;
   display         : table;
   background-color: #7aacb3;
 }
@@ -650,7 +681,7 @@ select {
 }
 
 .AboutUs p {
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 textarea {
@@ -681,20 +712,20 @@ textarea {
 }
 
 .OptPopUp .ant-modal-content {
-  padding: 16px;
+  padding: 1.6rem;
   width  : fit-content;
 }
 
 .OptPopUp input {
   width : 2rem !important;
-  border: 1px solid rgb(0, 0, 0, 0.25);
+  border: .1rem solid rgb(0, 0, 0, 0.25);
 }
 
 /* SeconNavbar */
 
 .SeconNavbar {
-  border-bottom   : 1px solid rgb(196, 196, 196);
-  border-top      : 1px solid rgb(196, 196, 196);
+  border-bottom   : .1rem solid rgb(196, 196, 196);
+  border-top      : .1rem solid rgb(196, 196, 196);
   background-color: #7aacb3;
 }
 
@@ -732,8 +763,8 @@ textarea {
 
 .SeconNavbar img,
 .smallImg img {
-  height: 31px;
-  width : 31px;
+  height: 3.1rem;
+  width : 3.1rem;
 }
 
 .SeconNavbar .navbar-nav {
@@ -750,15 +781,15 @@ textarea {
 
 .secondnavbar-notifications_dd {
   position        : absolute;
-  top             : 48px;
-  right           : 85%;
+  top             : 4.8rem;
+  right           : 8.5%;
   background-color: #fff;
-  width           : 350px;
+  width           : 35.0rem;
   height          : auto;
-  border          : 1px solid #c7d8e2;
-  border-radius   : 3px;
-  box-shadow      : 10px 10px 30px rgba(0, 0, 0, 0.125),
-    -10px -10px 30px rgba(0, 0, 0, 0.125);
+  border          : .1rem solid #c7d8e2;
+  border-radius   : .3rem;
+  box-shadow      : 1.0rem 1.0rem 3.0rem rgba(0, 0, 0, 0.125),
+    -1.0rem -1.0rem 3.0rem rgba(0, 0, 0, 0.125);
   z-index: 99;
 }
 
@@ -773,28 +804,28 @@ textarea {
 
 .secondnavbar-notifications_dd li .secondnavbar-notify_icon .secondnavbar-notification-profile-icon {
   background   : url('./Assets/img/notification-icon.png') no-repeat 0 0;
-  width        : 59px;
-  height       : 55px;
-  border-radius: 50px;
+  width        : 5.9rem;
+  height       : 5.5rem;
+  border-radius: 5.0rem;
 }
 
 .secondnavbar-notifications_dd li .secondnavbar-notify_data .secondnavbar-notification_title {
   color      : #000;
   font-weight: 600;
-  font-size  : 15px;
+  font-size  : 1.5rem;
 }
 
 .secondnavbar-notifications_dd li .secondnavbar-notify_data .secondnavbar-notification_subtitle {
-  font-size    : 13px;
+  font-size    : 1.3rem;
   white-space  : nowrap;
   overflow     : hidden;
   text-overflow: ellipsis;
-  margin-top   : 5px;
+  margin-top   : .5rem;
 }
 
 .secondnavbar-notification-showall,
 .secondnavbar-messagebox-showall {
-  padding        : 20px;
+  padding        : 2.0rem;
   display        : flex;
   justify-content: center;
 }
@@ -818,23 +849,23 @@ textarea {
 
 .secondnavbar-notifications_dd li,
 .secondnavbar-messagebox_dd li {
-  border-bottom: 1px solid #f1f2f4;
-  padding      : 10px 20px;
+  border-bottom: .1rem solid #f1f2f4;
+  padding      : 1.0rem 2.0rem;
   display      : flex;
   align-items  : center;
 }
 
 .secondnavbar-messagebox_dd {
   position        : absolute;
-  top             : 48px;
+  top             : 4.8rem;
   right           : 55%;
   background-color: #fff;
-  width           : 350px;
+  width           : 35.0rem;
   height          : auto;
-  border          : 1px solid #c7d8e2;
-  border-radius   : 3px;
-  box-shadow      : 10px 10px 30px rgba(0, 0, 0, 0.125),
-    -10px -10px 30px rgba(0, 0, 0, 0.125);
+  border          : .1rem solid #c7d8e2;
+  border-radius   : .3rem;
+  box-shadow      : 1.0rem 1.0rem 3.0rem rgba(0, 0, 0, 0.125),
+    -1.0rem -1.0rem 3.0rem rgba(0, 0, 0, 0.125);
   z-index: 99;
 }
 
@@ -843,37 +874,37 @@ textarea {
 .card {
   color        : #565656;
   border-radius: 2.25rem !important;
-  box-shadow   : 0px 15px 30px -23px #7aacb3;
-  border       : 0px !important;
+  box-shadow   : 0rem 1.5rem 3.0rem -2.3rem #7aacb3;
+  border       : 0rem !important;
 }
 
 .SideCard {
-  max-width: 400px;
+  max-width: 40.0rem;
   margin   : 0 auto;
 }
 
 .card-header {
   background-color: white !important;
-  padding         : 0px !important;
-  border-bottom   : 1px solid #e0eeff !important;
+  padding         : 0rem !important;
+  border-bottom   : .1rem solid #e0eeff !important;
 }
 
 .comments p {
-  font-size: 12px;
+  font-size: 1.2rem;
 }
 
 .btm_bordr {
-  border-bottom: 1px solid #e0eeff;
+  border-bottom: .1rem solid #e0eeff;
 }
 
 .btm_shadow {
-  box-shadow: 0px 7px 10px 4px rgb(122 172 179 / 30%);
+  box-shadow: 0rem .7rem 1.0rem .4rem rgb(122 172 179 / 30%);
 }
 
 sup {
   font-weight: 500;
-  top        : -0.3rem !important;
-  font-size  : 1rem !important;
+  top        : -0.214rem !important;
+  font-size  : 0.71rem !important;
 }
 
 .NavLink {
@@ -883,16 +914,16 @@ sup {
 /*BOOK STORE*/
 
 .feild input {
-  border          : 0px;
+  border          : 0rem;
   background-color: #f8faff;
   color           : rgb(127, 130, 137);
-  border-radius   : 25px;
+  border-radius   : 2.5rem;
   font-weight     : 300;
   font-family     : Poppins;
 }
 
 option {
-  font-size       : 12px;
+  font-size       : 1.2rem;
   background-color: rgb(127, 130, 137);
   color           : white;
 }
@@ -911,16 +942,16 @@ option {
 
 input[type='radio'] {
   -webkit-appearance: none;
-  width             : 20px;
-  height            : 20px;
-  border            : 1px solid rgb(122, 172, 179);
+  width             : 2.0rem;
+  height            : 2.0rem;
+  border            : .1rem solid rgb(122, 172, 179);
   border-radius     : 50%;
   outline           : none;
-  box-shadow        : 0 0 5px 0px gray inset;
+  box-shadow        : 0 0 .5rem 0rem gray inset;
 }
 
 input[type='radio']:hover {
-  box-shadow: 0 0 5px 0px rgb(122, 172, 179) inset;
+  box-shadow: 0 0 .5rem 0rem rgb(122, 172, 179) inset;
 }
 
 input[type='radio']:before {
@@ -948,7 +979,7 @@ input[type='radio']:checked:before {
 
 textarea {
   border-color    : rgb(240, 242, 245);
-  border-radius   : 19px;
+  border-radius   : 1.9rem;
   background-color: rgb(240, 242, 245);
   resize          : none;
   width           : 100%;
@@ -959,7 +990,7 @@ textarea {
 }
 
 .combineButton {
-  border-radius   : 50px;
+  border-radius   : 5.0rem;
   background-color: rgb(240, 242, 245);
 }
 
@@ -973,7 +1004,7 @@ textarea {
 
 .RadioToButton label {
   border       : none;
-  border-radius: 50px;
+  border-radius: 5.0rem;
   width        : 100%;
 }
 
@@ -986,30 +1017,30 @@ textarea {
 
 /* .postAdd input,
 .JoinClass input {
-  border-radius   : 50px;
+  border-radius   : 5.0rem;
   background-color: rgb(240, 242, 245);
   border          : none;
-  font-size       : 16px;
+  font-size       : 1.6rem;
   font-weight     : 300;
 } */
 
 .Tags label {
-  border          : 1px solid rgb(122, 172, 179);
-  border-radius   : 50px;
+  border          : .1rem solid rgb(122, 172, 179);
+  border-radius   : 5.0rem;
   background-color: rgb(240, 242, 245);
 }
 
 .Uploading .ant-upload-select-picture-card {
   position: relative;
-  margin  : 0px !important;
+  margin  : 0rem !important;
 }
 
 .Uploading .ant-upload-select-picture-card span {
   background-color: rgb(122, 172, 179);
-  border-radius   : 50px;
+  border-radius   : 5.0rem;
   height          : 40% !important;
   width           : 40%;
-  font-size       : 25px;
+  font-size       : 2.5rem;
   font-weight     : 500;
   color           : white;
   position        : absolute;
@@ -1071,7 +1102,7 @@ textarea {
 
 .professor-ratingloadmore button {
   width           : 30%;
-  border          : solid 1px #17a2b8;
+  border          : solid .1rem #17a2b8;
   background-color: #17a2b8;
   color           : white;
 }
@@ -1085,17 +1116,17 @@ textarea {
 }
 
 .anticon-enter svg {
-  margin-top: 4px;
+  margin-top: .4rem;
 }
 
 /*SPINNER*/
 .antd-spinner {
-  margin       : 20px 0;
-  margin-bottom: 20px;
-  padding      : 30px 50px;
+  margin       : 2.0rem 0;
+  margin-bottom: 2.0rem;
+  padding      : 3.0rem 5.0rem;
   text-align   : center;
   background   : rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
+  border-radius: .4rem;
 }
 
 /*Rate ME*/
@@ -1111,18 +1142,18 @@ textarea {
 
 .Errored {
   color    : red;
-  font-size: 10px;
+  font-size: 1rem;
 }
 
 .ratting-document-btn button {
   background-color: rgb(122, 172, 179) !important;
   color           : white !important;
   text-align      : center;
-  border          : solid 1px rgb(122, 172, 179);
+  border          : solid .1rem rgb(122, 172, 179);
   width           : 100%;
   display         : block;
-  border-radius   : 10px;
-  height          : 40px;
+  border-radius   : 1.0rem;
+  height          : 4.0rem;
 }
 
 /*Rating Star*/
@@ -1138,9 +1169,9 @@ textarea {
 
 .rating-wrapper label.rating {
   filter   : grayscale(1);
-  font-size: 32px;
+  font-size: 3.2rem;
   padding  : 0;
-  width    : 75px;
+  width    : 7.5rem;
 }
 
 .rating-wrapper label.rating:hover {
@@ -1160,7 +1191,7 @@ textarea {
 }
 
 .borderRight {
-  border-right: 1px solid rgb(127, 130, 137);
+  border-right: .1rem solid rgb(127, 130, 137);
 }
 
 /* Classroom Tabs */
@@ -1170,21 +1201,21 @@ textarea {
 }
 
 .ant-tabs-nav {
-  margin-bottom: 0px !important;
+  margin-bottom: 0rem !important;
 }
 
 .Details .ant-tabs-nav-list {
   width        : 100%;
-  margin-bottom: 13px;
+  margin-bottom: 1.3rem;
   z-index      : -99;
 }
 
 .Details .ant-tabs-tab {
   width           : 25%;
-  max-width       : 115px;
-  padding         : 6px !important;
-  margin          : 0px !important;
-  border          : 0px !important;
+  max-width       : 11.5rem;
+  padding         : .6rem !important;
+  margin          : 0rem !important;
+  border          : 0rem !important;
   background-color: white !important;
 }
 
@@ -1192,8 +1223,8 @@ textarea {
   width           : 100%;
   background-color: white;
   color           : black;
-  border-radius   : 15px;
-  box-shadow      : 0px 5px 13px -6px #7aacb3;
+  border-radius   : 1.5rem;
+  box-shadow      : 0rem .5rem 1.3rem -.6rem #7aacb3;
 }
 
 .ant-tabs-tab-active .ant-tabs-tab-btn {
@@ -1206,7 +1237,7 @@ textarea {
 }
 
 .ant-tabs img {
-  width : 30px;
+  width : 3.0rem;
   height: auto;
 }
 
@@ -1214,63 +1245,63 @@ textarea {
 
 .Details .ant-tabs-content-holder {
   background-color: white;
-  border-radius   : 15px;
-  padding         : 20px;
-  box-shadow      : 0px 2px 10px -2px #7aacb3;
-  max-width       : 460px;
+  border-radius   : 1.5rem;
+  padding         : 2.0rem;
+  box-shadow      : 0rem .2rem 1.0rem -.2rem #7aacb3;
+  max-width       : 46.0rem;
 }
 
 /* for scroll bar */
 .ScrollBar {
-  padding-right: 10px;
-  height       : 300px;
+  padding-right: 1.0rem;
+  height       : 30.0rem;
   overflow-y   : auto;
   overflow-x   : hidden;
 }
 
 /* Announment Tab */
 .ant-comment-inner {
-  padding-top: 0px !important;
+  padding-top: 0rem !important;
 }
 
 /* Classroom Chats */
 .DottedBorder {
-  border       : 2px dashed #7aacb3;
-  padding      : 15px;
-  border-radius: 25px;
+  border       : .2rem dashed #7aacb3;
+  padding      : 1.5rem;
+  border-radius: 2.5rem;
 }
 
 .Chat .ant-comment-content {
-  border-radius   : 25px;
+  border-radius   : 2.5rem;
   background-color: rgb(240, 242, 245);
-  max-width       : 250px;
-  padding         : 10px;
-  padding-left    : 15px;
+  max-width       : 25.0rem;
+  padding         : 1.0rem;
+  padding-left    : 1.5rem;
 }
 
 .scroll,
 .Chat_Section .scroll {
-  height    : 400px;
+  height    : 40.0rem;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: .5rem;
 }
 
 /* Track */
 
 ::-webkit-scrollbar-track {
   background   : rgb(240, 242, 245);
-  border-radius: 10px;
+  border-radius: 1.0rem;
 }
 
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
   background   : rgb(122, 172, 179);
-  border-radius: 10px;
+  border-radius: 1.0rem;
 }
 
 /* Join ClassRoom */
@@ -1279,14 +1310,14 @@ textarea {
   background-position: center;
   background-repeat  : no-repeat;
   height             : auto;
-  min-height         : 350px;
+  min-height         : 35.0rem;
   background-size    : 100% 100%;
 }
 
 .pBottom {
   position: absolute;
   display : block;
-  bottom  : 25px;
+  bottom  : 2.5rem;
 }
 
 /* LiveSession */
@@ -1298,7 +1329,7 @@ position: inherit !important ;
 }
 .LiveSession .ant-tabs-tab{
   width: 50% !important;
-  margin: 0px !important
+  margin: 0rem !important
 }
 
 .LiveSession .ant-tabs-tab-active{
@@ -1322,7 +1353,7 @@ position: inherit !important ;
 }
 .LiveSession .ant-tabs-tab{
   width: 50%;
-  margin: 0px !important;
+  margin: 0rem !important;
   position: left !important;
 }
 .LiveSession .ant-tabs-ink-bar{
@@ -1341,8 +1372,9 @@ position: inherit !important ;
 
 .Student {
   background-color: #f8faff;
-  border          : 1px solid #e0eeff;
+  border          : .1rem solid #e0eeff;
 }
+
 
 @media only screen and (min-width: 990px) {
 
@@ -1364,13 +1396,13 @@ position: inherit !important ;
 
   html,
   body {
-    margin-bottom: 60px;
+    margin-bottom: 6.0rem;
   }
 }
 
 @media only screen and (max-width: 767px) {
 
-  /* for screen smaller than 767px */
+  /* for screen smaller than 76.7rem */
   .SeconNavbar {
     display: none;
   }
@@ -1384,25 +1416,26 @@ position: inherit !important ;
   }
 
   .Corner_edge-md {
-    -webkit-border-radius: 50px;
-    -moz-border-radius   : 50px;
-    border-radius        : 50px;
+    -webkit-border-radius: 5.0rem;
+    -moz-border-radius   : 5.0rem;
+    border-radius        : 5.0rem;
   }
 
   .MyBackapck,
-  .upper_Div {
+  .upr_Div {
     height: auto;
   }
 }
 
 @media only screen and (max-width: 576px) {
   .borderRight {
-    border-right: 0px;
+    border-right: 0rem;
   }
 
   .RadioToButton label {
-    font-size: 10px;
+    font-size: 1rem;
   }
+
 }
 
 @media only screen and (max-width: 337px) {
