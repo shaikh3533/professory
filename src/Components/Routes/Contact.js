@@ -1,93 +1,33 @@
-import React from "react"
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import React from 'react';
+import EmailForm from '../SubComponents/ContactUs/EmailForm';
+import MessageForm from '../SubComponents/ContactUs/MessageForm';
 
-class Contact extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            fullName: "",
-            email: "",
-            phone: "",
-            message: ""
-        }
-        this.handleChange = this.handleChange.bind(this)
-    }
-
-    handleChange(event) {
-        const { name, value } = event.target
-        this.setState({
-            [name]: value
-        }
-        )
-    }
-
-
-    render() {
-        return (
-            <div className="row Contact">
-                <div className="col-11 col-md-4 mx-auto my-5">
-                    <form className="loginForm Round25 form m-4 p-4">
-                        <div class="form-group text-center">
-                            <h3 className="p-4" style={{ color: "rgb(38, 38, 38)" }}>Contact Now</h3>
-                            <input
-                                type="text"
-                                class="form-control mx-auto"
-                                name="fullName"
-                                value={this.state.fullName}
-                                placeholder="Full Name"
-                                onChange={this.handleChange}
-                            />
+const ContactUs = () => {
+    return (
+        <>
+            <div className="pb-5">
+                <div className="BackgroundImg About">
+                    <div className="CenteredDiv">
+                        <h1 className="white">Contact Us</h1>
+                    </div>
+                </div>
+                <div className="row w-100 pb-5">
+                    <div className="col-11 mx-auto my-5">
+                        <p className='FS_34 Bold mb-0'>We'd love to hear from you</p>
+                        <p className='FS_18 mb-0'>Get in touch for any inqueries or suggestions.</p>
+                        <div className="row">
+                            <div className="col-lg-8 col-md-8 col-12 my-5 px-3 py-3 card border_1">
+                                <p className='FS_27 Bold ml-4'>Send Message</p>
+                                <MessageForm />
+                            </div>
+                            <div className="col-lg-4 col-md-4 col-12 my-5 py-3">
+                                <EmailForm />
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input
-                                type="email"
-                                class="form-control mx-auto"
-                                name="email"
-                                value={this.state.email}
-                                onChange={this.handleChange}
-                                placeholder="Email"
-                            />
-                        </div>
-                        <PhoneInput
-                            country={'us'}
-                            value={this.state.phone}
-                            name="phone"
-                            // onChange={phone => this.setState({ phone })}
-                            // onChange={updatePhone}
-                        />
-                        {/* <div class="form-group">
-                            <input
-                                type="tel"
-                                class="form-control mx-auto"
-                                name="phone"
-                                value={this.state.phone}
-                                onChange={this.handleChange}
-                                placeholder="+964"
-                            />
-                        </div> */}
-                        <div class="form-group">
-                            <textarea
-                                class="form-control"
-                                name="message"
-                                value={this.state.message}
-                                onChange={this.handleChange}
-                                rows="4"
-                                placeholder="Your message"
-                            ></textarea>
-                        </div>
-                        <div class="form-group">
-                            <button
-                                type="button"
-                                class="form-control mx-auto button filled_btn">
-                                Submit
-                            </button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        )
-    }
+        </>
+    )
 }
-
-export default Contact
+export default ContactUs;

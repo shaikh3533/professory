@@ -81,6 +81,14 @@ body {
   border-radius: .2rem;
 }
 
+.buttonSubmit {
+  background   : #3679BC !important;
+  color        : white !important;
+  font-size    : 1.5rem !important;
+  padding      : .6rem 4.0rem !important;
+  border-radius: 0rem !important;
+}
+
 button,
 input,
 textarea {
@@ -190,6 +198,10 @@ footer {
   color: black !important;
 }
 
+.greyBlack {
+  color: #464646 !important;
+}
+
 .white {
   color: white !important;
 }
@@ -242,8 +254,16 @@ footer {
   font-size: 2.4rem;
 }
 
+.FS_27 {
+  font-size: 2.7rem;
+}
+
 .FS_30 {
   font-size: 3rem;
+}
+
+.FS_34 {
+  font-size: 3.4rem;
 }
 
 .FS_55 {
@@ -252,6 +272,14 @@ footer {
 
 .Bold {
   font-weight: 500;
+}
+
+.Bolder {
+  font-weight: 700;
+}
+
+.Boldest {
+  font-weight: 900;
 }
 
 .Montserrat {
@@ -360,12 +388,36 @@ h6 {
 
 .react-tel-input .form-control {
   border          : 0rem !important;
-  background-color: #f8faff !important;
+  background-color: #F8FAFF !important;
   width           : 100% !important;
 }
 
+.react-tel-input .flag-dropdown.open .selected-flag {
+  background-color: #F8FAFF !important;
+}
+
+
 .form-control {
-  min-height: 4.0rem;
+  background-color: #F8FAFF !important;
+  min-height      : 4.0rem;
+  font-size       : 1.5rem !important;
+  color           : black !important;
+  border          : 0rem !important;
+}
+
+.formField {
+  background-color: #FAFAFA;
+  border          : 0.1rem solid #E8F2FF;
+  padding         : .6rem;
+  border-radius   : 1.2rem;
+  color           : #464646;
+}
+
+.phoneInput {
+  background-color: #FAFAFA;
+  border          : 0.1rem solid #E8F2FF;
+  font-size       : 1.5rem;
+  border-radius   : 1.2rem;
 }
 
 .form input[type='text'],
@@ -449,7 +501,7 @@ select {
 .form-group input:not(:placeholder-shown)~label,
 .Valued {
   transform          : translate(0, -0.6rem) scale(0.6) !important;
-  color              : rgb(0, 0, 0) !important;
+  color              : #9C9C9C !important;
   background-color   : transparent !important;
   /* left            : 40% !important; */
 }
@@ -464,11 +516,11 @@ select {
 /* Mozilla Firefox 19+ */
 /* Internet Explorer 10+ */
 
-.form-group ::-webkit-input-placeholder {
+/* .form-group ::-webkit-input-placeholder {
   color: transparent !important;
-}
+} */
 
-.form-group :-moz-placeholder {
+/* .form-group :-moz-placeholder {
   color: transparent !important;
 }
 
@@ -482,6 +534,11 @@ select {
 
 .form-group input::placeholder {
   color: transparent !important;
+} */
+
+.ReCAPTCHA .rc-anchor-light .rc-anchor-normal {
+  border          : 0rem !important;
+  background-color: transparent !important;
 }
 
 .form-group .ant-select-selection-placeholder {
@@ -513,7 +570,7 @@ select {
   height: max-content;
 }
 
-.divShadow{
+.divShadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -665,14 +722,14 @@ select {
 /* About */
 
 .AboutUs h1 {
-  font-size: 4.2rem;
+  font-size: 4.1rem;
 }
 
 .About {
-  background-image: url(./Assets/img/AboutUs.png);
+  background      : linear-gradient(to right, rgba(18, 63, 108, 0.9), rgba(54, 121, 188, 0.7)), url(./Assets/img/AboutUs.png);
   background-size : 100% 100%;
   width           : 100%;
-  min-height      : 30.0rem;
+  min-height      : 20.0rem;
   display         : table;
   background-color: #7aacb3;
 }
@@ -691,7 +748,7 @@ select {
 }
 
 .AboutUs p {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 
 textarea {
@@ -763,9 +820,10 @@ textarea {
 
 .SeconNavbar .white.active,
 .nav-link.custom_color.active {
-  background-color: #3d7c84;
+  background-color: rgba(18, 63, 108, 0.7);
   color           : white !important;
   font-weight     : 500;
+  transform       : scale(1.04);
 }
 
 .SeconNavbar .dropdown-toggle::after {
@@ -1203,6 +1261,11 @@ textarea {
 
 .borderRight {
   border-right: .1rem solid rgb(127, 130, 137);
+}
+
+.border_1 {
+  border       : .05rem solid #E8F2FF !important;
+  border-radius: 0rem !important;
 }
 
 /* Classroom Tabs */

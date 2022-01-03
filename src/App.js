@@ -73,7 +73,7 @@ class App extends React.Component {
               <Switch>
                 <Route exact path="/" render={props => (<Home onChange={this.LoginStatusChange} />)} />
                 <Route exact path="/About" component={About} />
-                <Route exact path="/Feature" component={Feature} />
+                <Route exact path="/#feature" component={Feature} />
                 <Route exact path="/Contact" component={Contact} />
                 <Route exact path="/SignUp" component={SignUp} />
                 <ProtectedRoute exact path="/Bookstore" component={Bookstore} />
