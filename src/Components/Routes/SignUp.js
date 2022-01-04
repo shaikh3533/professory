@@ -367,7 +367,7 @@ class SignUp extends React.Component {
                     <div className="form-group">
                       <button
                         type="submit"
-                        className="form-control mx-auto button filled_btn"
+                        className="btn w-100 mx-auto button filled_btn"
                       >
                         Sign Up
                       </button>

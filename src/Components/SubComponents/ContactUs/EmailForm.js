@@ -10,22 +10,22 @@ const EmailForm = () => {
     return (
         <>
             <p className="FS_30 Bolder greyBlack">Send Email</p>
-            <p className="text-nowrap FS_18 greyBlack" subHeading>You can also contact us at:</p>
+            <p className="text-nowrap FS_18" subHeading>You can also contact us at:</p>
             <div className="d-inline-flex my-3">
                 <div>
                     <img src={Email} alt="" className="mr-3 my-3" />
                 </div>
                 <div>
-                    <h4 className="FS_17 Bold greyBlack">Email</h4>
+                    <p className="FS_17 Bold greyBlack">Email</p>
                     <p className="FS_19 greyBlack">info@reilitics.com</p>
                 </div>
             </div>
-            <h4 className='text-nowrap FS_21 Boldest greyBlack'>Get in contact on social media</h4>
-            <div className="d-inline">
-                <img className="icon" src={Facebook} alt="" />
-                <img className="icon" src={Twitter} alt="" />
-                <img className="icon" src={Instagram} alt="" />
-                <img className="icon" src={Pinterest} alt="" />
+            <p className=' FS_20 Boldest greyBlack'>Get in contact on social media</p>
+            <div className="d-flex linksDiv mt-0">
+                <img className="icon links" src={Facebook} alt="" />
+                <img className="icon links" src={Twitter} alt="" />
+                <img className="icon links" src={Instagram} alt="" />
+                <img className="icon links" src={Pinterest} alt="" />
             </div>
         </>
     )

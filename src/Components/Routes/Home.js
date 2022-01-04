@@ -334,7 +334,7 @@ class Home extends React.Component {
                 </div>
                 <div className="container-fluid pb-5">
                     <div className="row">
-                        <div className="col-11 mx-auto" id="features">
+                        <div className="col-11 mx-auto" id="Feature">
                             <div className="container">
                                 <div className="row col-11 mx-auto px-0">
                                     <div className="Right_to_center">

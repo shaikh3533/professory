@@ -35,7 +35,7 @@ class Navbar extends React.Component {
                                                 <NavLink className="nav-link text-white" to="/">Home</NavLink>
                                             </li>
                                             <li className="nav-item">
-                                                <NavLink className="nav-link custom_color" to="/Feature">Feature</NavLink>
+                                                <a className="nav-link custom_color" href="/#Feature">Feature</a>
                                             </li>
                                             <li className="nav-item">
                                                 <NavLink className="nav-link custom_color" to="/Contact">Contact Us</NavLink>

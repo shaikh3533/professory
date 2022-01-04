@@ -7,12 +7,16 @@ const ContactUs = () => {
         <>
             <div className="pb-5">
                 <div className="BackgroundImg About">
-                    <div className="CenteredDiv">
-                        <h1 className="white">Contact Us</h1>
+                    <div className="CenteredDivY">
+                        <div className='container'>
+                            <div className='px-5 mx-auto'>
+                                <p className="white FS_45 Bold my-auto">Contact Us Now</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="row w-100 pb-5">
-                    <div className="col-11 mx-auto my-5">
+                <div className="row container mx-auto">
+                    <div className="px-5 mx-auto my-5">
                         <p className='FS_34 Bold mb-0'>We'd love to hear from you</p>
                         <p className='FS_18 mb-0'>Get in touch for any inqueries or suggestions.</p>
                         <div className="row">

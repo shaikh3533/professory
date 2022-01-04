@@ -46,7 +46,7 @@ body {
 }
 
 .bgBlue {
-  background-color: #123F6C;
+  background-color: #123F6C !important;
 }
 
 .custom_color {
@@ -242,12 +242,24 @@ footer {
   font-size: 1.6rem;
 }
 
+.FS_17 {
+  font-size: 1.7rem;
+}
+
 .FS_18 {
   font-size: 1.8rem;
 }
 
+.FS_19 {
+  font-size: 1.9rem;
+}
+
 .FS_20 {
   font-size: 2rem;
+}
+
+.FS_21 {
+  font-size: 2.1rem;
 }
 
 .FS_24 {
@@ -266,6 +278,9 @@ footer {
   font-size: 3.4rem;
 }
 
+.FS_45 {
+  font-size: 4.5rem;
+}
 .FS_55 {
   font-size: 5.5rem;
 }
@@ -396,6 +411,15 @@ h6 {
   background-color: #F8FAFF !important;
 }
 
+.linksDiv{
+  flex-wrap: wrap;
+}
+
+.links{
+  margin: .5rem;
+  width: 4.0rem;
+  height: 4.0rem;
+}
 
 .form-control {
   background-color: #F8FAFF !important;
@@ -499,6 +523,7 @@ select {
 
 .form-group:focus-within label,
 .form-group input:not(:placeholder-shown)~label,
+.form-group textarea:not(:placeholder-shown)~label,
 .Valued {
   transform          : translate(0, -0.6rem) scale(0.6) !important;
   color              : #9C9C9C !important;
@@ -516,11 +541,15 @@ select {
 /* Mozilla Firefox 19+ */
 /* Internet Explorer 10+ */
 
-/* .form-group ::-webkit-input-placeholder {
+.form-group ::-webkit-input-placeholder {
   color: transparent !important;
-} */
+}
 
-/* .form-group :-moz-placeholder {
+.form-group ::-webkit-textarea-placeholder {
+  color: transparent !important;
+}
+
+.form-group :-moz-placeholder {
   color: transparent !important;
 }
 
@@ -532,9 +561,17 @@ select {
   color: transparent !important;
 }
 
+.form-group :-ms-textarea-placeholder {
+  color: transparent !important;
+}
+
 .form-group input::placeholder {
   color: transparent !important;
-} */
+}
+
+.form-group textarea::placeholder {
+  color: transparent !important;
+}
 
 .ReCAPTCHA .rc-anchor-light .rc-anchor-normal {
   border          : 0rem !important;
@@ -571,7 +608,7 @@ select {
 }
 
 .divShadow {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 .4rem .8rem 0 rgba(0, 0, 0, 0.2), 0 .6rem 2.0rem 0 rgba(0, 0, 0, 0.19);
 }
 
 /* 
@@ -729,7 +766,7 @@ select {
   background      : linear-gradient(to right, rgba(18, 63, 108, 0.9), rgba(54, 121, 188, 0.7)), url(./Assets/img/AboutUs.png);
   background-size : 100% 100%;
   width           : 100%;
-  min-height      : 20.0rem;
+  min-height      : 17.0rem;
   display         : table;
   background-color: #7aacb3;
 }
@@ -737,6 +774,11 @@ select {
 .CenteredDiv {
   display       : table-cell;
   text-align    : center;
+  vertical-align: middle;
+  color         : white;
+}
+.CenteredDivY {
+  display       : table-cell;
   vertical-align: middle;
   color         : white;
 }
