@@ -37,31 +37,31 @@ const ServiceProvider = () => {
     );
   });
   return (
-    <>
+    <div className="pb-5">
       <SecondNavbar />
-      <Searchbars ButtonValue="Post/Request a Service" from="ServiceProvider" />
-      <div className="container-fluid mt-5">
+      <Searchbars ButtonValue="Post Ad" from="ServiceProvider" />
+      <div className="container-fluid my-5">
         <div className="MaxWidth">
           <div className="row">
             <div className="col-11 mx-auto">
               <div className="row">
-                <div className="col-12 col-md-8 pr-0">
-                  <div className="row m-0 p-0">
+                <div className="col-11 col-md-10 col-lg-9  pr-0">
+                  <div className="row m-0 p-3">
                     <div className="col-12">
                       <div className="btm_bordr">
-                        <h4 className="mb-2">For Sale</h4>
+                        <p className="mb-2 FS_19 Bold">For Sale</p>
                       </div>
                       <div className="row">{RenderingServicesSale}</div>
                     </div>
                     <div className="col-12 mt-5">
                       <div className="btm_bordr">
-                        <h4>Requests</h4>
+                        <p className="FS_19 Bold">Requests</p>
                       </div>
                       <div className="row">{RenderingRequestedServices}</div>
                     </div>
                   </div>
                 </div>
-                <div className="col-12 col-md-4 col-lg-3 mt-3">
+                <div className="col-12 col-md-2 col-lg-3 mt-3">
                   <FilterBar />
                 </div>
               </div>
@@ -69,7 +69,7 @@ const ServiceProvider = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

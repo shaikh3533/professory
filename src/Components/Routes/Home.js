@@ -193,7 +193,7 @@ class Home extends React.Component {
                                                     <button
                                                         onClick={this.handleSubmit}
                                                         type="button"
-                                                        className="form-control mx-auto button filled_btn">
+                                                        className="btn w-100 py-2 FS_14 mx-auto button filled_btn">
                                                         Log In
                                                     </button>
                                                 </div>

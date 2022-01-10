@@ -8,6 +8,11 @@ html {
 }
 
 @media (max-width:1250px) {
+
+  .css-1s2u09g-control {
+    padding-bottom: 1rem !important;
+  }
+
   html {
     font-size: 50%;
   }
@@ -37,6 +42,10 @@ body {
 
 .MaxWidth {
   max-width: 128.0rem;
+  margin   : 0 auto;
+}
+.maxWidth {
+  max-width: 100%;
   margin   : 0 auto;
 }
 
@@ -72,6 +81,10 @@ body {
   font-size: 1.5rem;
 }
 
+.navbar-toggler .button {
+  color: white;
+}
+
 .widthMaxContent {
   width: max-content;
 }
@@ -101,12 +114,19 @@ textarea {
   border-radius        : 5.0rem;
 }
 
+.ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: #F8FAFF !important;
+  border          : none;
+  margin-bottom   : 1px !important;
+}
+
 .Round25,
 .RoundFeild .ant-select-show-search,
 .RoundFeild .ant-select-selector {
   -webkit-border-radius: 2.5rem !important;
   -moz-border-radius   : 2.5rem !important;
   border-radius        : 2.5rem !important;
+  background-color     : #F8FAFF !important;
 }
 
 .TopRoundEdge {
@@ -231,7 +251,7 @@ footer {
 }
 
 .FS_14 {
-  font-size: 1.4rem;
+  font-size: 1.4rem !important;
 }
 
 .FS_15 {
@@ -261,6 +281,9 @@ footer {
 .FS_21 {
   font-size: 2.1rem;
 }
+.FS_22 {
+  font-size: 2.2rem;
+}
 
 .FS_24 {
   font-size: 2.4rem;
@@ -281,6 +304,7 @@ footer {
 .FS_45 {
   font-size: 4.5rem;
 }
+
 .FS_55 {
   font-size: 5.5rem;
 }
@@ -398,7 +422,8 @@ h6 {
 }
 
 .react-tel-input .flag-dropdown {
-  border: 0rem !important;
+  border          : 0rem !important;
+  background-color: #F8FAFF !important;
 }
 
 .react-tel-input .form-control {
@@ -411,13 +436,13 @@ h6 {
   background-color: #F8FAFF !important;
 }
 
-.linksDiv{
+.linksDiv {
   flex-wrap: wrap;
 }
 
-.links{
+.links {
   margin: .5rem;
-  width: 4.0rem;
+  width : 4.0rem;
   height: 4.0rem;
 }
 
@@ -425,7 +450,7 @@ h6 {
   background-color: #F8FAFF !important;
   min-height      : 4.0rem;
   font-size       : 1.5rem !important;
-  color           : black !important;
+  color           : #464646 !important;
   border          : 0rem !important;
 }
 
@@ -602,9 +627,10 @@ select {
   background: #fff;
 }
 
-.bordr {
-  border: .1rem solid #e0eeff;
+.bordr_ {
+  border: .2rem solid #E0EEFF;
   height: max-content;
+  padding: .2rem;
 }
 
 .divShadow {
@@ -777,6 +803,7 @@ select {
   vertical-align: middle;
   color         : white;
 }
+
 .CenteredDivY {
   display       : table-cell;
   vertical-align: middle;
@@ -834,9 +861,9 @@ textarea {
 /* SeconNavbar */
 
 .SeconNavbar {
-  border-bottom   : .1rem solid rgb(196, 196, 196);
-  border-top      : .1rem solid rgb(196, 196, 196);
-  background-color: #7aacb3;
+  border-bottom   : .05rem solid rgb(196, 196, 196);
+  border-top      : .05rem solid rgb(196, 196, 196);
+  background-color: #3679BC;
 }
 
 .css-tlfecz-indicatorContainer {
@@ -848,7 +875,11 @@ textarea {
 }
 
 .css-319lph-ValueContainer {
-  background-color: #7aacb3;
+  background-color: transparent !important;
+}
+
+.css-14el2xx-placeholder {
+  color: white !important;
 }
 
 .css-2613qy-menu {
@@ -857,12 +888,12 @@ textarea {
 }
 
 .SeconNavbar .white {
-  font-size: 75%;
+  font-size: 1.5rem !important;
 }
 
 .SeconNavbar .white.active,
 .nav-link.custom_color.active {
-  background-color: rgba(18, 63, 108, 0.7);
+  background-color: #123F6C;
   color           : white !important;
   font-weight     : 500;
   transform       : scale(1.04);
@@ -980,6 +1011,15 @@ textarea {
   z-index: 99;
 }
 
+.css-1s2u09g-control {
+  background-color: transparent !important;
+  border          : none !important;
+}
+
+.bg-Searchbar {
+  background-color: #E0EEFF;
+}
+
 /*My Backpack*/
 
 .card {
@@ -1005,7 +1045,7 @@ textarea {
 }
 
 .btm_bordr {
-  border-bottom: .1rem solid #e0eeff;
+  border-bottom: .2rem solid #E0EEFF;
 }
 
 .btm_shadow {
@@ -1026,7 +1066,7 @@ sup {
 
 .feild input {
   border          : 0rem;
-  background-color: #f8faff;
+  background-color: #f8faff !important;
   color           : rgb(127, 130, 137);
   border-radius   : 2.5rem;
   font-weight     : 300;
@@ -1035,30 +1075,40 @@ sup {
 
 option {
   font-size       : 1.2rem;
-  background-color: rgb(127, 130, 137);
-  color           : white;
+  background-color: #F8F4FF;
 }
 
 #locationField {
   background-image   : url(../src/Assets/img/location_icon.png);
   background-position: 97%;
+  height             : 4.1rem;
+  font-size          : 1.4rem !important;
+  border             : none !important;
   background-repeat  : no-repeat;
 }
 
 #SearchField {
   background-image   : url(../src/Assets/img/search.png);
-  background-position: 99.5%;
+  background-position: 99%;
+  height             : 4.1rem;
+  font-size          : 1.4rem !important;
+  border             : none !important;
   background-repeat  : no-repeat;
+}
+
+.searchBtn {
+  height   : 4.1rem;
+  font-size: 1.4rem !important;
 }
 
 input[type='radio'] {
   -webkit-appearance: none;
-  width             : 2.0rem;
-  height            : 2.0rem;
-  border            : .1rem solid rgb(122, 172, 179);
+  width             : 1rem;
+  height            : 1rem;
+  border            : .1rem solid #3679BC;
   border-radius     : 50%;
   outline           : none;
-  box-shadow        : 0 0 .5rem 0rem gray inset;
+  box-shadow        : 0 0 .5rem 0rem white inset;
 }
 
 input[type='radio']:hover {
@@ -1075,7 +1125,7 @@ input[type='radio']:before {
 }
 
 input[type='radio']:checked:before {
-  background: rgb(122, 172, 179);
+  background: #3679BC;
 }
 
 .wSpace {
@@ -1416,7 +1466,7 @@ textarea {
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-  background   : rgb(122, 172, 179);
+  background   : #3679BC;
   border-radius: 1.0rem;
 }
 

@@ -209,18 +209,18 @@ class SignUp extends React.Component {
 
   render() {
     return this.state.update ? (
-      <div className="container-fluid SignUp BackgroundImg">
-        <div className="row py-5 my-5">
-          <div className="MaxWidth py-5">
-            <div className="col-12 col-md-9 px-0 mx-auto divShadow">
+      <div className="container-fluid SignUp my-5 BackgroundImg">
+        <div className="row py-5">
+          <div className="MaxWidth pb-5">
+            <div className="col-12 col-md-10 px-0 mx-auto divShadow">
               <div className="row">
                 <div className="col-12 col-sm-6 col-md-12 col-lg-6 bgBlue">
                   <div className="h-100 d-flex">
-                    <div className="my-auto d-block">
+                    <div className="my-auto mx-auto d-block">
                       <div className="p-3">
                         <img
                           src={BecomeMember}
-                          className="mx-auto d-block w-50"
+                          className="mx-auto d-block w-25"
                           alt="Become a member"
                         />
                         <p className="text-center text-white FS_20 Bold my-3">
@@ -234,7 +234,7 @@ class SignUp extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="col-12 col-sm-6 col-md-12 col-lg-6">
+                <div className="col-12 col-sm-6 col-md-12 col-lg-6 bg-white">
                   <form className=" my-5" onSubmit={this.handleSubmit}>
                     <h3
                       className="p-4 text-center"
@@ -367,7 +367,7 @@ class SignUp extends React.Component {
                     <div className="form-group">
                       <button
                         type="submit"
-                        className="btn w-100 mx-auto button filled_btn"
+                        className="btn w-100 mx-auto py-3 button filled_btn"
                       >
                         Sign Up
                       </button>

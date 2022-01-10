@@ -10,14 +10,14 @@ const EmailForm = () => {
     return (
         <>
             <p className="FS_30 Bolder greyBlack">Send Email</p>
-            <p className="text-nowrap FS_18" subHeading>You can also contact us at:</p>
-            <div className="d-inline-flex my-3">
-                <div>
-                    <img src={Email} alt="" className="mr-3 my-3" />
+            <p className="text-nowrap mb-0 FS_18" subHeading>You can also contact us at:</p>
+            <div className="d-inline-flex">
+                <div className=" d-flex">
+                    <img src={Email} alt="" className="mr-3 my-auto" />
                 </div>
                 <div>
-                    <p className="FS_17 Bold greyBlack">Email</p>
-                    <p className="FS_19 greyBlack">info@reilitics.com</p>
+                    <p className="FS_17 mb-0 Bold greyBlack">Email</p>
+                    <p className="FS_19 mb-0 greyBlack">info@reilitics.com</p>
                 </div>
             </div>
             <p className=' FS_20 Boldest greyBlack'>Get in contact on social media</p>

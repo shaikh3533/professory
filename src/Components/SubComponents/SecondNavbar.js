@@ -38,166 +38,169 @@ const SecondNavbar = () => {
   return (
     <>
       {console.log("conteries", counteries)}
-      <div className="SeconNavbar">
+      <div className="SeconNavbar container-fluid">
         <div className="MaxWidth">
-          <Navbar className="row p-0">
-            <div className="row col-11 mx-auto">
-              <div className="col-10 my-auto">
-                <Nav className="=" navbar-nav></Nav>
-                <Nav className="navbar-nav mx-auto">
-                  <Select
-                    className=" px-4"
-                    value={counteries.countryID}
-                    options={counteries}
-                    isSearchable={false}
-                    defaultValue={
-                      JSON.parse(localStorage.getItem("User")).countryID
-                    }
-                    onChange={handleChange}
-                    formatOptionLabel={(country) => (
-                      <div className="country-option">
-                        <img src={country.flag} alt="country-image" />
-                      </div>
-                    )}
-                  />
-                  <NavLink
-                    className="nav-link white px-1 px-lg-3"
-                    to="/BookStore"
-                  >
-                    BookStore
-                  </NavLink>
-                  <NavLink
-                    className="nav-link white px-1 px-lg-3"
-                    to="/ServiceProvider"
-                  >
-                    ServiceProvider
-                  </NavLink>
-                  <NavLink
-                    className="nav-link white px-1 px-lg-3"
-                    to="/ProfessorRating"
-                  >
-                    Professor Rating
-                  </NavLink>
-                  <NavLink
-                    className="nav-link white px-1 px-lg-3"
-                    to="/SubjectRating"
-                  >
-                    Subject Rating
-                  </NavLink>
-                  <NavLink
-                    className="nav-link white px-1 px-lg-3"
-                    to="/Classroom"
-                  >
-                    Classroom
-                  </NavLink>
-                  <NavLink
-                    className="nav-link white px-1 px-lg-3"
-                    to="/MyBackpack"
-                  >
-                    MyBackpack
-                  </NavLink>
-                </Nav>
-              </div>
-              <div className="col-2 ml-auto p-0 my-auto">
-                <div className="d-inline-flex float-left">
-                  <div className="px-1">
-                    <div
-                      className="navbar-notifications"
-                      tabIndex={0}
-                      onFocus={expand}
-                      onBlur={close}
+          <Navbar className="row">
+            <div className="col-11 mx-auto">
+              <div className="row container px-5">
+                <div className="my-auto mr-auto">
+                  <Nav className="=" navbar-nav></Nav>
+                  <Nav className="navbar-nav mx-auto">
+                    <Select
+                      className="px-4"
+                      value={counteries.countryID}
+                      options={counteries}
+                      className=""
+                      isSearchable={false}
+                      defaultValue={
+                        JSON.parse(localStorage.getItem("User")).countryID
+                      }
+                      onChange={handleChange}
+                      formatOptionLabel={(country) => (
+                        <div className="country-option">
+                          <img src={country.flag} alt="country-image" />
+                        </div>
+                      )}
+                    />
+                    <NavLink
+                      className="nav-link white px-1 px-lg-3"
+                      to="/BookStore"
                     >
-                      <img
-                        className="ml-auto"
-                        src={notification}
-                        alt="Profile"
-                      />
-                    </div>
-                    {notificationOPen ? (
-                      <div className="secondnavbar-notifications_dd">
-                        <ul className="secondnavbar-notifications_ul">
-                          <li className="successs starbucks">
-                            <div className="secondnavbar-notify_icon">
-                              <span className="secondnavbar-notification-profile-icon"></span>
-                            </div>
-                            <div className="secondnavbar-notify_data">
-                              <div className="secondnavbar-notification_title">
-                                Lorem ipsum dolor sit
-                              </div>
-                              <div className="secondnavbar-notifications_subtitle">
-                                Lorem ipsum dolor sit amet,consecteture.
-                              </div>
-                            </div>
-                            <div className="secondnavbar-notify_status"></div>
-                          </li>
-                          <li className="successs professory-second-notification">
-                            <div className="secondnavbar-notify_icon">
-                              <span className="secondnavbar-notification-profile-icon"></span>
-                            </div>
-                            <div className="secondnavbar-notify_data">
-                              <div className="secondnavbar-notification_title">
-                                Lorem ipsum dolor sit
-                              </div>
-                              <div className="secondnavbar-notifications_subtitle">
-                                Lorem ipsum dolor sit amet,consecteture.
-                              </div>
-                            </div>
-                            <div className="secondnavbar-notify_status"></div>
-                          </li>
-                          <li className="successs professory-third-notification">
-                            <div className="secondnavbar-notify_icon">
-                              <span className="secondnavbar-notification-profile-icon"></span>
-                            </div>
-                            <div className="secondnavbar-notify_data">
-                              <div className="secondnavbar-notification_title">
-                                Lorem ipsum dolor sit
-                              </div>
-                              <div className="secondnavbar-notifications_subtitle">
-                                Lorem ipsum dolor sit amet,consecteture.
-                              </div>
-                            </div>
-                            <div className="secondnavbar-notify_status"></div>
-                          </li>
-
-                          <li className="secondnavbar-notification-showall">
-                            <p className="link">Show All Activities</p>
-                          </li>
-                        </ul>
-                      </div>
-                    ) : null}
-                  </div>
-                  <div className="px-1">
-                    <div
-                      className="secondnavbar-messages"
-                      tabIndex={0}
-                      onFocus={messageboxxOpen}
-                      onBlur={messageboxxClose}
+                      BookStore
+                    </NavLink>
+                    <NavLink
+                      className="nav-link white px-1 px-lg-3"
+                      to="/ServiceProvider"
                     >
-                      <img className="ml-auto" src={msg} alt="msg" />
-                    </div>
-
-                    {messageboxOpen ? (
-                      <div className="secondnavbar-messagebox_dd">
-                        <ul className="secondnavbar-messagebox_ul">
-                          <li>
-                            <div className="secondnavbar-messagebox-data">
-                              Hello,Welcome to professory
-                            </div>
-                          </li>
-                          <li className="secondnavbar-messagebox-showall">
-                            <p className="link">Show All Activities</p>
-                          </li>
-                        </ul>
+                      ServiceProvider
+                    </NavLink>
+                    <NavLink
+                      className="nav-link white px-1 px-lg-3"
+                      to="/ProfessorRating"
+                    >
+                      Professor Rating
+                    </NavLink>
+                    <NavLink
+                      className="nav-link white px-1 px-lg-3"
+                      to="/SubjectRating"
+                    >
+                      Subject Rating
+                    </NavLink>
+                    <NavLink
+                      className="nav-link white px-1 px-lg-3"
+                      to="/Classroom"
+                    >
+                      Classroom
+                    </NavLink>
+                    <NavLink
+                      className="nav-link white px-1 px-lg-3"
+                      to="/MyBackpack"
+                    >
+                      MyBackpack
+                    </NavLink>
+                  </Nav>
+                </div>
+                <div className="ml-auto ml-md-0 my-auto">
+                  <div className="d-inline-flex float-left">
+                    <div className="px-1">
+                      <div
+                        className="navbar-notifications"
+                        tabIndex={0}
+                        onFocus={expand}
+                        onBlur={close}
+                      >
+                        <img
+                          className="ml-auto"
+                          src={notification}
+                          alt="Profile"
+                        />
                       </div>
-                    ) : null}
-                  </div>
-                  <div className="px-1">
-                    <div className="secondnavbar-profile">
-                      <img
-                        className="ml-auto"
-                        src={profile}
-                        alt="notification"
-                      />
+                      {notificationOPen ? (
+                        <div className="secondnavbar-notifications_dd">
+                          <ul className="secondnavbar-notifications_ul">
+                            <li className="successs starbucks">
+                              <div className="secondnavbar-notify_icon">
+                                <span className="secondnavbar-notification-profile-icon"></span>
+                              </div>
+                              <div className="secondnavbar-notify_data">
+                                <div className="secondnavbar-notification_title">
+                                  Lorem ipsum dolor sit
+                                </div>
+                                <div className="secondnavbar-notifications_subtitle">
+                                  Lorem ipsum dolor sit amet,consecteture.
+                                </div>
+                              </div>
+                              <div className="secondnavbar-notify_status"></div>
+                            </li>
+                            <li className="successs professory-second-notification">
+                              <div className="secondnavbar-notify_icon">
+                                <span className="secondnavbar-notification-profile-icon"></span>
+                              </div>
+                              <div className="secondnavbar-notify_data">
+                                <div className="secondnavbar-notification_title">
+                                  Lorem ipsum dolor sit
+                                </div>
+                                <div className="secondnavbar-notifications_subtitle">
+                                  Lorem ipsum dolor sit amet,consecteture.
+                                </div>
+                              </div>
+                              <div className="secondnavbar-notify_status"></div>
+                            </li>
+                            <li className="successs professory-third-notification">
+                              <div className="secondnavbar-notify_icon">
+                                <span className="secondnavbar-notification-profile-icon"></span>
+                              </div>
+                              <div className="secondnavbar-notify_data">
+                                <div className="secondnavbar-notification_title">
+                                  Lorem ipsum dolor sit
+                                </div>
+                                <div className="secondnavbar-notifications_subtitle">
+                                  Lorem ipsum dolor sit amet,consecteture.
+                                </div>
+                              </div>
+                              <div className="secondnavbar-notify_status"></div>
+                            </li>
+
+                            <li className="secondnavbar-notification-showall">
+                              <p className="link">Show All Activities</p>
+                            </li>
+                          </ul>
+                        </div>
+                      ) : null}
+                    </div>
+                    <div className="px-1">
+                      <div
+                        className="secondnavbar-messages"
+                        tabIndex={0}
+                        onFocus={messageboxxOpen}
+                        onBlur={messageboxxClose}
+                      >
+                        <img className="ml-auto" src={msg} alt="msg" />
+                      </div>
+
+                      {messageboxOpen ? (
+                        <div className="secondnavbar-messagebox_dd">
+                          <ul className="secondnavbar-messagebox_ul">
+                            <li>
+                              <div className="secondnavbar-messagebox-data">
+                                Hello,Welcome to professory
+                              </div>
+                            </li>
+                            <li className="secondnavbar-messagebox-showall">
+                              <p className="link">Show All Activities</p>
+                            </li>
+                          </ul>
+                        </div>
+                      ) : null}
+                    </div>
+                    <div className="px-1">
+                      <div className="secondnavbar-profile">
+                        <img
+                          className="ml-auto"
+                          src={profile}
+                          alt="notification"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
